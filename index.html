@@ -15,24 +15,26 @@
       color: #333;
     }
 
-    /* Üst Bar (Navbar) */
-    .navbar {
-      background-color: #fff;
-      padding: 10px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    .navbar a {
+    /* Home Butonu Stili */
+    .home-button {
+      display: block;               /* Butonu blok seviyesine çek */
+      width: 200px;                /* Genişlik */
+      margin: 40px auto 0 auto;    /* Üstten 40px boşluk ve yatayda ortalama */
+      padding: 15px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #fff;
+      background-color: #0073e6;
+      border-radius: 8px;
       text-decoration: none;
-      color: #0073e6;
       font-weight: bold;
-      margin-left: 15px;
-      transition: color 0.2s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
-    .navbar a:hover {
-      color: #005bb5;
+
+    .home-button:hover {
+      background-color: #005bb5;    /* Hover rengini koyulaştır */
+      transform: scale(1.05);       /* Hover efekt: biraz büyüt */
     }
 
     /* Konteyner Stili */
@@ -82,55 +84,40 @@
       font-size: 0.9rem;
       color: #666;
     }
-
     .contact a {
       color: #0073e6;
       text-decoration: none;
     }
-
     .contact a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- Üst Bar (Navbar) -->
-  <div class="navbar">
-    <!-- Home butonu home.html'e yönlendirsin -->
-    <a href="home.html">Home</a>
-  </div>
+
+  <!-- Home Butonu -->
+  <a class="home-button" href="home.html">Home</a>
 
   <div class="container">
     <h1>Privacy Policy</h1>
     <p>
       Welcome to our Privacy Policy page. Your privacy is our top priority.
-      This extension is designed to operate entirely within your browser, ensuring
-      that no data is collected or transmitted externally.
+      This extension is designed to operate entirely within your browser,
+      ensuring that no data is collected or transmitted externally.
     </p>
     <ul>
-      <li>
-        <strong>No Data Collection:</strong> This extension does not collect, process,
-        or store any personal data.
-      </li>
-      <li>
-        <strong>Local Processing:</strong> All actions are performed locally within
-        your browser, ensuring maximum security.
-      </li>
-      <li>
-        <strong>No External Servers:</strong> No information is shared with third
-        parties or external servers.
-      </li>
+      <li><strong>No Data Collection:</strong> This extension does not collect, process, or store any personal data.</li>
+      <li><strong>Local Processing:</strong> All actions are performed locally within your browser, ensuring maximum security.</li>
+      <li><strong>No External Servers:</strong> No information is shared with third parties or external servers.</li>
     </ul>
     <p>
-      If you have any questions or concerns about this privacy policy, please feel free
-      to contact us via email.
+      If you have any questions or concerns about this privacy policy, please feel
+      free to contact us via email.
     </p>
     <div class="contact">
-      <p>
-        Contact us at:
-        <a href="mailto:kmlkr46@gmail.com">kmlkr46@gmail.com</a>
-      </p>
+      <p>Contact us at: <a href="mailto:kmlkr46@gmail.com">kmlkr46@gmail.com</a></p>
     </div>
   </div>
+
 </body>
 </html>
