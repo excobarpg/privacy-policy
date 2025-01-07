@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EXPRESS | HOME</title>
+
+  <!-- Bootstrap 5 (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpe4Zb0dTxJb1CEXyYbn5ozCt1Zz6v3hgNHGf9pXHMDfN81Pz"
+    crossorigin="anonymous"
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Genel Metin Ayarları */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* NAVBAR sabit üstte */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    /* HERO BÖLÜMÜ */
+    .hero-section {
+      min-height: 100vh;
+      background: url("images/hero.jpg") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 20px;
+    }
+    .hero-content h1.hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      margin-bottom: 1rem;
+    }
+    .hero-content p.hero-text {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .hero-content .highlight {
+      font-weight: 600;
+      color: #ffd700; /* Altın tonlarında vurgulama */
+    }
+
+    /* Uygulama (Features) BÖLÜMÜ */
+    .features-section {
+      padding: 60px 0;
+    }
+    .features-section h3.fw-bold {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .features-section p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Buton Tasarımı */
+    .btn-buy {
+      background-color: #031995; /* Turuncu ton */
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-buy:hover {
+      background-color: #0fb4f0ae; /* Bir ton koyu */
+      color: #fff;
+    }
+    .btn-try {
+      background-color: #d607ed; /* Gri ton */
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-try:hover {
+      background-color: #59ec23; /* Bir ton koyu */
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #bbb;
+      padding: 20px 0;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #bbb;
+      font-size: 1.2rem;
+    }
+    .social-icons a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR (bg-dark => koyu arka plan, navbar-dark => açık metin rengi) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">EXPRESS SOFTWARE</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item">
+            <!-- Gizlilik Politikasına giden link -->
+            <a class="nav-link" href="privacy.html">PRIVACY POLICY</a>
+          </li>
+          <!-- İsterseniz ek menü maddeleri -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO BÖLÜMÜ -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to Express Software</h1>
+      <p class="hero-text">
+        <span class="highlight">Streamline your communication process</span> by sending thousands of WhatsApp messages in just a few clicks.<br/>
+        Whether for business campaigns, customer updates, or personal outreach, 
+        <span class="highlight">our extension automates the process</span>, saving you valuable time and effort.
+      </p>
+      <div class="mt-4">
+        <!-- BUY NOW ve TRY NOW butonları -->
+        <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid" class="btn btn-buy me-3" target="_blank" rel="noopener noreferrer">BUY NOW</a>
+        <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam?hl" class="btn btn-try" target="_blank" rel="noopener noreferrer">TRY NOW</a>
+
+      </div>
+      </p>
+      </p>
+    </div>
+  </section>
+
+  <!-- UYGULAMA (FEATURES) BÖLÜMÜ -->
+  <section class="features-section">
+    <div class="container">
+      <!-- 1. Feature -->
+      <div class="row mb-5">
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+          <!-- Feature Görseli -->
+          <img 
+            src="images/feature1.jpg"
+            class="img-fluid rounded shadow"
+            alt="Uygulama 1"
+          />
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+          <h3 class="fw-bold"> Excel Integration for Precision</h3>
+          <p class="mt-3">
+            Easily upload your contact lists through Excel files and ensure accurate message delivery every time. 
+            Personalize your messages with placeholders like NAME, making every interaction feel unique and 
+            tailored to your audience.
+          </p>
+          <!-- Butonlar -->
+          <div class="mt-4">
+            <!-- BUY NOW ve TRY NOW butonları -->
+            <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid" class="btn btn-buy me-3" target="_blank" rel="noopener noreferrer">BUY NOW</a>
+            <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam?hl" class="btn btn-try" target="_blank" rel="noopener noreferrer">TRY NOW</a>
+
+          </div>
+        </p>
+        </p>
+        </div>
+      </div>
+      
+
+      <!-- 2. Feature -->
+      <div class="row mb-5">
+        <div class="col-lg-6 order-lg-2 d-flex align-items-center justify-content-center">
+          <!-- Feature Görseli -->
+          <img 
+            src="images/feature2.jpg"
+            class="img-fluid rounded shadow"
+            alt="Uygulama 2"
+          />
+        </div>
+        <div class="col-lg-6 order-lg-1 mt-4 mt-lg-0 text-center text-lg-start">
+          <h3 class="fw-bold"> Time-Saving Automation Tools</h3>
+          <p class="mt-3">
+            Take full control of your messaging campaigns with scheduling, pause/resume functionality, 
+            and interval settings. Focus on what matters most while the extension handles your communication 
+            needs seamlessly and efficiently.
+          </p>
+          <!-- Butonlar -->
+          <div class="mt-4">
+            <!-- BUY NOW ve TRY NOW butonları -->
+            <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid" class="btn btn-buy me-3" target="_blank" rel="noopener noreferrer">BUY NOW</a>
+            <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam?hl" class="btn btn-try" target="_blank" rel="noopener noreferrer">TRY NOW</a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Feature (İsterseniz) -->
+      <!--
+      <div class="row mb-5">
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+          <img 
+            src="images/feature3.jpg"
+            class="img-fluid rounded shadow"
+            alt="Uygulama 3"
+          />
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+          <h3 class="fw-bold">Uygulama 3</h3>
+          <p class="mt-3">
+            Müşterilerinizle etkileşiminizi artırın: pazarlama otomasyonu, 
+            müşteri ilişkileri yönetimi ve daha fazlası bu uygulamada.
+          </p>
+          <div class="mt-4">
+            <a href="https://ornek-site.com/buy" class="btn btn-buy me-3">BUY NOW</a>
+            <a href="https://ornek-site.com/try" class="btn btn-try">TRY NOW</a>
+          </div>
+        </div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-2">© 2025 EXPRESS Yazılım</p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-5B6m81F0q5SOI1pSh/4WY6ANZ2J5fN0KWp/vTFMt+CsIiW2Zy06YUIxFQ/JSQZfQ"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
