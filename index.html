@@ -13,6 +13,7 @@
   <title>WhatsApp Bulk Message Sender - Automate Your Messaging | Express Software</title>
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
+
   <!-- Bootstrap 5 (CDN) -->
   <link
     rel="stylesheet"
@@ -20,7 +21,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpe4Zb0dTxJb1CEXyYbn5ozCt1Zz6v3hgNHGf9pXHMDfN81Pz"
     crossorigin="anonymous"
   />
-  
+
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
@@ -198,6 +199,35 @@
         min-height: 40vh;
       }
     }
+
+    /* WhatsApp Butonu Stil */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;         /* Ekranın altından uzaklık */
+      right: 20px;          /* Ekranın sağından uzaklık */
+      z-index: 9999;        /* Üstte görünmesi için yüksek z-index */
+      background-color: #25d366; /* WhatsApp'ın yeşil rengi */
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.05);
+    }
+    .whatsapp-button img {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    /* Basit bir nefes alma (pulse) animasyonu */
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 
@@ -221,11 +251,11 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav text-center">
-          <!-- WhatsApp Privacy linki (eski privacy.html dosyanız) -->
+          <!-- WhatsApp Privacy linki -->
           <li class="nav-item">
             <a class="nav-link" href="privacy.html">WHATSAPP PRIVACY</a>
           </li>
-          <!-- Mail Express Privacy linki (yeni oluşturduğunuz sayfa) -->
+          <!-- Mail Express Privacy linki -->
           <li class="nav-item">
             <a class="nav-link" href="mail_express_privacy.html">MAIL EXPRESS PRIVACY</a>
           </li>
@@ -363,6 +393,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Butonu -->
+  <a
+    href="https://api.whatsapp.com/send/?phone=905324239921&text&type=phone_number&app_absent=0"
+    class="whatsapp-button"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="images/whatsapp.png" alt="WhatsApp" />
+  </a>
 
   <!-- Bootstrap 5 JS -->
   <script
