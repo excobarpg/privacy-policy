@@ -26,7 +26,7 @@
     }
     body {
       font-family: 'Poppins', sans-serif;
-      /* Arka planı gradyenle tasarlayalım */
+      /* Arka plan: gradyen animasyonu */
       background: linear-gradient(135deg, #9155fd, #6a11cb, #2575fc, #00c6ff);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
@@ -136,6 +136,25 @@
     }
     .social-icons a:hover {
       color: #fff;
+    }
+
+    /* Gizlilik Politikası Butonları */
+    .privacy-buttons {
+      margin-top: 15px;
+    }
+    .privacy-buttons a {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #333;
+      color: #fff;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .privacy-buttons a:hover {
+      background: #555;
     }
 
     /* WhatsApp Butonu */
@@ -251,6 +270,12 @@
       <a href="https://instagram.com" target="_blank">Instagram</a>
       <a href="https://youtube.com" target="_blank">YouTube</a>
       <a href="https://tiktok.com" target="_blank">TikTok</a>
+    </div>
+
+    <!-- Gizlilik Politikası Butonları -->
+    <div class="privacy-buttons">
+      <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
+      <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
     </div>
   </footer>
 
