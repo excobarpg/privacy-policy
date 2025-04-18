@@ -1,373 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="rSxGwhTtzfuvLMvBZ7Inot_pUqS64Tw0wJ23KvbZDpM" />
-  <meta name="google-site-verification" content="n-B2odRXH7qfm92FfDNgkI1QauS6ffnNsqkzIoyVxw0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express Shop - Bulk Messaging & Mail Express</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Express Yazılım ‑ Toplu Mesaj & E‑posta Otomasyonu</title>
 
-  <!-- Bootstrap 5 (CDN) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpe4Zb0dTxJb1CEXyYbn5ozCt1Zz6v3hgNHGf9pXHMDfN81Pz"
-    crossorigin="anonymous"
-  />
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    /* GENEL RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;color:#1c1d1f;background:#f2f4f8}
+    a{text-decoration:none}
+    html{scroll-behavior:smooth}
+    section{padding:80px 0;scroll-margin-top:80px}
+    .section-title{font-size:2rem;font-weight:700;margin-bottom:30px;text-align:center}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      /* Arka plan: gradyen animasyonu */
-      background: linear-gradient(135deg, #9155fd, #6a11cb, #2575fc, #00c6ff);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      min-height: 100vh;
-    }
-    @keyframes gradientBG {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    /* Hero */
+    .hero{background:linear-gradient(135deg,#5b21d3,#2563eb);color:#fff;padding:120px 20px;text-align:center}
+    .hero h1{font-size:3rem;font-weight:700;margin-bottom:20px}
+    .hero p{font-size:1.125rem;max-width:640px;margin:0 auto 35px;opacity:.9}
+    .btn-cta{padding:14px 34px;font-weight:600;border-radius:50px}
 
-    /* NAVBAR */
-    .navbar {
-      background-color: rgba(0, 0, 0, 0.7);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
+    /* Navbar */
+    .navbar{background:transparent}
+    .navbar-brand{font-weight:700;color:#fff}
+    .nav-link{color:#e5e7eb!important;font-weight:500;margin-left:1rem}
+    .nav-link:hover{color:#fff!important}
 
-    /* HERO BÖLÜMÜ */
-    .hero-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 100px 20px 60px;
-    }
-    .hero-section h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    }
-    .hero-section p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin-bottom: 40px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
+    /* Feature cards */
+    .feature-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:30px;
+      transition:transform .25s,box-shadow .25s;height:100%}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+    .feature-icon{font-size:2rem;color:#4f46e5;background:#eef2ff;width:56px;height:56px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;margin-bottom:20px}
 
-    /* ÜRÜNLER BÖLÜMÜ */
-    .products-section {
-      padding: 60px 20px;
-    }
-    .product-card {
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover {
-      transform: scale(1.02);
-    }
-    .product-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .product-desc {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
+    /* Product */
+    .product-img{width:100%;height:auto;border-radius:12px;object-fit:cover}
+    .product-list{list-style:disc inside;margin-top:1rem}
 
-    /* BUTON STİLLERİ */
-    .btn-buy {
-      display: inline-block;
-      background-color: #031995; /* Mavi ton */
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 20px;
-      margin-right: 10px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .btn-buy:hover {
-      background-color: #0fb4f0ae;
-    }
+    /* Video button */
+    .btn-video{display:inline-flex;align-items:center;gap:8px;background:#ff0000;color:#fff;font-weight:600;
+      border:none;padding:12px 26px;border-radius:50px;box-shadow:0 4px 0 #b30000;transition:.15s}
+    .btn-video i{font-size:1.25rem}
+    .btn-video:hover{transform:translateY(-2px)}
+    .btn-video:active{transform:translateY(0);box-shadow:0 2px 0 #b30000}
 
-    .btn-try {
-      display: inline-block;
-      background-color: #d607ed; /* Mor ton */
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 20px;
-      margin-right: 10px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .btn-try:hover {
-      background-color: #59ec23;
-    }
+    /* Pricing */
+    .pricing-card{background:#fff;border:2px solid #e5e7eb;border-radius:12px;transition:.25s;height:100%;
+      display:flex;flex-direction:column}
+    .pricing-card:hover{transform:translateY(-6px)}
+    .pricing-card.featured{border-color:#10b981}
+    .price{font-size:2.25rem;font-weight:700;color:#10b981}
 
-    .btn-cart {
-      display: inline-block;
-      background: #ff7b00;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .btn-cart:hover {
-      background: #ffaa33;
-      color: #fff;
-    }
+    /* Testimonials */
+    .testimonial{background:#fff;border-radius:12px;padding:24px;border:1px solid #e5e7eb;height:100%}
+    .testimonial p{font-style:italic}
 
-    /* FOOTER */
-    footer {
-      background-color: rgba(0,0,0,0.6);
-      color: #eee;
-      text-align: center;
-      padding: 20px 0;
-    }
-    footer p {
-      margin-bottom: 10px;
-      font-size: 0.9rem;
-    }
-    .social-icons a {
-      margin: 0 8px;
-      text-decoration: none;
-      color: #ccc;
-      font-size: 1.2rem;
-    }
-    .social-icons a:hover {
-      color: #fff;
-    }
+    /* Footer */
+    footer{background:#111827;color:#9ca3af;padding:40px 0;text-align:center}
+    .privacy-buttons a{display:inline-block;margin:4px 6px;padding:6px 16px;border-radius:20px;
+      background:#334155;font-size:.875rem;color:#f1f5f9}
+    .privacy-buttons a:hover{background:#475569}
 
-    /* Gizlilik Politikası Butonları */
-    .privacy-buttons {
-      margin-top: 15px;
-    }
-    .privacy-buttons a {
-      display: inline-block;
-      margin: 0 5px;
-      padding: 8px 15px;
-      border-radius: 20px;
-      background: #333;
-      color: #fff;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .privacy-buttons a:hover {
-      background: #555;
-    }
-
-    /* WhatsApp Butonu */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-      text-decoration: none;
-      animation: pulse 2s infinite;
-      transition: transform 0.2s ease;
-    }
-    .whatsapp-button:hover {
-      transform: scale(1.05);
-    }
-    .whatsapp-button img {
-      width: 50px;
-      height: 50px;
-      display: block;
-    }
-    @keyframes pulse {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2rem;
-      }
-      .hero-section p {
-        font-size: 1rem;
-      }
-    }
+    /* Floating support */
+    .support-btn{position:fixed;bottom:24px;right:24px;width:64px;height:64px;border-radius:50%;
+      background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;
+      box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:1000;transition:transform .2s}
+    .support-btn:hover{transform:scale(1.08)}
   </style>
 </head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
 
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">EXPRESS SHOP</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <a class="navbar-brand" href="#">EXPRESS YAZILIM</a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a 
-              class="nav-link" 
-              href="https://heylink.me/Expressyazilim" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Contact
-            </a>
-          </li>
-          <!-- Diğer menü öğeleri -->
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#features">Özellikler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Fiyatlar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Görüşler</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- HERO BÖLÜMÜ -->
-  <section class="hero-section">
-    <h1>Welcome to Express Shop</h1>
-    <p>
-      Discover our powerful solutions that streamline your workflow, automate your messaging,
-      and save you valuable time. From bulk WhatsApp campaigns to advanced email sending,
-      we bring ease and efficiency to your daily tasks.
-    </p>
-  </section>
-
-  <!-- ÜRÜNLER BÖLÜMÜ -->
-  <section class="products-section">
+  <!-- Hero -->
+  <header class="hero" id="hero">
     <div class="container">
+      <h1>İletişimin En Kolay Haliyle Tanışın</h1>
+      <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
+      <a href="#pricing" class="btn btn-light btn-cta">Fiyatları Gör</a>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Neden Express Yazılım?</h2>
       <div class="row g-4">
-        <!-- 1. Ürün: WhatsApp Bulk Sender -->
-        <div class="col-md-6">
-          <div class="product-card">
-            <h2 class="product-title">WhatsApp Bulk Sender</h2>
-            <p class="product-desc">
-              Automate your WhatsApp marketing with thousands of personalized messages at once.
-              Perfect for businesses, marketing campaigns, or simply staying in touch with your audience.
-            </p>
-            <div class="mt-3">
-              <a 
-                href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
-                class="btn btn-buy me-3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                BUY NOW
-              </a>
-              <a 
-                href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam?hl"
-                class="btn btn-try"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                TRY NOW
-              </a>
-              
-            </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon"><i class="fa fa-bolt"></i></div>
+            <h5>Hızlı Toplu Gönderim</h5>
+            <p>Tek tıkla binlerce WhatsApp mesajı ve e‑posta gönderin.</p>
           </div>
         </div>
-        <!-- 2. Ürün: Mail Express -->
-        <div class="col-md-6">
-          <div class="product-card">
-            <h2 class="product-title">Mail Express</h2>
-            <p class="product-desc">
-              Mail Express makes your life easier by sending out bulk emails with personalized content
-              in seconds. Integrate with Excel, automate intervals, and never worry about manual email sending again!
-            </p>
-            <div class="mt-3">
-              <a href="https://www.etsy.com/uk/listing/1892654737/license-key-gmail-bulk-email-sender?ref=shop_home_active_1&logging_key=52442e9d2939ba91963e80cea2f8f58b475227df%3A1892654737" class="btn-buy" target="_blank">
-                Buy Now
-              </a>
-
-              <a href="https://chromewebstore.google.com/detail/mail-express/fgkekpliiklpbfaiafljpddehcjocoba" class="btn-try" target="_blank">Try Now</a>
-              
-            </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon"><i class="fa fa-user-check"></i></div>
+            <h5>Kişiselleştirilmiş İçerik</h5>
+            <p>İsim, şirket ve dinamik alanlarla mesajlarınızı özel hâle getirin.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card text-center">
+            <div class="feature-icon"><i class="fa fa-chart-line"></i></div>
+            <h5>Kontrol Sizde!</h5>
+            <p>Gönderim sürecini duraklatın, devam ettirin ve adım adım izleyin.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 EXPRESS Yazılım</p>
-    <div class="social-icons">
-      <a href="https://t.me/Expressyazilim" target="_blank">TELEGRAM</a>
-      <a href="https://www.youtube.com/@Exprssyazilim" target="_blank">YouTube</a>
-      <a href="https://tiktok.com/@Expressyazilim" target="_blank">TikTok</a>
-    </div>
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <h2 class="section-title">Ürün Özellikleri</h2>
 
-    <!-- Gizlilik Politikası Butonları -->
+      <!-- WhatsApp Express -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-4 text-center">
+          <img src="images/wp.png" alt="WhatsApp Express" class="product-img">
+          <button class="btn-video mt-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#videoModal"
+                  data-video="https://www.youtube.com/embed/ZeHE2UBV52c">
+            <i class="fab fa-youtube"></i> TANITIM VİDEOSU
+          </button>
+        </div>
+        <div class="col-md-8">
+          <h4>WhatsApp Express</h4>
+          <ul class="product-list">
+            <li><strong>Binlerce kişiye sırayla otomatik mesaj gönderimi</strong></li>
+            <li><strong>Excel dosyası veya kopyala‑yapıştır yöntemiyle toplu kişi içe aktarma</strong></li>
+            <li><strong>Alıcılara isimleriyle hitap eden gelişmiş kişiselleştirme</strong></li>
+            <li><strong>Gönderim istatistikleri ve detaylı rapor takibi</strong></li>
+            <li><strong>Mesajlar için otomatik zamanlama ve gönderim aralığı ayarı</strong></li>
+            <li><strong>Gönderim sürecini duraklatma ve kaldığı yerden devam ettirme</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mail Express -->
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center order-md-2">
+          <img src="images/mail.png" alt="Mail Express" class="product-img">
+          <button class="btn-video mt-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#videoModal"
+                  data-video="https://www.youtube.com/embed/iqPkjtYOWJI">
+            <i class="fab fa-youtube"></i> TANITIM VİDEOSU
+          </button>
+        </div>
+        <div class="col-md-8 order-md-1">
+          <h4>Mail Express</h4>
+          <ul class="product-list">
+            <li><strong>Excel'den içe aktarılan kişilere sıralı toplu e‑posta gönderimi</strong></li>
+            <li><strong>Alıcının adıyla hitap eden tam kişiselleştirme</strong></li>
+            <li><strong>Duraklatma ve kaldığı yerden devam ettirme</strong></li>
+            <li><strong>Belirlenen aralıklarla zamanlanmış gönderim</strong></li>
+            <li><strong>Başarılı/başarısız gönderimlerin raporlanması</strong></li>
+            <li><strong>Gmail arayüzünde doğal, otomatik çalışma</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <!-- PRICING -->
+  <section id="pricing" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Basit ve Şeffaf Fiyatlar</h2>
+
+      <div class="row g-4">
+        <!-- WhatsApp Express -->
+        <div class="col-md-6">
+          <div class="pricing-card p-4 text-center h-100">
+            <h4>WhatsApp</h4>
+            <p class="price my-3">₺500</p>
+            <p>Ömürlük Lisans</p>
+
+            <!-- Etsy link -->
+            <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-outline-primary mt-auto">
+              Satın Al
+            </a>
+          </div>
+        </div>
+
+        <!-- Mail Express -->
+        <div class="col-md-6">
+          <div class="pricing-card featured p-4 text-center h-100">
+            <h4>Mail</h4>
+            <p class="price my-3">₺650</p>
+            <p>Ömürlük Lisans</p>
+
+            <!-- Etsy link -->
+            <a href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1&logging_key=52442e9d2939ba91963e80cea2f8f58b475227df%3A1892654737"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-outline-primary mt-auto">
+              Satın Al
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Kullanıcı Yorumları</h2>
+      <div class="row g-4" id="testimonialContainer">
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="addReviewBtn" class="btn btn-outline-secondary">Görüşünüzü Paylaşın</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe id="videoFrame" src=""
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal fade" id="reviewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Görüş Bildir</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <form id="reviewForm">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label">Ad Soyad</label><input class="form-control" id="reviewName" required></div>
+              <div class="col-md-6"><label class="form-label">Unvan</label><input class="form-control" id="reviewTitle" required></div>
+              <div class="col-12"><label class="form-label">Mesaj</label><textarea class="form-control" id="reviewMessage" rows="3" required></textarea></div>
+              <div class="col-12">
+                <label class="form-label">Puan</label>
+                <div class="star-rating" id="stars">
+                  <i class="fa fa-star" data-value="1"></i>
+                  <i class="fa fa-star" data-value="2"></i>
+                  <i class="fa fa-star" data-value="3"></i>
+                  <i class="fa fa-star" data-value="4"></i>
+                  <i class="fa fa-star" data-value="5"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button><button class="btn btn-primary" id="submitReview">Gönder</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Sipariş Özeti</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <p id="modalProductName" class="fw-semibold"></p>
+          <label class="form-label">Adet</label><input type="number" id="licenseQuantity" class="form-control" value="1" min="1">
+        </div>
+        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button><button class="btn btn-success" id="confirmPurchase">Ödemeye Git</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 EXPRESS Yazılım</p>
     <div class="privacy-buttons">
-      <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
-      <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
+      <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
+      <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
     </div>
   </footer>
 
-  <!-- WhatsApp Butonu -->
-  <a
-    href="https://api.whatsapp.com/send/?phone=6281316535355&text&type=phone_number&app_absent=0"
-    class="whatsapp-button"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img src="images/whatsapp.png" alt="WhatsApp" />
-  </a>
+  <!-- Floating Support -->
+  <a href="https://wa.me/6281316535355" class="support-btn"><i class="fab fa-whatsapp"></i></a>
 
-  <!-- Bootstrap JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-5B6m81F0q5SOI1pSh/4WY6ANZ2J5fN0KWp/vTFMt+CsIiW2Zy06YUIxFQ/JSQZfQ"
-    crossorigin="anonymous"
-  ></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* ---------- SATIN AL ---------- */
+    let selectedProduct = '';
+    document.querySelectorAll('.btn-purchase').forEach(btn=>{
+      btn.addEventListener('click',e=>{
+        selectedProduct = e.target.dataset.product;
+        document.getElementById('modalProductName').textContent = selectedProduct;
+        document.getElementById('licenseQuantity').value = 1;
+        new bootstrap.Modal(document.getElementById('checkoutModal')).show();
+      });
+    });
+    document.getElementById('confirmPurchase').addEventListener('click',()=>{
+      const qty = document.getElementById('licenseQuantity').value;
+      window.location.href = `https://payment-gateway.example.com/checkout?product=${encodeURIComponent(selectedProduct)}&quantity=${qty}`;
+    });
+
+    /* ---------- VİDEO MODAL ---------- */
+    document.querySelectorAll('.btn-video').forEach(btn=>{
+      btn.addEventListener('click',e=>{
+        document.getElementById('videoFrame').src = e.currentTarget.dataset.video + '?autoplay=1&rel=0';
+      });
+    });
+    document.getElementById('videoModal').addEventListener('hidden.bs.modal',()=>{
+      document.getElementById('videoFrame').src = '';
+    });
+
+    /* ---------- YORUM MODAL ---------- */
+    let rating = 0;
+    document.getElementById('addReviewBtn').addEventListener('click',()=> new bootstrap.Modal(document.getElementById('reviewModal')).show());
+    document.querySelectorAll('#stars .fa-star').forEach(star=>{
+      star.addEventListener('click',e=>{
+        rating = e.target.dataset.value;
+        document.querySelectorAll('#stars .fa-star').forEach(s=> s.classList.toggle('text-warning',s.dataset.value<=rating));
+      });
+    });
+    document.getElementById('submitReview').addEventListener('click',()=>{
+      const name = document.getElementById('reviewName').value.trim();
+      const title = document.getElementById('reviewTitle').value.trim();
+      const message = document.getElementById('reviewMessage').value.trim();
+      if(name && title && message && rating>0){
+        const container = document.getElementById('testimonialContainer');
+        const div = document.createElement('div');
+        div.className='col-md-4';
+        div.innerHTML=`<div class="testimonial h-100"><p>“${message}”</p><div class="author fw-semibold mt-2">– ${name}, ${title}</div></div>`;
+        container.append(div);
+        bootstrap.Modal.getInstance(document.getElementById('reviewModal')).hide();
+        document.getElementById('reviewForm').reset();
+        document.querySelectorAll('#stars .fa-star').forEach(s=>s.classList.remove('text-warning'));
+        rating = 0;
+      }
+    });
+
+    /* ---------- NAVBAR MOBİL ---------- */
+    document.querySelectorAll('.nav-link').forEach(link=>{
+      link.addEventListener('click',()=>{
+        const navCollapse = document.querySelector('.navbar-collapse');
+        if(navCollapse.classList.contains('show')){
+          new bootstrap.Collapse(navCollapse).hide();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
