@@ -72,6 +72,40 @@
       background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;
       box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:1000;transition:transform .2s}
     .support-btn:hover{transform:scale(1.08)}
+
+    .btn-install {
+    display: inline-block;
+    background: linear-gradient(to bottom, #ffe600, #ffcc00);
+    color: #333;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 0 6px #b38f00;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .btn-install:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px #b38f00;
+  }
+  .btn-install:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px #b38f00;
+  }
+  .pricing-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 40px;
+    margin-left: 300px; /* sağa kaydırma */
+    max-width: 1300px;
+    line-height: 1.6;
+  }
+
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
@@ -159,6 +193,13 @@
             <li><strong>Mesajlar için otomatik zamanlama ve gönderim aralığı ayarı</strong></li>
             <li><strong>Gönderim sürecini duraklatma ve kaldığı yerden devam ettirme</strong></li>
           </ul>
+          <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam" 
+            target="_blank" 
+            class="btn-install mt-4 d-inline-block" 
+            style="margin-left: 30px;">
+            TARAYICIYA EKLE
+          </a>
+
         </div>
       </div>
 
@@ -183,6 +224,14 @@
             <li><strong>Başarılı/başarısız gönderimlerin raporlanması</strong></li>
             <li><strong>Gmail arayüzünde doğal, otomatik çalışma</strong></li>
           </ul>
+          <a href="https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba" 
+            target="_blank" 
+            class="btn-install mt-4 d-inline-block" 
+            style="margin-left: 30px;">
+            TARAYICIYA EKLE
+          </a>
+
+
         </div>
       </div>
     </div>
@@ -192,7 +241,7 @@
   <!-- PRICING -->
   <section id="pricing" class="bg-light">
     <div class="container">
-      <h2 class="section-title">Basit ve Şeffaf Fiyatlar</h2>
+      <h2 class="section-title">FİYATLAR</h2>
 
       <div class="row g-4">
         <!-- WhatsApp Express -->
@@ -230,21 +279,18 @@
         </div>
       </div>
     </div>
+    <p class="pricing-note">
+      - Lisanslarımız tek seferliktir ve ömür boyu geçerlidir. Satın aldıktan sonra herhangi bir aylık ücret ödemezsiniz. 
+      Ürünlerimiz sürekli güncellenir ve destek ekibimiz size her zaman yardımcı olmaya hazırdır.
+    </p>
+    <p class="pricing-note">
+      - Etsy üzerinden almak istemezseniz Whatsapp dan iletişime geçebilirsiniz, Toplu alımlarda indirim uygulanmaktadır.
+    </p>
+    
   </section>
 
 
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <div class="container">
-      <h2 class="section-title">Kullanıcı Yorumları</h2>
-      <div class="row g-4" id="testimonialContainer">
-        
-      </div>
-      <div class="text-center mt-4">
-        <button id="addReviewBtn" class="btn btn-outline-secondary">Görüşünüzü Paylaşın</button>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Video Modal -->
   <div class="modal fade" id="videoModal" tabindex="-1">
@@ -264,48 +310,8 @@
     </div>
   </div>
 
-  <!-- Review Modal -->
-  <div class="modal fade" id="reviewModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title">Görüş Bildir</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-        <div class="modal-body">
-          <form id="reviewForm">
-            <div class="row g-3">
-              <div class="col-md-6"><label class="form-label">Ad Soyad</label><input class="form-control" id="reviewName" required></div>
-              <div class="col-md-6"><label class="form-label">Unvan</label><input class="form-control" id="reviewTitle" required></div>
-              <div class="col-12"><label class="form-label">Mesaj</label><textarea class="form-control" id="reviewMessage" rows="3" required></textarea></div>
-              <div class="col-12">
-                <label class="form-label">Puan</label>
-                <div class="star-rating" id="stars">
-                  <i class="fa fa-star" data-value="1"></i>
-                  <i class="fa fa-star" data-value="2"></i>
-                  <i class="fa fa-star" data-value="3"></i>
-                  <i class="fa fa-star" data-value="4"></i>
-                  <i class="fa fa-star" data-value="5"></i>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button><button class="btn btn-primary" id="submitReview">Gönder</button></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Checkout Modal -->
-  <div class="modal fade" id="checkoutModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title">Sipariş Özeti</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-        <div class="modal-body">
-          <p id="modalProductName" class="fw-semibold"></p>
-          <label class="form-label">Adet</label><input type="number" id="licenseQuantity" class="form-control" value="1" min="1">
-        </div>
-        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button><button class="btn btn-success" id="confirmPurchase">Ödemeye Git</button></div>
-      </div>
-    </div>
-  </div>
+  
+  
 
   <!-- Footer -->
   <footer>
@@ -322,20 +328,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    /* ---------- SATIN AL ---------- */
-    let selectedProduct = '';
-    document.querySelectorAll('.btn-purchase').forEach(btn=>{
-      btn.addEventListener('click',e=>{
-        selectedProduct = e.target.dataset.product;
-        document.getElementById('modalProductName').textContent = selectedProduct;
-        document.getElementById('licenseQuantity').value = 1;
-        new bootstrap.Modal(document.getElementById('checkoutModal')).show();
-      });
-    });
-    document.getElementById('confirmPurchase').addEventListener('click',()=>{
-      const qty = document.getElementById('licenseQuantity').value;
-      window.location.href = `https://payment-gateway.example.com/checkout?product=${encodeURIComponent(selectedProduct)}&quantity=${qty}`;
-    });
+    
 
     /* ---------- VİDEO MODAL ---------- */
     document.querySelectorAll('.btn-video').forEach(btn=>{
@@ -347,15 +340,8 @@
       document.getElementById('videoFrame').src = '';
     });
 
-    /* ---------- YORUM MODAL ---------- */
-    let rating = 0;
-    document.getElementById('addReviewBtn').addEventListener('click',()=> new bootstrap.Modal(document.getElementById('reviewModal')).show());
-    document.querySelectorAll('#stars .fa-star').forEach(star=>{
-      star.addEventListener('click',e=>{
-        rating = e.target.dataset.value;
-        document.querySelectorAll('#stars .fa-star').forEach(s=> s.classList.toggle('text-warning',s.dataset.value<=rating));
-      });
-    });
+    
+    
     document.getElementById('submitReview').addEventListener('click',()=>{
       const name = document.getElementById('reviewName').value.trim();
       const title = document.getElementById('reviewTitle').value.trim();
