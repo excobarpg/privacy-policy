@@ -13,111 +13,74 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;color:#1c1d1f;background:#f2f4f8}
-    a{text-decoration:none}
-    html{scroll-behavior:smooth}
-    section{padding:80px 0;scroll-margin-top:80px}
-    .section-title{font-size:2rem;font-weight:700;margin-bottom:30px;text-align:center}
-
-    /* Hero */
-    .hero{background:linear-gradient(135deg,#5b21d3,#2563eb);color:#fff;padding:120px 20px;text-align:center}
-    .hero h1{font-size:3rem;font-weight:700;margin-bottom:20px}
-    .hero p{font-size:1.125rem;max-width:640px;margin:0 auto 35px;opacity:.9}
-    .btn-cta{padding:14px 34px;font-weight:600;border-radius:50px}
-
-    /* Navbar */
-    .navbar{background:transparent}
-    .navbar-brand{font-weight:700;color:#fff}
-    .nav-link{color:#e5e7eb!important;font-weight:500;margin-left:1rem}
-    .nav-link:hover{color:#fff!important}
-
-    /* Feature cards */
-    .feature-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:30px;
-      transition:transform .25s,box-shadow .25s;height:100%}
-    .feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.06)}
-    .feature-icon{font-size:2rem;color:#4f46e5;background:#eef2ff;width:56px;height:56px;border-radius:14px;
-      display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-
-    /* Product */
-    .product-img{width:100%;height:auto;border-radius:12px;object-fit:cover}
-    .product-list{list-style:disc inside;margin-top:1rem}
-
-    /* Video button */
-    .btn-video{display:inline-flex;align-items:center;gap:8px;background:#ff0000;color:#fff;font-weight:600;
-      border:none;padding:12px 26px;border-radius:50px;box-shadow:0 4px 0 #b30000;transition:.15s}
-    .btn-video i{font-size:1.25rem}
-    .btn-video:hover{transform:translateY(-2px)}
-    .btn-video:active{transform:translateY(0);box-shadow:0 2px 0 #b30000}
-
-    /* Pricing */
-    .pricing-card{background:#fff;border:2px solid #e5e7eb;border-radius:12px;transition:.25s;height:100%;
-      display:flex;flex-direction:column}
-    .pricing-card:hover{transform:translateY(-6px)}
-    .pricing-card.featured{border-color:#10b981}
-    .price{font-size:2.25rem;font-weight:700;color:#10b981}
-
-    /* Testimonials */
-    .testimonial{background:#fff;border-radius:12px;padding:24px;border:1px solid #e5e7eb;height:100%}
-    .testimonial p{font-style:italic}
-
-    /* Footer */
-    footer{background:#111827;color:#9ca3af;padding:40px 0;text-align:center}
-    .privacy-buttons a{display:inline-block;margin:4px 6px;padding:6px 16px;border-radius:20px;
-      background:#334155;font-size:.875rem;color:#f1f5f9}
-    .privacy-buttons a:hover{background:#475569}
-
-    /* Floating support */
-    .support-btn{position:fixed;bottom:24px;right:24px;width:64px;height:64px;border-radius:50%;
-      background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:1000;transition:transform .2s}
-    .support-btn:hover{transform:scale(1.08)}
-
-    .btn-install {
-    display: inline-block;
-    background: linear-gradient(to bottom, #ffe600, #ffcc00);
-    color: #333;
-    font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 40px;
-    border: none;
-    box-shadow: 0 6px #b38f00;
-    transition: all 0.2s ease-in-out;
-    font-size: 1rem;
-    text-transform: uppercase;
-  }
-  .btn-install:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px #b38f00;
-  }
-  .btn-install:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px #b38f00;
-  }
-  .pricing-note {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #000000;
-    margin-top: 40px;
-    margin-left: 50px; /* sağa kaydırma */
-    max-width: 1300px;
-    line-height: 1.6;
-  }
-
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: #1c1d1f; background: #f2f4f8; }
+    a { text-decoration: none; }
+    html { scroll-behavior: smooth; }
+    section { padding: 80px 0; scroll-margin-top: 80px; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 30px; text-align: center; }
+    .hero { background: linear-gradient(135deg,#5b21d3,#2563eb); color: #fff; padding: 120px 20px; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; }
+    .hero p { font-size: 1.125rem; max-width: 640px; margin: 0 auto 35px; opacity: .9; }
+    .btn-cta { padding: 14px 34px; font-weight: 600; border-radius: 50px; }
+    .navbar { background: transparent; }
+    .navbar-brand { font-weight: 700; color: #fff; }
+    .nav-link { color: #e5e7eb !important; font-weight: 500; margin-left: 1rem; }
+    .nav-link:hover { color: #fff !important; }
+    .feature-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 30px; transition: transform .25s, box-shadow .25s; height: 100%; }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,.06); }
+    .feature-icon { font-size: 2rem; color: #4f46e5; background: #eef2ff; width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .product-img { width: 100%; height: auto; border-radius: 12px; object-fit: cover; }
+    .product-list { list-style: disc inside; margin-top: 1rem; }
+    .btn-video { display: inline-flex; align-items: center; gap: 8px; background: #ff0000; color: #fff; font-weight: 600; border: none; padding: 12px 26px; border-radius: 50px; box-shadow: 0 4px 0 #b30000; transition: .15s; }
+    .btn-video i { font-size: 1.25rem; }
+    .btn-video:hover { transform: translateY(-2px); }
+    .btn-video:active { transform: translateY(0); box-shadow: 0 2px 0 #b30000; }
+    .pricing-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; transition: .25s; height: 100%; display: flex; flex-direction: column; }
+    .pricing-card:hover { transform: translateY(-6px); }
+    .pricing-card.featured { border-color: #10b981; }
+    .price { font-size: 2.25rem; font-weight: 700; color: #10b981; }
+    .testimonial { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #e5e7eb; height: 100%; }
+    .testimonial p { font-style: italic; }
+    footer { background: #111827; color: #9ca3af; padding: 40px 0; text-align: center; }
+    .privacy-buttons a { display: inline-block; margin: 4px 6px; padding: 6px 16px; border-radius: 20px; background: #334155; font-size: .875rem; color: #f1f5f9; }
+    .privacy-buttons a:hover { background: #475569; }
+    .support-btn { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.8rem; box-shadow: 0 6px 18px rgba(0,0,0,.25); z-index: 1000; transition: transform .2s; }
+    .support-btn:hover { transform: scale(1.08); }
+    .btn-install { display: inline-block; background: linear-gradient(to bottom, #ffe600, #ffcc00); color: #333; font-weight: 700; padding: 14px 28px; border-radius: 40px; border: none; box-shadow: 0 6px #b38f00; transition: all 0.2s ease-in-out; font-size: 1rem; text-transform: uppercase; }
+    .btn-install:hover { transform: translateY(-2px); box-shadow: 0 8px #b38f00; }
+    .btn-install:active { transform: translateY(2px); box-shadow: 0 4px #b38f00; }
+    .pricing-note { font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 700; color: #000; margin-top: 40px; margin-left: 50px; max-width: 1300px; line-height: 1.6; }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-639928453">
-  </script>
+
+  <!-- Global site tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-639928453"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-  
     gtag('config', 'AW-639928453');
   </script>
+
+  <!-- Conversion click snippet -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function() {
+        if (typeof(url) !== 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-639928453/3ahMCMj3_rsaEIWRkrEC',
+        'value': 1.0,
+        'currency': 'TRY',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
 
   <!-- Navbar -->
@@ -181,8 +144,6 @@
   <section id="products">
     <div class="container">
       <h2 class="section-title">Ürün Özellikleri</h2>
-
-      <!-- WhatsApp Express -->
       <div class="row align-items-center mb-5">
         <div class="col-md-4 text-center">
           <img src="images/wp.png" alt="WhatsApp Express" class="product-img">
@@ -203,19 +164,17 @@
             <li><strong>Mesajlar için otomatik zamanlama ve gönderim aralığı ayarı</strong></li>
             <li><strong>Gönderim sürecini duraklatma ve kaldığı yerden devam ettirme</strong></li>
           </ul>
-          <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam" 
-            target="_blank" 
-            class="btn-install mt-4 d-inline-block" 
-            onclick="gtag('event', 'conversion', {'send_to': 'AW-639928453/3ahdCM3j_szaEITRkZcC'});"
-
-            style="margin-left: 30px;">
-            TARAYICIYA EKLE
+          <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+             class="btn-install mt-4 d-inline-block"
+             style="margin-left: 30px;"
+             target="_blank"
+             rel="noopener"
+             onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam');">
+            TARAYICIYA EKLE
           </a>
-
         </div>
       </div>
 
-      <!-- Mail Express -->
       <div class="row align-items-center">
         <div class="col-md-4 text-center order-md-2">
           <img src="images/mail.png" alt="Mail Express" class="product-img">
@@ -236,81 +195,61 @@
             <li><strong>Başarılı/başarısız gönderimlerin raporlanması</strong></li>
             <li><strong>Gmail arayüzünde doğal, otomatik çalışma</strong></li>
           </ul>
-          <a href="https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba" 
-            target="_blank" 
-            class="btn-install mt-4 d-inline-block" 
-            onclick="gtag('event', 'conversion', {'send_to': 'AW-639928453/3ahdCM3j_szaEITRkZcC'});"
-
-            style="margin-left: 30px;">
-            TARAYICIYA EKLE
+          <a href="https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
+             class="btn-install mt-4 d_INLINE_BLOCK"
+             style="margin-left: 30px;"
+             target="_blank"
+             rel="noopener"
+             onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba');">
+            TARAYICIYA EKLE
           </a>
-
-
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <!-- PRICING -->
   <section id="pricing" class="bg-light">
     <div class="container">
       <h2 class="section-title">FİYATLAR</h2>
-
       <div class="row g-4">
-        <!-- WhatsApp Express -->
         <div class="col-md-6">
           <div class="pricing-card p-4 text-center h-100">
             <h4>WhatsApp</h4>
             <p class="price my-3">₺700</p>
             <p>Ömürlük Lisans</p>
-
-            <!-- Etsy link -->
             <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-outline-primary mt-auto"
-              onclick="gtag('event', 'conversion', {'send_to': 'AW-639928453/3ahdCM3j_szaEITRkZcC'});">
+               class="btn btn-outline-primary mt-auto"
+               target="_blank"
+               rel="noopener"
+               onclick="return gtag_report_conversion('https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid');">
               Satın Al
-            </a>
-
             </a>
           </div>
         </div>
-
-        <!-- Mail Express -->
         <div class="col-md-6">
           <div class="pricing-card featured p-4 text-center h-100">
             <h4>Mail</h4>
             <p class="price my-3">₺900</p>
             <p>Ömürlük Lisans</p>
-
-            <!-- Etsy link -->
-            <a href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1&logging_key=..."
+            <a href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1&logging_key=52442e9d2939ba91963e80cea2f8f58b475227df%3A1892654737"
+               class="btn btn-outline-primary mt-auto"
                target="_blank"
                rel="noopener"
-               class="btn btn-outline-primary mt-auto"
-               onclick="gtag('event', 'conversion', {'send_to': 'AW-639928453/3ahdCM3j_szaEITRkZcC'});">
-               Satın Al
-            </a>
-
+               onclick="return gtag_report_conversion('https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1&logging_key=52442e9d2939ba91963e80cea2f8f58b475227df%3A1892654737');">
+              Satın Al
             </a>
           </div>
         </div>
       </div>
     </div>
     <p class="pricing-note">
-      - Lisanslarımız tek seferliktir ve ömür boyu geçerlidir. Satın aldıktan sonra herhangi bir aylık ücret ödemezsiniz. 
-      Ürünlerimiz sürekli güncellenir ve destek ekibimiz size her zaman yardımcı olmaya hazırdır.
+      - Lisanslarımız tek seferliktir ve ömür boyu geçerlidir. Satın aldıktan sonra herhangi bir aylık ücret ödemezsiniz.
     </p>
     <p class="pricing-note">
-      - Etsy üzerinden almak istemezseniz Whatsapp dan iletişime geçebilirsiniz, Toplu alımlarda indirim uygulanmaktadır.
+      - Etsy üzerinden almak istemezseniz WhatsApp'tan iletişime geçebilirsiniz, toplu alımlarda indirim uygulanmaktadır.
     </p>
-    
   </section>
-
-
-  
 
   <!-- Video Modal -->
   <div class="modal fade" id="videoModal" tabindex="-1">
@@ -321,69 +260,44 @@
         </div>
         <div class="modal-body p-0">
           <div class="ratio ratio-16x9">
-            <iframe id="videoFrame" src=""
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <iframe id="videoFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  
-  
-
   <!-- Footer -->
   <footer>
-    <p>© 2025 EXPRESS Yazılım</p>
+    <p>© 2025 EXPRESS Yazılım</p>
     <div class="privacy-buttons">
-      <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
-      <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
+      <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
+      <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
     </div>
   </footer>
 
-  <!-- Floating Support -->
-  <a href="https://wa.me/6281316535355" class="support-btn"><i class="fab fa-whatsapp"></i></a>
+  <!-- Floating Support -->
+  <a href="https://wa.me/6281316535355"
+     class="support-btn"
+     onclick="return gtag_report_conversion('https://wa.me/6281316535355');">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-  <!-- Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    
-
-    /* ---------- VİDEO MODAL ---------- */
-    document.querySelectorAll('.btn-video').forEach(btn=>{
-      btn.addEventListener('click',e=>{
+    document.querySelectorAll('.btn-video').forEach(btn => {
+      btn.addEventListener('click', e => {
         document.getElementById('videoFrame').src = e.currentTarget.dataset.video + '?autoplay=1&rel=0';
       });
     });
-    document.getElementById('videoModal').addEventListener('hidden.bs.modal',()=>{
+    document.getElementById('videoModal').addEventListener('hidden.bs.modal', () => {
       document.getElementById('videoFrame').src = '';
     });
-
-    
-    
-    document.getElementById('submitReview').addEventListener('click',()=>{
-      const name = document.getElementById('reviewName').value.trim();
-      const title = document.getElementById('reviewTitle').value.trim();
-      const message = document.getElementById('reviewMessage').value.trim();
-      if(name && title && message && rating>0){
-        const container = document.getElementById('testimonialContainer');
-        const div = document.createElement('div');
-        div.className='col-md-4';
-        div.innerHTML=`<div class="testimonial h-100"><p>“${message}”</p><div class="author fw-semibold mt-2">– ${name}, ${title}</div></div>`;
-        container.append(div);
-        bootstrap.Modal.getInstance(document.getElementById('reviewModal')).hide();
-        document.getElementById('reviewForm').reset();
-        document.querySelectorAll('#stars .fa-star').forEach(s=>s.classList.remove('text-warning'));
-        rating = 0;
-      }
-    });
-
-    /* ---------- NAVBAR MOBİL ---------- */
-    document.querySelectorAll('.nav-link').forEach(link=>{
-      link.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
         const navCollapse = document.querySelector('.navbar-collapse');
-        if(navCollapse.classList.contains('show')){
+        if (navCollapse.classList.contains('show')) {
           new bootstrap.Collapse(navCollapse).hide();
         }
       });
