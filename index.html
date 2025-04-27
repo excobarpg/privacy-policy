@@ -51,6 +51,95 @@
     .btn-install:hover { transform: translateY(-2px); box-shadow: 0 8px #b38f00; }
     .btn-install:active { transform: translateY(2px); box-shadow: 0 4px #b38f00; }
     .pricing-note { font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 700; color: #000; margin-top: 40px; margin-left: 50px; max-width: 1300px; line-height: 1.6; }
+    
+    /* ReactExpress özel stil */
+    #reactexpress {
+      background: #f2f4f8; /* Sayfanın diğer arka planıyla uyumlu */
+      padding: 80px 0;
+    }
+
+    #reactexpress .product-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    #reactexpress h4 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1c1d1f;
+    }
+
+    #reactexpress .product-list {
+      list-style: disc inside;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #374151;
+      text-align: left;
+    }
+
+    #reactexpress .btn-install {
+      background: linear-gradient(to bottom, #4f46e5, #2563eb);
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.2s ease-in-out;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    #reactexpress .btn-install:hover {
+      background: linear-gradient(to bottom, #4338ca, #2563eb);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    }
+
+    #reactexpress .pricing-card {
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      transition: .25s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    #reactexpress .pricing-card.featured {
+      border-color: #10b981;
+    }
+
+    #reactexpress .pricing-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    #reactexpress .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #10b981;
+      margin-bottom: 10px;
+    }
+
+    #reactexpress .pricing-card p {
+      font-size: 1rem;
+      color: #6b7280;
+    }
+
+    #reactexpress .pricing-card a {
+      margin-top: auto;
+      padding: 10px 20px;
+      font-weight: 600;
+      border-radius: 30px;
+    }
+
+
   </style>
 
   <!-- Global site tag (gtag.js) -->
@@ -79,7 +168,17 @@
       return false;
     }
   </script>
-</head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-639928453">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-639928453');
+  </script>
+  </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
 
@@ -216,7 +315,7 @@
         <div class="col-md-6">
           <div class="pricing-card p-4 text-center h-100">
             <h4>WhatsApp</h4>
-            <p class="price my-3">₺700</p>
+            <p class="price my-3">₺500</p>
             <p>Ömürlük Lisans</p>
             <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
                class="btn btn-outline-primary mt-auto"
@@ -230,7 +329,7 @@
         <div class="col-md-6">
           <div class="pricing-card featured p-4 text-center h-100">
             <h4>Mail</h4>
-            <p class="price my-3">₺900</p>
+            <p class="price my-3">₺700</p>
             <p>Ömürlük Lisans</p>
             <a href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1&logging_key=52442e9d2939ba91963e80cea2f8f58b475227df%3A1892654737"
                class="btn btn-outline-primary mt-auto"
@@ -266,6 +365,54 @@
       </div>
     </div>
   </div>
+  <!-- ReactExpress Programı -->
+  <section id="reactexpress">
+    <div class="container">
+      <h2 class="section-title"></h2>
+      <div class="row align-items-center mb-5">
+        <div class="col-md-4 text-center">
+          <img src="images/reactexpress.png" alt="ReactExpress Programı" class="product-img">
+        </div>
+        <div class="col-md-8">
+          <h4>Telegram'da Gücünüzü Katlayın</h4>
+          <ul class="product-list">
+            <li><strong>Gizli ve açık Telegram gruplarından hızlı üye çekme</strong></li>
+            <li><strong>Üyeleri başka gruplara otomatik olarak ekleme</strong></li>
+            <li><strong>Yönetici gönderilerine otomatik ve sıralı reaksiyon verme</strong></li>
+            <li><strong>Hesap yönetimi ve görev zamanlaması</strong></li>
+            <li><strong>Kolay kullanım arayüzü ve hızlı işlem yapısı</strong></li>
+          </ul>
+          <a href="https://wa.me/905077048556" 
+             class="btn-install mt-4 d-inline-block" 
+             style="margin-left: 30px;" 
+             target="_blank" 
+             rel="noopener"
+             onclick="return gtag_report_conversion('https://wa.me/905077048556');">
+            İletişime Geç
+          </a>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="pricing-card featured p-4 text-center h-100">
+            <h4>ReactExpress</h4>
+            <p class="price my-3">$500</p>
+            <p>Ömürlük Lisans</p>
+            <a href="https://github.com/excobarpg/privacy-policy/releases/download/v1.0.0/REACT1.zip" 
+               class="btn btn-outline-success mt-3"
+               target="_blank"
+               rel="noopener">
+              Programı İndir
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
 
   <!-- Footer -->
   <footer>
@@ -302,6 +449,8 @@
         }
       });
     });
+
+ 
   </script>
 </body>
 </html>
