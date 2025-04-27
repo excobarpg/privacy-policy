@@ -14,5 +14,24 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+  <loc>https://expressyazilim.com.tr/blog.html</loc>
+  <lastmod>2025-04-28</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://expressyazilim.com.tr/blog1.html</loc>
+  <lastmod>2025-04-28</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://expressyazilim.com.tr/blog2.html</loc>
+  <lastmod>2025-04-28</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
 
 </urlset>
