@@ -104,7 +104,19 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#features">Özellikler</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Programlar
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+              <li><a class="dropdown-item" href="#whatsapp-express-chrome">WhatsApp Express</a></li>
+              <li><a class="dropdown-item" href="#mail-express-chrome">Mail Express</a></li>
+              <li><a class="dropdown-item" href="#whatsapp-express-windows">WhatsApp Express Windows</a></li>
+              <li><a class="dropdown-item" href="#mail-express-windows">Mail Express Windows</a></li>
+              <li><a class="dropdown-item" href="#reactexpress">ReactExpress</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
           <li class="nav-item"><a class="nav-link" href="#pricing">Fiyatlar</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -158,7 +170,7 @@
       <h2 class="section-title">Ürün Özellikleri</h2>
 
       <!-- WhatsApp Express CHROME -->
-      <div class="row align-items-center mb-5">
+      <div id="whatsapp-express-chrome" class="row align-items-center mb-5">
         <div class="col-md-4 text-center">
           <img src="images/wp.png" alt="WhatsApp Express Chrome" class="product-img">
           <button class="btn-video mt-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c">
@@ -186,7 +198,7 @@
       </div>
 
       <!-- Mail Express -->
-      <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div id="mail-express-chrome" class="row align-items-center mb-5 flex-md-row-reverse">
         <div class="col-md-4 text-center">
           <img src="images/mail.png" alt="Mail Express" class="product-img">
           <button class="btn-video mt-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/iqPkjtYOWJI">
@@ -213,7 +225,7 @@
       </div>
 
       <!-- WhatsApp Express WINDOWS -->
-      <div class="row align-items-center mb-5">
+      <div id="whatsapp-express-windows" class="row align-items-center mb-5">
         <div class="col-md-4 text-center">
           <img src="images/wp2.png" alt="WhatsApp Express Windows" class="product-img" data-bs-toggle="modal" data-bs-target="#imageModal" style="cursor:pointer">
           <button class="btn-video mt-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c2">
@@ -238,6 +250,56 @@
           </a>
         </div>
       </div>
+
+      <!-- Mail Express WINDOWS -->
+      <div id="mail-express-windows" class="row align-items-center mb-5 flex-md-row-reverse">
+        <div class="col-md-4 text-center">
+          <img src="images/mail2.png"
+              alt="Mail Express Windows"
+              class="product-img"
+              style="cursor:pointer"
+              data-bs-toggle="modal"
+              data-bs-target="#mailImageModal">
+              <button class="btn-video mt-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c2">
+                <i class="fab fa-youtube"></i> TANITIM VİDEOSU    
+        </div>
+        <div class="col-md-8">
+          <h4>Mail Express Windows</h4>
+          <ul class="product-list">
+            <li><strong>Resimli gönderim desteği:</strong> maillerinizi görsel eklerle zenginleştirin</li>
+            <li><strong>Çoklu hesap desteği:</strong> istediğiniz Gmail hesabından toplu gönderim yapın</li>
+            <li><strong>Excel’den içe aktarılan binlerce adrese tek tıkla toplu e-posta</strong></li>
+            <li><strong>Alıcı isimleri ve özel alanlarla %100 kişiselleştirme</strong></li>
+            <li><strong>Esnek zamanlama:</strong> istediğiniz saatte gönderim, kolayca duraklat & devam et</li>
+            <li><strong>Anlık raporlar:</strong> başarı/başarısızlık detaylarını anında görün</strong></li>
+            <li><strong>Gmail arayüzünde doğal otomasyon:</strong> hiçbir ekstra uygulama gerekmez</li>
+            <li><strong>Ömür boyu lisans:</strong> gizli hiçbir ücret yok, bir kez al hep kullan</li>
+          </ul>
+          <!-- Ücretsiz deneme vurgusu -->
+          <p class="mt-4 mb-2 text-danger text-uppercase fw-bold fst-italic" style="font-size:1.1rem">
+            24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
+          </p>
+          <a href="https://github.com/excobarpg/privacy-policy/releases/download/v4.0/MailExpress_Setup.rar"
+            class="btn-install mt-4"
+            target="_blank"
+            rel="noopener"
+            onclick="return gtag_report_conversion('https://github.com/excobarpg/privacy-policy/releases/download/v4.0/MailExpress_Setup.rar');">
+            PROGRAMI İNDİR
+          </a>
+        </div>
+      </div>
+
+      <!-- Mail Express Görsel Büyütme Modal’ı -->
+      <div class="modal fade" id="mailImageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="images/mail2.png"
+                alt="Mail Express Windows – Büyütülmüş Görsel"
+                class="img-fluid rounded shadow">
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -300,49 +362,106 @@
     <div class="container">
       <h2 class="section-title">FİYATLAR</h2>
       <div class="row g-4">
-
-        <div class="col-md-4">
-          <div class="pricing-card text-center p-4 h-100">
-            <h4>WhatsApp Express Windows</h4>
-            <p class="price my-3">₺2500</p>
-            <p>Ömürlük Lisans</p>
-            <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
-               class="btn btn-outline-primary mt-auto" target="_blank"
-               onclick="return gtag_report_conversion('https://api.whatsapp.com/send/?phone=905077048556');">
-              Satın Al
+  
+        <!-- WhatsApp Express Windows -->
+        <div class="col-md-3">
+          <div class="pricing-card text-center p-4 h-100"
+               style="border:2px solid #0061FF;
+                      box-shadow:0 6px 12px rgba(0,97,255,0.2);
+                      border-radius:12px;">
+            <h4>WhatsApp Express Windows</h4>
+            <p class="price my-3">$100</p>
+            <p>Lifetime License</p>
+            <a
+              href="https://wa.me/905077048556"
+              class="btn btn-outline-primary mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
+            >
+              Satın Al
             </a>
           </div>
         </div>
-
-        <div class="col-md-4">
-          <div class="pricing-card text-center p-4 h-100">
-            <h4>WhatsApp Express Chrome</h4>
-            <p class="price my-3">₺500</p>
-            <p>Ömürlük Lisans</p>
-            <a href="https://www.etsy.com/listing/1850708951/whatsapp-bulk-sender-extension-whatsapp?ref=listings_manager_grid"
-               class="btn btn-outline-primary mt-auto" target="_blank">
-              Satın Al
+  
+        <!-- WhatsApp Express Chrome -->
+        <div class="col-md-3">
+          <div class="pricing-card text-center p-4 h-100"
+               style="border:2px solid #17A2B8;
+                      box-shadow:0 6px 12px rgba(23,162,184,0.2);
+                      border-radius:12px;">
+            <h4>WhatsApp Express Chrome</h4>
+            <p class="price my-3">$20</p>
+            <p>Lifetime License</p>
+            <a
+              href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+              class="btn btn-outline-info mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
+            >
+              Satın Al
             </a>
           </div>
         </div>
-
-        <div class="col-md-4">
-          <div class="pricing-card featured text-center p-4 h-100">
-            <h4>Mail Express</h4>
-            <p class="price my-3">₺700</p>
-            <p>Ömürlük Lisans</p>
-            <a href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1"
-               class="btn btn-outline-primary mt-auto" target="_blank">
-              Satın Al
+  
+        <!-- Mail Express Chrome -->
+        <div class="col-md-3">
+          <div class="pricing-card text-center p-4 h-100"
+               style="border:2px solid #FFC107;
+                      box-shadow:0 6px 12px rgba(255,193,7,0.2);
+                      border-radius:12px;">
+            <h4>Mail Express Chrome</h4>
+            <p class="price my-3">$25</p>
+            <p>Lifetime License</p>
+            <a
+              href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1"
+              class="btn btn-outline-warning mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
+            >
+              Satın Al
             </a>
           </div>
         </div>
+  
+        <!-- Mail Express Windows -->
+        <div class="col-md-3">
+          <div class="pricing-card text-center p-4 h-100"
+               style="border:2px solid #28A745;
+                      box-shadow:0 6px 12px rgba(40,167,69,0.2);
+                      border-radius:12px;">
+            <h4>Mail Express Windows</h4>
+            <p class="price my-3">$200</p>
+            <p>Lifetime License</p>
+            <a
+              href="https://github.com/excobarpg/privacy-policy/releases/download/v4.0/MailExpress_Setup.rar"
+              class="btn btn-outline-success mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
+            >
+              Satın Al
+            </a>
+          </div>
+        </div>
+  
       </div>
-
-      <p class="pricing-note">- Lisanslarımız tek seferliktir ve ömür boyu geçerlidir; aylık ücret yoktur.</p>
-      <p class="pricing-note">- Etsy yerine doğrudan WhatsApp üzerinden iletişime geçerek toplu alımlarda indirim alabilirsiniz.</p>
+  
+      <p class="pricing-note">
+        - Lisanslarımız tek seferliktir ve ömür boyu geçerlidir; aylık ücret yoktur.
+      </p>
+      <p class="pricing-note">
+        - Toplu alımlarda doğrudan WhatsApp üzerinden iletişime geçerek indirim alabilirsiniz.
+      </p>
     </div>
   </section>
+  
+
+
+
+
 
   <!-- ========== Modals ========== -->
   <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
