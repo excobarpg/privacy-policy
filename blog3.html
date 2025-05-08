@@ -3,153 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mail Express V4.0 – Detaylı Metin Anlatımı</title>
-  <meta name="description" content="Python, PyQt5 ve Selenium kullanarak geliştirilmiş Mail Express V4.0 programının kurulumundan kod mimarisine kadar detaylı anlatımı.">
+  <title>Mail Express V4.0 ile Kolaylaştırılmış Mail Pazarlama</title>
+  <meta name="description" content="Mail Express V4.0 ile Gmail profillerinizi kullanarak nasıl basit ve etkili mail marketing yapacağınızı adım adım öğrenin.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>Mail Express V4.0</h1>
-    <p><em>Python, PyQt5 ve Selenium tabanlı toplu e-posta gönderim çözümünüzü en ince ayrıntısına kadar tanıyın.</em></p>
+    <h1>Mail Express V4.0 ile Kolaylaştırılmış Mail Pazarlama</h1>
+    <p><em>E-posta kampanyalarınızı tek bir tıkla başlatın, takip edin ve optimize edin.</em></p>
   </header>
 
-  <section>
-    <h2>1. Genel Bakış</h2>
+  <section id="intro">
+    <h2>Giriş</h2>
     <p>
-      <strong>Mail Express</strong>, Gmail profillerinizi kullanarak yüzlerce e-postayı otomatik, kişiselleştirilmiş ve HTML/ekli biçimde göndermenizi sağlayan masaüstü uygulamasıdır. 
-      Programda şu ana bileşenler bulunur:
+      Günümüz dijital dünyasında hedef kitlenizle birebir iletişim kurmak, doğru mesajı doğru zamanda ulaştırmak çok değerli. 
+      <strong>Mail Express V4.0</strong>, Gmail hesabınızı otomatik olarak kullanan, alıcı listenizi yönetmenize, 
+      kişiselleştirilmiş şablonlar hazırlamanıza ve toplu e-posta gönderiminizi zahmetsizce gerçekleştirmenize olanak tanıyan bir masaüstü aracıdır.
     </p>
+  </section>
+
+  <section id="benefits">
+    <h2>Mail Marketing’te Neler Kazandırır?</h2>
     <ul>
-      <li><strong>LicenseManager</strong> – Lisans ve trial süresini kontrol eden modül.</li>
-      <li><strong>GmailAutomator</strong> – Selenium ile Chrome profillerinizi açıp Gmail üzerinden otomasyon yapan sınıf.</li>
-      <li><strong>AccountAdder</strong> – Yeni bir Gmail hesabını tarayıcı profiline ekleyen iş parçacığı.</li>
-      <li><strong>SendWorker</strong> – Toplu e-posta gönderimini arka planda yürüten iş parçacığı.</li>
-      <li><strong>MainWindow</strong> – PyQt5 ile hazırlanmış ana kullanıcı arayüzü.</li>
+      <li><strong>Zaman Tasarrufu:</strong> Excel’den liste yükleme, tek tek Gmail penceresi açma derdi yok.</li>
+      <li><strong>Kolay Kişiselleştirme:</strong> “{{NAME}}” etiketleri ile alıcı adına, tarihine ya da başka veriye otomatik yerleştirme.</li>
+      <li><strong>HTML ve Düz Metin Desteği:</strong> Hem görsel açıdan zengin e-postalar hem de basit metin mesajları.</li>
+      <li><strong>Gönderim Hızı Kontrolü:</strong> Aralık süresini saniye düzeyinde ayarlayıp spam riskini azaltın.</li>
+      <li><strong>Gönderim Raporları:</strong> Başarılı/başarısız sayısını anında görün, CSV ya da JSON olarak dışa aktarın.</li>
     </ul>
   </section>
 
-  <section>
-    <h2>2. Kurulum ve Çalıştırma</h2>
+  <section id="quickstart">
+    <h2>Hızlı Başlangıç: 5 Adımda Mail Kampanyası</h2>
+    
     <ol>
-      <li>Python 3.8+ kurulu olduğundan emin olun.</li>
-      <li>Gerekli paketleri yükleyin:
-        <pre><code>pip install pyqt5 pandas selenium beautifulsoup4 requests</code></pre>
+      <li>
+        <strong>Gmail Hesabınızı Ekleyin</strong><br>
+        “Hesap Ekle” butonuna tıklayıp açılan Chrome penceresinde Google hesabınızla giriş yapın. Profil klasörünüz otomatik kaydedilir.
       </li>
-      <li>ChromeDriver’ı sistem PATH’inize ekleyin veya çalıştırılabilir dosyanın yolunu <code>webdriver.Chrome(executable_path=...)</code> ile belirtin.</li>
-      <li>Projeyi klonlayın ve ana dizinde:
-        <pre><code>python main.py</code></pre>
-        komutuyla başlatın.
+      <li>
+        <strong>Alıcı Listenizi Hazırlayın</strong><br>
+        <ul>
+          <li>Excel’den doğrudan yükleyin veya</li>
+          <li>Manuel metin alanına “Ad Soyad e-posta” formatında yapıştırın.</li>
+          <li>“Listeye Ekle” ile tabloya aktarın.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Şablon veya Düz Metin Seçin</strong><br>
+        <ul>
+          <li><em>Şablon Modu:</em> Zengin metin editöründe HTML e-postalar oluşturun.</li>
+          <li><em>Metin Modu:</em> Sade, içeriğe odaklı kısa mesajlar hazırlayın.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Mesaj İçeriğinizi ve Aralığınızı Ayarlayın</strong><br>
+        Konu satırını ve gövdeyi düzenleyin. “Mesajlar arası bekleme süresi”ni (sn) belirleyerek toplu gönderimde doğal bir hız yakalayın.
+      </li>
+      <li>
+        <strong>Gönder’e Tıklayın</strong><br>
+        Program arka planda Chrome’u açar, her alıcı için kişiselleştirilmiş e-postayı gönderir ve ilerlemeyi durum çubuğunda gösterir.
       </li>
     </ol>
   </section>
 
-  <section>
-    <h2>3. Dizin Yapısı</h2>
+  <section id="features">
+    <h2>Öne Çıkan Özellikler</h2>
+    <h3>1. Çoklu Gmail Profilleri</h3>
+    <p>
+      Birden fazla hesabı kolayca ekleyip aralarında geçiş yapın. Her hesap kendi Chrome profili altında güvenli şekilde saklanır.
+    </p>
+
+    <h3>2. Kişiselleştirilmiş Etiketler</h3>
+    <p>
+      Şablon gövdesine <code>{{NAME}}</code>, <code>{{DATE}}</code> gibi etiketler ekleyin. Her alıcıya özel içerik otomatik olarak yerleşir.
+    </p>
+
+    <h3>3. Zamanlama ve Hız Kontrolü</h3>
+    <p>
+      Spam filtrelerine takılmamak için alıcı başına bekleme süresini milisaniye hassasiyetinde ayarlayın. Opsiyonel cron/tabanlı planlama ile tamamen otomatik kullanım.
+    </p>
+
+    <h3>4. Canlı Raporlama</h3>
+    <p>
+      Gönderim ilerledikçe tablo renkleriyle durum güncellenir. İşlem sonunda toplam başarılı ve başarısız sayıları özetlenir, dışa aktarılabilir rapor oluşturulur.
+    </p>
+
+    <h3>5. Eklenti Desteği</h3>
+    <p>
+      E-postanıza görsel, PDF, Excel dosyası veya video ekleyin. Sürükle & bırak desteği ile eklenti yönetimi hızlı ve sorunsuz.
+    </p>
+  </section>
+
+  <section id="best-practices">
+    <h2>İyi Uygulama Önerileri</h2>
     <ul>
-      <li><code>main.py</code> – Uygulamanın giriş noktası.</li>
-      <li><code>settings.json</code> – Kullanıcı ayarları (interval, pencere boyutları vb.).</li>
-      <li><code>Accounts/accounts.json</code> – Ekli Gmail profilleri.</li>
-      <li><code>Templates/</code> – 20 adet JSON şablon dosyası (<code>template_1.json</code> … <code>template_20.json</code>).</li>
-      <li><code>style.css</code> – Blog ve uygulama stili (ayrık olarak kullandığınız site stilinize göre özelleştirin).</li>
+      <li><strong>Veri Temizliği:</strong> Excel listenizdeki mail adreslerini doğrulayın, eksikleri tamamlayın.</li>
+      <li><strong>Konu ve Mesaj Kısa Tutsun:</strong> Çok uzun konu satırları açılma oranını düşürebilir.</li>
+      <li><strong>Test Gönderimi Yapın:</strong> Önce kendi adresinize 5–10 mail göndererek şablonu kontrol edin.</li>
+      <li><strong>Aralık Süresini Optimize Edin:</strong> 10–30 saniye arası genellikle iyi dönüş sağlar.</li>
+      <li><strong>Spam Kontrolleri:</strong> Çok fazla eklenti veya büyük ekler spam riskini artırır. Gerekli dosyaları seçin.</li>
     </ul>
   </section>
 
-  <section>
-    <h2>4. Kod Mimarisine Derin Bakış</h2>
-
-    <h3>4.1. Lisans ve Trial Yönetimi (<code>LicenseManager</code>)</h3>
+  <section id="conclusion">
+    <h2>Sonuç</h2>
     <p>
-      Uygulama açılırken önce <code>settings.json</code> ve varsa <code>license.json</code> dosyalarından lisans anahtarını okur.
-      Geçerli bir lisans yoksa, <code>trial.json</code> ile bir deneme süresi başlatılır. Süre dolunca kullanıcıdan lisans istenir.
+      <strong>Mail Express V4.0</strong>, teknik bilgi gerektirmeden Gmail’inizin gücünü açığa çıkarır. 
+      Kampanyalarınızı tek pencereden yönetip, takip edebilir, raporlayabilir ve performansınızı artırabilirsiniz.
     </p>
-    <pre><code class="language-python">
-class LicenseManager:
-    SERVER_BASE    = "https://expressyazilim.online"
-    TRIAL_DURATION = timedelta(minutes=30)
-    ...
-    @classmethod
-    def ensure_license(cls, parent_widget) -> bool:
-        # 1) Kayıtlı lisans kontrolü
-        # 2) Trial kontrolü (_is_trial_valid)
-        # 3) Gerekiyorsa prompt ile lisans isteme
-        ...
-    </code></pre>
-
-    <h3>4.2. Tarayıcı Otomasyonu (<code>GmailAutomator</code>)</h3>
     <p>
-      Selenium WebDriver ile Chrome profillerini açar, <strong>headless</strong> veya <strong>visible</strong> modda Gmail’e otomatik giriş yapar,
-      <code>send_email</code> metoduyla HTML gövde ve ekleri yapıştırarak e-postayı gönderir.
+      Hemen indirin, bir sonraki e-posta kampanyanızda farkı hissedin!
     </p>
-    <pre><code class="language-python">
-class GmailAutomator:
-    def launch(self):
-        options = Options()
-        options.add_argument(f"--user-data-dir={self.profile_dir}")
-        ...
-        self.driver = webdriver.Chrome(options=options)
-        ...
-    def send_email(self, to, subject, body_content, send_mode, attachments):
-        # Tam ekran Compose URL’i ile başlat
-        compose_url = f"https://mail.google.com/mail/u/0/?view=cm&fs=1&to={...}&su={...}"
-        self.driver.get(compose_url)
-        # Clipboard paste ile HTML’i gövdeye yapıştır
-        ...
-    </code></pre>
-
-    <h3>4.3. Hesap Ekleme (<code>AccountAdder</code>)</h3>
-    <p>
-      Yeni bir Gmail hesabı eklemek için <code>QThread</code> kullanır. Geçici bir Chrome profili oluşturur, kullanıcı tarayıcıda giriş yapar,
-      otomatik e-posta adresi tespiti sonrası profili kalıcı dizine kopyalar.
-    </p>
-
-    <h3>4.4. Gönderim İş Parçacığı (<code>SendWorker</code>)</h3>
-    <p>
-      <code>threading.Thread</code> tabanlı bu sınıf, her alıcı için mail içeriğini hazırlar, <code>GmailAutomator.send_email</code> ile gönderir,
-      aradaki bekleme süresini (<code>interval</code>) uygular, ilerleme bilgisini Qt sinyalleriyle ana pencereye bildirir.
-    </p>
-
-    <h3>4.5. Ana Pencere ve UI (<code>MainWindow</code>)</h3>
-    <p>
-      <code>QMainWindow</code> miraslı, PyQt5 layout’ları ve widget’larıyla şu alanları sunar:
-    </p>
-    <ul>
-      <li><strong>Alıcı Listesi:</strong> Excel yükleme, manuel yapıştırma, silme butonları</li>
-      <li><strong>Gmail Hesapları:</strong> Hesap ekle/sil, profil listesi</li>
-      <li><strong>Mesaj Bölümü:</strong> Şablon mod (RichTextEdit) / Metin mod (PlainTextEdit)</li>
-      <li><strong>Eklentiler:</strong> Resim ve dosya ekleme</li>
-      <li><strong>Ayarlar:</strong> Interval, mode seçimi, lisans butonu, gönder/durdur/save</li>
-    </ul>
-
-  </section>
-
-  <section>
-    <h2>5. Kullanım Senaryoları</h2>
-    <ul>
-      <li><strong>Pazarlama Kampanyaları:</strong> Müşteri veri tabanını Excel’den yükleyip kişiye özel Şablon modda HTML mail gönderimi.</li>
-      <li><strong>Bildirim Servisi:</strong> Düz Metin modda kritik uyarı listelerine anlık e-posta atma.</li>
-      <li><strong>Rapor Dağıtımı:</strong> Cron/Task scheduler ile günlük satış raporlarını otomatik e-posta ekinde gönderme.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>6. İpuçları ve İyi Uygulamalar</h2>
-    <ul>
-      <li>ChromeDriver versiyonunun yüklü Chrome ile eşleşmesine dikkat edin.</li>
-      <li>Lisans dosyalarını programdata yerine kullanıcı dizininde saklamak, izin sorunlarını azaltır.</li>
-      <li>Gönderim periyodu (interval) çok kısa olursa Gmail sizi spam olarak işaretleyebilir.</li>
-      <li>Şablonlarınızı <code>Templates/</code> altındaki JSON dosyalarla versiyonlayın.</li>
-      <li>Hesap eklerken tarayıcı profilini açığa çıkarmak için “visible” modu tercih edin.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>7. Gelecek Planlar</h2>
-    <ul>
-      <li>Webhook entegrasyonu ile anlık tetiklemeler.</li>
-      <li>Bulut senkronizasyonu: Şablonlar ve hesaplar tüm cihazlarda eşitlenecek.</li>
-      <li>Gelişmiş raporlama ve grafiksel analiz.</li>
-    </ul>
+    <p><a href="https://expressyazilim.com.tr/mail-express" class="btn">Ücretsiz Deneyin</a></p>
   </section>
 
   <footer>
