@@ -341,33 +341,52 @@
 
 
     /* 24 Saatlik Deneme Sürümü Yazısı Efekti */
+    /* ==============================
+   GÜÇLENDİRİLMİŞ FREE TRIAL EFEKTİ
+   ============================== */
     .free-trial-effect {
-        display: inline-block; /* Animasyon için block veya inline-block şart */
-        font-size: 1.25rem !important; /* Biraz daha büyük */
-        font-weight: 900 !important; /* Çok kalın */
-        color: var(--danger-color) !important; /* Belirgin kırmızı */
+        display: inline-block;
+        font-size: 1.75rem !important;           /* Daha büyük ve dikkat çekici */
+        font-weight: 900 !important;
         text-transform: uppercase;
-        font-style: normal !important; /* İtalik olmasın */
-        margin-top: 25px; /* Üstüne boşluk */
-        margin-bottom: 15px; /* Altına boşluk */
-        /* 3D Text Shadow */
+        margin: 25px 0 15px;
+        /* Canlı bir renk geçişi için arkaplan gradyanı ve clip */
+        background: linear-gradient(
+            45deg,
+            #ff4e50,
+            #ffb199,
+            #ff4e50
+        );
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* Derinlik ve glow efekti */
         text-shadow:
-            1px 1px 0 rgba(0,0,0,0.1),
-            2px 2px 0 rgba(0,0,0,0.15),
-            3px 3px 0 rgba(0,0,0,0.2);
-        /* Zıplama Animasyonu */
-        animation: jumpEffect 2s ease-in-out infinite;
-        perspective: 1000px; /* 3D için gerekli olabilir */
-        transform-style: preserve-3d; /* 3D için gerekli */
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            0 4px 8px rgba(0, 0, 0, 0.2),
+            0 0 12px rgba(255, 78, 80, 0.7);
+        /* Animasyonlar: zıplama + renk kaydırma */
+        animation:
+            jumpEffect 2s ease-in-out infinite,
+            gradientShift 4s ease infinite;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+    
+    @keyframes jumpEffect {
+        0%, 100% { transform: translateY(0) rotateX(0deg); }
+        20%      { transform: translateY(-8px) rotateX(5deg); }
+        40%      { transform: translateY(0) rotateX(0deg); }
+        60%      { transform: translateY(-4px) rotateX(2deg); }
+        80%      { transform: translateY(0) rotateX(0deg); }
+    }
+    
+    @keyframes gradientShift {
+        0%   { background-position: 0%   50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0%   50%; }
     }
 
-    @keyframes jumpEffect {
-        0%, 100% { transform: translateY(0) rotateX(0); } /* Başlangıç ve bitiş */
-        20% { transform: translateY(-8px) rotateX(5deg); } /* Hafif yukarı ve öne eğilme */
-        40% { transform: translateY(0) rotateX(0); }
-        60% { transform: translateY(-4px) rotateX(2deg); } /* Daha küçük sıçrama */
-        80% { transform: translateY(0) rotateX(0); }
-    }
 
 
     /* Sabit destek butonu */
@@ -481,9 +500,7 @@
     <div class="container">
       <h1>İletişimin En Kolay Haliyle Tanışın</h1>
       <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
-      <p class="free-trial-effect">
-            AYLIK ABONELİK SİSTEMİMİZ ÇOK YAKINDA
-          </p>
+      
       <a href="#pricing" class="btn btn-light btn-cta">Fiyatları Gör</a>
     </div>
   </header>
