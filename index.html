@@ -346,46 +346,44 @@
    ============================== */
     .free-trial-effect {
         display: inline-block;
-        font-size: 1.75rem !important;           /* Daha büyük ve dikkat çekici */
+        font-size: 1.75rem !important;
         font-weight: 900 !important;
         text-transform: uppercase;
         margin: 25px 0 15px;
-        /* Canlı bir renk geçişi için arkaplan gradyanı ve clip */
-        background: linear-gradient(
-            45deg,
-            #ff4e50,
-            #ffb199,
-            #ff4e50
-        );
+        /* Gradyanlı canlı yazı rengi */
+        background: linear-gradient(45deg, #ff4e50, #ffb199, #ff4e50);
         background-size: 200% 200%;
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        /* Derinlik ve glow efekti */
-        text-shadow:
-            0 2px 4px rgba(0, 0, 0, 0.2),
-            0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 12px rgba(255, 78, 80, 0.7);
-        /* Animasyonlar: zıplama + renk kaydırma */
+        background-clip: text;
+        color: transparent;
+        /* Netlik için subpixel antialiasing */
+        -webkit-font-smoothing: subpixel-antialiased;
+        text-rendering: optimizeLegibility;
+        /* Hafif ve keskin gölge, fazla blur yok */
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        /* GPU hızlandırma, bulanıklığı azaltır */
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        /* Animasyonlar */
         animation:
-            jumpEffect 2s ease-in-out infinite,
-            gradientShift 4s ease infinite;
-        perspective: 1000px;
-        transform-style: preserve-3d;
+          jumpEffect 2s ease-in-out infinite,
+          gradientShift 4s ease infinite;
     }
     
     @keyframes jumpEffect {
-        0%, 100% { transform: translateY(0) rotateX(0deg); }
-        20%      { transform: translateY(-8px) rotateX(5deg); }
-        40%      { transform: translateY(0) rotateX(0deg); }
-        60%      { transform: translateY(-4px) rotateX(2deg); }
-        80%      { transform: translateY(0) rotateX(0deg); }
+        0%,100% { transform: translateY(0); }
+        20%     { transform: translateY(-8px); }
+        40%     { transform: translateY(0); }
+        60%     { transform: translateY(-4px); }
+        80%     { transform: translateY(0); }
     }
     
     @keyframes gradientShift {
-        0%   { background-position: 0%   50%; }
+        0%   { background-position:   0% 50%; }
         50%  { background-position: 100% 50%; }
-        100% { background-position: 0%   50%; }
+        100% { background-position:   0% 50%; }
     }
+
 
 
 
