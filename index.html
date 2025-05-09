@@ -350,25 +350,25 @@
         font-weight: 900 !important;
         text-transform: uppercase;
         margin: 25px 0 15px;
-        /* Gradyanlı canlı yazı rengi */
-        background: linear-gradient(45deg, #ff4e50, #ffb199, #ff4e50);
-        background-size: 200% 200%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        /* Netlik için subpixel antialiasing */
+    
+        /* Animasyon ve gradyanı kapat */
+        animation: none !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+    
+        /* Sabit koyu turkuaz-mora yakın renk */
+        color: #20c997 !important;  /* Örneğin bu koyu turkuaz tonu */
+        /* İsterseniz doğrudan morumsu bir ton da seçebilirsiniz: #5b21d3 */
+    
+        /* Hafif gölge, netlik için */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    
+        /* Keskin kenarlar */
         -webkit-font-smoothing: subpixel-antialiased;
         text-rendering: optimizeLegibility;
-        /* Hafif ve keskin gölge, fazla blur yok */
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-        /* GPU hızlandırma, bulanıklığı azaltır */
-        backface-visibility: hidden;
-        transform: translateZ(0);
-        /* Animasyonlar */
-        animation:
-          jumpEffect 2s ease-in-out infinite,
-          gradientShift 4s ease infinite;
     }
+
     
     @keyframes jumpEffect {
         0%,100% { transform: translateY(0); }
