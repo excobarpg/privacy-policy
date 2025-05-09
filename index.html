@@ -351,32 +351,34 @@
         text-transform: uppercase;
         margin: 25px 0 15px;
     
-        /* Animasyon ve gradyanı kapat */
-        animation: none !important;
-        background: none !important;
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
+        /* Sadece jumpEffect animasyonu */
+        animation: jumpEffect 2s ease-in-out infinite;
     
-        /* Sabit koyu turkuaz-mora yakın renk */
-        color: #20c997 !important;  /* Örneğin bu koyu turkuaz tonu */
-        /* İsterseniz doğrudan morumsu bir ton da seçebilirsiniz: #5b21d3 */
+        /* Mor gradyen renk */
+        background: linear-gradient(45deg, #7e22ce, #a855f7, #c084fc);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
     
         /* Hafif gölge, netlik için */
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    
-        /* Keskin kenarlar */
         -webkit-font-smoothing: subpixel-antialiased;
         text-rendering: optimizeLegibility;
+    
+        /* GPU hızlandırmayla bulanıklığı önleyelim */
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+    
+    /* Sadece zıplama tanımı - başka animasyon kalmasın */
+    @keyframes jumpEffect {
+        0%, 100% { transform: translateY(0); }
+        20%      { transform: translateY(-8px); }
+        40%      { transform: translateY(0); }
+        60%      { transform: translateY(-4px); }
+        80%      { transform: translateY(0); }
     }
 
-    
-    @keyframes jumpEffect {
-        0%,100% { transform: translateY(0); }
-        20%     { transform: translateY(-8px); }
-        40%     { transform: translateY(0); }
-        60%     { transform: translateY(-4px); }
-        80%     { transform: translateY(0); }
-    }
     
     @keyframes gradientShift {
         0%   { background-position:   0% 50%; }
