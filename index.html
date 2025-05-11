@@ -412,10 +412,30 @@
         box-shadow:0 8px 22px rgba(0,0,0,.4);
         color: #fff; /* Hoverda renk değişmesin */
     }
-    .custom-align-right {
-      text-align: right;
-      margin-right: 100px; /* veya ihtiyaca göre daha az/çok */
+    .vurguyazisi {
+        display: block; /* inline-block yerine bu olmalı */
+        font-size: 1.1rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 25px 200px 15px auto; /* üst - sağ - alt - sol */
+
+        text-align: right;
+
+        animation: jumpEffect 2s ease-in-out infinite;
+
+        background: linear-gradient(45deg, #0379b0, #0abbda, #78dff1);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        -webkit-font-smoothing: subpixel-antialiased;
+        text-rendering: optimizeLegibility;
+
+        backface-visibility: hidden;
+        transform: translateZ(0);
     }
+
     /* Footer */
     footer {
         background: var(--dark-color);
@@ -944,9 +964,10 @@
         - Etsy üzerinden satın almak istemezseniz whatsapp üzerinden iletişime geçebilirsiniz, Toplu alımlarda indirim uygulanmaktadır.
       </p>
       <!-- Ücretsiz deneme vurgusu -->
-          <p class="free-trial-effect custom-align-right">
+          <p class="vurguyazisi custom-align-right">
             Benim istediğim bunlar değil diyorsan, whatsapp dan bize ulaş, istediğin özel programı geliştirelim
           </p>
+
     </div>
   </section>
 
