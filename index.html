@@ -1,1119 +1,1443 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- ========== Title & Primary Meta Tags ========== -->
-  <title>Express Yazılım - WhatsApp Toplu Mesaj & Gmail Otomatik Mail – Telegram Otomatik Üye Ekleme</title>
-  <meta name="description"
-        content="WhatsApp Express, Mail Express ve ReactExpress ile WhatsApp, Telegram ve Gmail’de hızlı toplu mesaj, otomatik üye ekleme ve detaylı rapor yönetimi.">
-  <meta name="keywords"
-        content="WhatsApp toplu mesaj, Telegram otomatik üye ekleme, Gmail toplu mail, otomatik e-posta gönderme, Excel entegrasyonu">
-  <meta name="robots" content="index,follow">
+    <title>Express Yazılım - WhatsApp Toplu Mesaj & Gmail Otomatik Mail – Telegram Otomatik Üye Ekleme</title>
+    <meta name="description" content="Express Yazılım çözümleriyle WhatsApp Express, Mail Express ve ReactExpress üzerinden WhatsApp, Telegram ve Gmail’de toplu mesaj, otomatik üye ekleme ve raporlama yönetimini zahmetsizce yapın.">
+    <meta name="keywords" content="WhatsApp toplu mesaj, Telegram otomatik üye ekleme, Gmail toplu mail, otomatik e-posta gönderme, Excel entegrasyonu, Express Yazılım">
+    <meta name="robots" content="index,follow">
 
-  <!-- ========== Open Graph / Facebook ========== -->
-  <meta property="og:locale"        content="tr_TR">
-  <meta property="og:site_name"     content="Express Yazılım">
-  <meta property="og:title"
-        content="WhatsApp Toplu Mesaj, Telegram Otomatik Üye Ekleme & Gmail Otomatik Mail – Express Yazılım">
-  <meta property="og:description"
-        content="Express Yazılım çözümleriyle WhatsApp Express, Mail Express ve ReactExpress üzerinden WhatsApp, Telegram ve Gmail’de toplu mesaj ve otomasyon yönetimini zahmetsizce yapın.">
-  <meta property="og:url"           content="https://expressyazilim.com.tr/">
-  <meta property="og:image"         content="https://expressyazilim.com.tr/images/seo-gorsel.jpg">
-  <meta property="og:type"          content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Express Yazılım">
+    <meta property="og:title" content="WhatsApp Toplu Mesaj, Telegram Otomatik Üye Ekleme & Gmail Otomatik Mail – Express Yazılım">
+    <meta property="og:description" content="Express Yazılım çözümleriyle WhatsApp Express, Mail Express ve ReactExpress üzerinden WhatsApp, Telegram ve Gmail’de toplu mesaj ve otomasyon yönetimini zahmetsizce yapın.">
+    <meta property="og:url" content="https://expressyazilim.com.tr/">
+    <meta property="og:image" content="https://expressyazilim.com.tr/images/seo-gorsel.jpg">
+    <meta property="og:type" content="website">
 
-  <!-- ========== Twitter / X Cards ========== -->
-  <meta name="twitter:card"         content="summary_large_image">
-  <meta name="twitter:site"         content="@ExpressYazilim">
-  <meta name="twitter:title"
-        content="WhatsApp Toplu Mesaj, Telegram Otomatik Üye Ekleme & Gmail Otomatik Mail – Express Yazılım">
-  <meta name="twitter:description"
-        content="WhatsApp Express, Mail Express ve ReactExpress ile WhatsApp, Telegram ve Gmail’de toplu mesaj, otomasyon ve raporlama çözümlerimizden faydalanın.">
-  <meta name="twitter:image"        content="https://expressyazilim.com.tr/images/seo-gorsel.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ExpressYazilim">
+    <meta name="twitter:title" content="WhatsApp Toplu Mesaj, Telegram Otomatik Üye Ekleme & Gmail Otomatik Mail – Express Yazılım">
+    <meta name="twitter:description" content="WhatsApp Express, Mail Express ve ReactExpress ile WhatsApp, Telegram ve Gmail’de toplu mesaj, otomasyon ve raporlama çözümlerimizden faydalanın.">
+    <meta name="twitter:image" content="https://expressyazilim.com.tr/images/seo-gorsel.jpg">
 
-  <!-- ========== Canonical & Hreflang ========== -->
-  <link rel="canonical" href="https://expressyazilim.com.tr/">
-  <link rel="alternate" hreflang="tr" href="https://expressyazilim.com.tr/">
-
-  <!-- ========== Structured Data (JSON-LD) ========== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "Express Yazılım",
-        "url": "https://expressyazilim.com.tr/",
-        "logo": "https://expressyazilim.com.tr/images/logo.png",
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "telephone": "+905077048556",
-          "contactType": "sales",
-          "areaServed": "TR",
-          "availableLanguage": ["Turkish"]
-        }],
-        "sameAs": [
-          "https://www.facebook.com/ExpressYazilim",
-          "https://www.instagram.com/ExpressYazilim",
-          "https://twitter.com/ExpressYazilim"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "url": "https://expressyazilim.com.tr/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://expressyazilim.com.tr/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
+    <link rel="canonical" href="https://expressyazilim.com.tr/">
+    <link rel="alternate" hreflang="tr" href="https://expressyazilim.com.tr/">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "name": "Express Yazılım",
+                    "url": "https://expressyazilim.com.tr/",
+                    "logo": "https://expressyazilim.com.tr/images/logo.png",
+                    "contactPoint": [{
+                        "@type": "ContactPoint",
+                        "telephone": "+905077048556",
+                        "contactType": "sales",
+                        "areaServed": "TR",
+                        "availableLanguage": ["Turkish", "English"]
+                    }],
+                    "sameAs": [
+                        "https://www.facebook.com/ExpressYazilim",
+                        "https://www.instagram.com/ExpressYazilim",
+                        "https://twitter.com/ExpressYazilim"
+                        // Add other relevant social media or profile links
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "url": "https://expressyazilim.com.tr/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://expressyazilim.com.tr/?s={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                },
+                // Product Schema for WhatsApp Express Chrome
+                {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "WhatsApp Express Chrome",
+                    "operatingSystem": "Chrome Browser",
+                    "applicationCategory": "Utilities",
+                    "aggregateRating": { // Placeholder, replace with actual ratings if available
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.5",
+                        "reviewCount": "100"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "20",
+                        "priceCurrency": "USD",
+                        "priceValidUntil": "2025-12-31", // Replace with actual date
+                        "availability": "https://schema.org/InStock",
+                        "url": "https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+                    },
+                     "featureList": [
+                        "Bulk message sending",
+                        "Excel/copy-paste import",
+                        "Personalization",
+                        "Detailed reports",
+                        "Scheduling",
+                        "Pause/resume"
+                    ],
+                    "description": "Chrome extension for bulk WhatsApp messaging.",
+                    "screenshot": "https://expressyazilim.com.tr/images/wp.png", // Replace with a relevant screenshot
+                    "softwareHelp": {
+                        "@type": "CreativeWork",
+                        "url": "https://www.youtube.com/embed/ZeHE2UBV52c" // Link to help documentation or video
+                    }
+                },
+                 // Product Schema for Mail Express Chrome
+                {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "Mail Express Chrome",
+                    "operatingSystem": "Chrome Browser",
+                    "applicationCategory": "Utilities",
+                    "aggregateRating": { // Placeholder
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.4",
+                        "reviewCount": "80"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "25",
+                        "priceCurrency": "USD",
+                         "priceValidUntil": "2025-12-31", // Replace
+                        "availability": "https://schema.org/InStock",
+                        "url": "https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
+                    },
+                    "featureList": [
+                        "Bulk email sending from Excel",
+                        "Personalization",
+                        "Scheduling",
+                        "Reporting",
+                        "Gmail interface automation"
+                    ],
+                     "description": "Chrome extension for bulk email sending via Gmail.",
+                    "screenshot": "https://expressyazilim.com.tr/images/mail.png", // Replace
+                    "softwareHelp": {
+                        "@type": "CreativeWork",
+                        "url": "https://www.youtube.com/embed/iqPkjtYOWJI" // Link to help documentation or video
+                    }
+                },
+                // Product Schema for WhatsApp Express Windows
+                {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "WhatsApp Express Windows",
+                    "operatingSystem": "Windows",
+                    "applicationCategory": "Utilities",
+                    "aggregateRating": { // Placeholder
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.7",
+                        "reviewCount": "150"
+                    },
+                     "offers": [ // Use array if multiple offers (e.g., lifetime and monthly)
+                         {
+                             "@type": "Offer",
+                             "name": "Lifetime License",
+                             "price": "100",
+                             "priceCurrency": "USD",
+                             "priceValidUntil": "2025-12-31", // Replace
+                             "availability": "https://schema.org/InStock",
+                             "url": "https://wa.me/905077048556" // Link to purchase point
+                         },
+                         {
+                             "@type": "Offer",
+                             "name": "Monthly License (TRY)",
+                              "price": "420", // Example price in TRY
+                             "priceCurrency": "TRY",
+                             "priceValidUntil": "2025-12-31", // Replace
+                             "availability": "https://schema.org/InStock",
+                             "url": "https://wa.me/905077048556" // Link to purchase point
+                         }
+                     ],
+                     "featureList": [
+                        "Secure desktop sending",
+                        "20 message boxes for spam reduction",
+                        "Image/file attachments",
+                        "Personalization with NAME tag",
+                        "Detailed reporting",
+                        "Lifetime license"
+                    ],
+                    "description": "Windows application for secure bulk WhatsApp messaging.",
+                    "screenshot": "https://expressyazilim.com.tr/images/wp2.png", // Replace
+                    "softwareHelp": {
+                        "@type": "CreativeWork",
+                        "url": "https://www.youtube.com/embed/ZeHE2UBV52c2" // Link to help documentation or video
+                    }
+                },
+                 // Product Schema for Mail Express Windows
+                 {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "Mail Express Windows",
+                    "operatingSystem": "Windows",
+                    "applicationCategory": "Utilities",
+                    "aggregateRating": { // Placeholder
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.6",
+                        "reviewCount": "90"
+                    },
+                     "offers": [ // Use array if multiple offers (e.g., lifetime and monthly)
+                         {
+                             "@type": "Offer",
+                             "name": "Lifetime License",
+                             "price": "200",
+                             "priceCurrency": "USD",
+                             "priceValidUntil": "2025-12-31", // Replace
+                             "availability": "https://schema.org/InStock",
+                             "url": "https://wa.me/905077048556" // Link to purchase point
+                         },
+                         {
+                             "@type": "Offer",
+                             "name": "Monthly License (TRY)",
+                              "price": "750", // Example price in TRY
+                             "priceCurrency": "TRY",
+                             "priceValidUntil": "2025-12-31", // Replace
+                             "availability": "https://schema.org/InStock",
+                             "url": "https://wa.me/905077048556" // Link to purchase point
+                         }
+                     ],
+                     "featureList": [
+                        "Image attachment support",
+                        "Multi-account support",
+                        "Excel import for bulk email",
+                        "Personalization",
+                        "Flexible scheduling",
+                        "Instant reports",
+                        "Gmail interface automation",
+                        "Lifetime license"
+                    ],
+                    "description": "Windows application for bulk email sending with rich features.",
+                    "screenshot": "https://expressyazilim.com.tr/images/mail2.png", // Replace
+                    "softwareHelp": {
+                        "@type": "CreativeWork",
+                        "url": "https://www.youtube.com/embed/pwSx-qkIrKc" // Link to help documentation or video
+                    }
+                },
+                 // Product Schema for ReactExpress
+                 {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "ReactExpress",
+                    "operatingSystem": "Windows", // Assuming Windows based on download link
+                    "applicationCategory": "Utilities", // Or SocialNetworking
+                    "aggregateRating": { // Placeholder
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.8",
+                        "reviewCount": "120"
+                    },
+                    "offers": [ // Use array for lifetime and monthly offers
+                         {
+                            "@type": "Offer",
+                            "name": "Lifetime License",
+                            "price": "500",
+                            "priceCurrency": "USD",
+                             "priceValidUntil": "2025-12-31", // Replace
+                            "availability": "https://schema.org/InStock",
+                            "url": "https://wa.me/905077048556" // Link to purchase point
+                         },
+                          {
+                             "@type": "Offer",
+                             "name": "Monthly License (TRY)",
+                              "price": "1900", // Example price in TRY
+                             "priceCurrency": "TRY",
+                             "priceValidUntil": "2025-12-31", // Replace
+                             "availability": "https://schema.org/InStock",
+                             "url": "https://wa.me/905077048556" // Link to purchase point
+                         }
+                    ],
+                    "featureList": [
+                        "Telegram member scraping (private/public groups)",
+                        "Automatic member adding to target groups",
+                        "Sequential reactions to admin posts",
+                        "Multi-account management",
+                        "Task scheduling",
+                        "User-friendly interface"
+                    ],
+                    "description": "Windows application for Telegram automation tasks.",
+                    "screenshot": "https://expressyazilim.com.tr/images/reactexpress.png", // Replace
+                    "softwareHelp": {
+                        "@type": "CreativeWork",
+                        "url": "https://www.youtube.com/embed/E6h_WVMDU98" // Link to help documentation or video
+                    }
+                }
+                // Add FAQPage schema if you add an FAQ section
+            ]
         }
-      }
-    ]
-  }
-  </script>
+    </script>
 
-  <!-- ========== Favicon ========== -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- ========== Fonts & Icons ========== -->
-  <!-- Montserrat for headings, Inter for body text -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
-  <!-- Bootstrap 5 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
-  <!-- ========== Özel Stil ========== -->
-  <style>
-    :root {
-        --primary-color: #2563eb; /* Blue */
-        --secondary-color: #5b21d3; /* Purple */
-        --success-color: #10b981; /* Green */
-        --danger-color: #e74c3c; /* Red for trial text */
-        --warning-color: #ffcc00; /* Yellow */
-        --info-color: #17a2b8; /* Cyan */
-        --dark-color: #111827; /* Dark */
-        --light-color: #f2f4f8; /* Light Grey */
-        --text-color: #1c1d1f; /* Dark text */
-        --heading-font: 'Montserrat', sans-serif;
-        --body-font: 'Inter', sans-serif;
-    }
-
-    *,*::before,*::after{box-sizing:border-box;}
-    body{
-        font-family:var(--body-font);
-        background:var(--light-color);
-        color:var(--text-color);
-        scroll-behavior:smooth;
-        line-height: 1.6; /* Genel satır aralığı iyileştirmesi */
-        margin: 0;
-        padding: 0;
-    }
-    a{text-decoration:none}
-
-    /* Başlık Fontları */
-    h1, h2, h3, h4, h5, h6, .section-title {
-        font-family: var(--heading-font);
-        color: var(--text-color); /* Başlık rengi */
-    }
-
-    h1{font-size:3rem; font-weight:900;} /* Hero H1 */
-    h2{font-size:2.5rem; font-weight:800;} /* Section Titles */
-    h4{font-size:1.75rem; font-weight:700;} /* Product Titles */
-
-    section{padding:80px 0;scroll-margin-top:80px;}
-    @media (max-width: 767px) {
-        section {
-            padding: 60px 0; /* Mobilde dikey padding azalt */
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Blue */
+            --secondary-color: #5b21d3; /* Purple */
+            --success-color: #10b981; /* Green */
+            --danger-color: #e74c3c; /* Red for trial text */
+            --warning-color: #ffcc00; /* Yellow */
+            --info-color: #17a2b8; /* Cyan */
+            --dark-color: #111827; /* Dark */
+            --light-color: #f2f4f8; /* Light Grey */
+            --text-color: #1c1d1f; /* Dark text */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
         }
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h4 { font-size: 1.5rem; }
-         .section-title { margin-bottom: 30px; } /* Mobilde başlık alt boşluğunu ayarla */
-    }
+
+        *,*::before,*::after{box-sizing:border-box;}
+        body{
+            font-family:var(--body-font);
+            background:var(--light-color);
+            color:var(--text-color);
+            scroll-behavior:smooth;
+            line-height: 1.6; /* Genel satır aralığı iyileştirmesi */
+            margin: 0;
+            padding: 0;
+        }
+        a{text-decoration:none}
+
+        /* Başlık Fontları */
+        h1, h2, h3, h4, h5, h6, .section-title {
+            font-family: var(--heading-font);
+            color: var(--text-color); /* Başlık rengi */
+        }
+
+        h1{font-size:3rem; font-weight:900;} /* Hero H1 */
+        h2{font-size:2.5rem; font-weight:800;} /* Section Titles */
+        h4{font-size:1.75rem; font-weight:700;} /* Product Titles */
+
+        section{padding:80px 0;scroll-margin-top:80px;}
+        @media (max-width: 767px) {
+            section {
+                padding: 60px 0; /* Mobilde dikey padding azalt */
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h4 { font-size: 1.5rem; }
+             .section-title { margin-bottom: 30px; } /* Mobilde başlık alt boşluğunu ayarla */
+        }
 
 
-    .section-title{margin-bottom:40px;text-align:center; color: var(--dark-color);}
+        .section-title{margin-bottom:40px;text-align:center; color: var(--dark-color);}
 
-    /* Navbar */
-    .navbar{background:transparent; transition: background-color 0.3s ease-in-out;}
-    .navbar.scrolled {
-        background: var(--dark-color); /* Scroll olunca koyu arka plan */
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .navbar-brand{font-weight:900;color:#fff; font-family: var(--heading-font);}
-    .nav-link{color:#e5e7eb!important;font-weight:500;margin-left:1rem; transition: color 0.2s ease-in-out;}
-    .nav-link:hover{color:#fff!important;}
-    .navbar-toggler { border-color: rgba(255,255,255,0.1); }
-    .navbar-toggler-icon { filter: brightness(0) invert(1); /* White icon */ }
+        /* Navbar */
+        .navbar{background:transparent; transition: background-color 0.3s ease-in-out;}
+        .navbar.scrolled {
+            background: var(--dark-color); /* Scroll olunca koyu arka plan */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand{font-weight:900;color:#fff; font-family: var(--heading-font);}
+        .nav-link{color:#e5e7eb!important;font-weight:500;margin-left:1rem; transition: color 0.2s ease-in-out;}
+        .nav-link:hover{color:#fff!important;}
+        .navbar-toggler { border-color: rgba(255,255,255,0.1); }
+        .navbar-toggler-icon { filter: brightness(0) invert(1); /* White icon */ }
 
-
-    /* Hero */
-    .hero{background:linear-gradient(135deg,var(--secondary-color),var(--primary-color));color:#fff;padding:150px 20px 120px 20px;text-align:center; position: relative; overflow: hidden;}
-     /* Optional: Add some shapes or pattern for visual interest */
-     .hero::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff" fill-opacity="0.05" d="M-10 0 L110 0 L110 100 L-10 100 Z M-10 0 Q50 100 110 0 Z"></path></svg>'); /* Light wave pattern */
-         background-size: cover;
-         opacity: 0.1;
-         z-index: 1;
-     }
-    .hero .container { z-index: 2; position: relative; } /* İçeriği öne al */
-
-    .hero h1{margin-bottom:25px; text-shadow: 2px 2px 8px rgba(0,0,0,0.2);}
-    .hero p{font-size:1.25rem;max-width:700px;margin:0 auto 40px;opacity:.9; line-height: 1.7;}
-    .btn-cta{
-        padding:14px 34px;
-        font-weight:700; /* Daha kalın font */
-        border-radius:50px;
-        background: #fff;
-        color: var(--primary-color); /* Buton rengi */
-        border: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-     .btn-cta:hover {
-         background: var(--light-color);
-         color: var(--secondary-color);
-         box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-         transform: translateY(-3px);
-     }
-     @media (max-width: 767px) {
-         .hero { padding: 120px 15px 90px 15px; }
-         .hero h1 { font-size: 2.8rem; }
-         .hero p { font-size: 1.1rem; max-width: 90%; }
-     }
+        /* Language Switcher Placeholder */
+        .nav-item .lang-switcher {
+            color: #e5e7eb;
+            margin-left: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 0; /* Align with nav links */
+        }
+         .nav-item .lang-switcher a { color: inherit; text-decoration: none; }
+         .nav-item .lang-switcher a:hover { color: #fff; }
 
 
-    /* Kartlar */
-    .feature-card,
-    .pricing-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:30px;transition:transform .25s ease, box-shadow .25s ease;height:100%; display: flex; flex-direction: column; justify-content: space-between;}
-    .feature-card:hover,
-    .pricing-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(0,0,0,.1);}
-    .pricing-card.featured{border:2px solid var(--success-color); box-shadow: 0 15px 35px rgba(16,185,129,0.2);}
-     .pricing-card h4 { margin-top: 0; margin-bottom: 15px; font-weight: 800;}
-     .pricing-card p { margin-bottom: 15px; flex-grow: 1; } /* Fiyat altı metinleri eşit hizala */
+        /* Hero */
+        .hero{background:linear-gradient(135deg,var(--secondary-color),var(--primary-color));color:#fff;padding:150px 20px 120px 20px;text-align:center; position: relative; overflow: hidden;}
+         /* Optional: Add some shapes or pattern for visual interest */
+         .hero::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23ffffff" fill-opacity="0.05" d="M-10 0 L110 0 L110 100 L-10 100 Z M-10 0 Q50 100 110 0 Z"></path></svg>'); /* Light wave pattern */
+             background-size: cover;
+             opacity: 0.1;
+             z-index: 1;
+         }
+         .hero .container { z-index: 2; position: relative; } /* İçeriği öne al */
 
-    .price{font-size:2.5rem;font-weight:900;color:var(--success-color); margin: 15px 0;}
+        .hero h1{margin-bottom:25px; text-shadow: 2px 2px 8px rgba(0,0,0,0.2);}
+        .hero p{font-size:1.25rem;max-width:700px;margin:0 auto 40px;opacity:.9; line-height: 1.7;}
+        .btn-cta{
+            padding:14px 34px;
+            font-weight:700; /* Daha kalın font */
+            border-radius:50px;
+            background: #fff;
+            color: var(--primary-color); /* Buton rengi */
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+         .btn-cta:hover {
+             background: var(--light-color);
+             color: var(--secondary-color);
+             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+             transform: translateY(-3px);
+         }
+         @media (max-width: 767px) {
+             .hero { padding: 120px 15px 90px 15px; }
+             .hero h1 { font-size: 2.8rem; }
+             .hero p { font-size: 1.1rem; max-width: 90%; }
+         }
 
-    /* İkon */
-    .feature-icon{font-size:2rem;color:var(--primary-color);background:#eef2ff;width:60px;height:60px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);}
-    .feature-card h5 { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; color: var(--dark-color); }
-    .feature-card p { font-size: 1rem; color: #555; }
+
+        /* Kartlar */
+        .feature-card,
+        .pricing-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:30px;transition:transform .25s ease, box-shadow .25s ease;height:100%; display: flex; flex-direction: column; justify-content: space-between;}
+        .feature-card:hover,
+        .pricing-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(0,0,0,.1);}
+        .pricing-card.featured{border:2px solid var(--success-color); box-shadow: 0 15px 35px rgba(16,185,129,0.2);}
+         .pricing-card h4 { margin-top: 0; margin-bottom: 15px; font-weight: 800;}
+         .pricing-card p { margin-bottom: 15px; flex-grow: 1; } /* Fiyat altı metinleri eşit hizala */
+
+        .price{font-size:2.5rem;font-weight:900;color:var(--success-color); margin: 15px 0;}
+
+        /* İkon */
+        .feature-icon{font-size:2rem;color:var(--primary-color);background:#eef2ff;width:60px;height:60px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);}
+        .feature-card h5 { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; color: var(--dark-color); }
+        .feature-card p { font-size: 1rem; color: #555; }
 
 
-    /* Ürün resimleri */
-    .product-img{width:100%;border-radius:12px; height: auto; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
-     /* Mobilde resim altına boşluk ekle */
-     .products .col-md-4,
-     .reactexpress-section .col-md-4 {
-         margin-bottom: 20px;
-     }
-     @media (min-width: 768px) {
+        /* Ürün resimleri */
+        .product-img{width:100%;border-radius:12px; height: auto; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1); loading="lazy";}
+         /* Mobilde resim altına boşluk ekle */
          .products .col-md-4,
          .reactexpress-section .col-md-4 {
-             margin-bottom: 0; /* Desktop'ta boşluğu kaldır */
+             margin-bottom: 20px;
          }
-     }
+         @media (min-width: 768px) {
+             .products .col-md-4,
+             .reactexpress-section .col-md-4 {
+                 margin-bottom: 0; /* Desktop'ta boşluğu kaldır */
+             }
+         }
 
-    /* Ürün Listeleri */
-    .product-list {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 25px; /* Liste altına boşluk */
-    }
-    .product-list li {
-        position: relative;
-        padding-left: 25px; /* İkon için yer */
-        margin-bottom: 12px; /* Satırlar arası boşluk */
-        line-height: 1.6;
-        color: #333; /* Metin rengi */
-    }
-    .product-list li::before {
-        content: "\f00c"; /* FontAwesome check icon */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900; /* Solid icon */
-        position: absolute;
-        left: 0;
-        top: 3px; /* Dikey hizalama */
-        color: var(--success-color); /* İkon rengi */
-        font-size: 1rem;
-    }
-     .product-list li strong {
-         color: var(--text-color); /* Bold metin rengi */
-         font-weight: 700;
-     }
-
-
-    /* Butonlar */
-    .btn-video{
-        display:inline-flex;
-        align-items:center;
-        gap:10px; /* İkon ve metin arası boşluk */
-        background:#ff0000;
-        color:#fff;
-        font-weight:600;
-        border:none;
-        padding:12px 28px;
-        border-radius:50px;
-        box-shadow:0 5px 0 #b30000;
-        transition:all .2s ease;
-        text-transform: uppercase;
-        font-size: 0.95rem;
-    }
-    .btn-video i{font-size:1.25rem;}
-    .btn-video:hover{
-        transform:translateY(-3px);
-        box-shadow:0 8px 0 #b30000;
-        color: #fff; /* Hoverda renk değişmesin */
-    }
-     .btn-video:active {
-         transform: translateY(0);
-         box-shadow: 0 3px 0 #b30000;
-     }
-
-    .btn-install{
-        display:inline-block;
-        background:linear-gradient(to bottom, #ffe600, #ffcc00);
-        color:#333;
-        font-weight:800; /* Kalınlaştır */
-        padding:14px 30px;
-        border-radius:40px;
-        border:none;
-        box-shadow:0 6px #ccaa00; /* Gölge rengi */
-        text-transform:uppercase;
-        transition:all .2s ease;
-        font-size: 1rem;
-    }
-    .btn-install:hover{
-        transform:translateY(-3px);
-        box-shadow:0 9px #ccaa00; /* Gölge derinleşsin */
-        color: #333; /* Hoverda renk değişmesin */
-    }
-     .btn-install:active {
-         transform: translateY(0);
-         box-shadow: 0 4px #ccaa00;
-     }
+        /* Ürün Listeleri */
+        .product-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px; /* Liste altına boşluk */
+        }
+        .product-list li {
+            position: relative;
+            padding-left: 25px; /* İkon için yer */
+            margin-bottom: 12px; /* Satırlar arası boşluk */
+            line-height: 1.6;
+            color: #333; /* Metin rengi */
+        }
+        .product-list li::before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900; /* Solid icon */
+            position: absolute;
+            left: 0;
+            top: 3px; /* Dikey hizalama */
+            color: var(--success-color); /* İkon rengi */
+            font-size: 1rem;
+        }
+         .product-list li strong {
+             color: var(--text-color); /* Bold metin rengi */
+             font-weight: 700;
+         }
 
 
-    /* ReactExpress özel buton */
-    .reactexpress-section .btn-install{
-        background:linear-gradient(to bottom, #4f46e5, #2563eb);
-        color:#fff;
-        box-shadow:0 6px rgba(21,101,192,0.8);
-    }
-    .reactexpress-section .btn-install:hover{
-        background:linear-gradient(to bottom, #4338ca, #1c54b2);
-        box-shadow:0 9px rgba(21,101,192,0.8);
-        color: #fff;
-    }
-     .reactexpress-section .btn-install:active {
-        transform: translateY(0);
-        box-shadow: 0 4px rgba(21,101,192,0.8);
-    }
+        /* Butonlar */
+        .btn-video{
+            display:inline-flex;
+            align-items:center;
+            gap:10px; /* İkon ve metin arası boşluk */
+            background:#ff0000;
+            color:#fff;
+            font-weight:600;
+            border:none;
+            padding:12px 28px;
+            border-radius:50px;
+            box-shadow:0 5px 0 #b30000;
+            transition:all .2s ease;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+             min-height: 48px; /* Ensure minimum touch target size */
+        }
+        .btn-video i{font-size:1.25rem;}
+        .btn-video:hover{
+            transform:translateY(-3px);
+            box-shadow:0 8px 0 #b30000;
+            color: #fff; /* Hoverda renk değişmesin */
+        }
+         .btn-video:active {
+             transform: translateY(0);
+             box-shadow: 0 3px 0 #b30000;
+         }
 
-    /* Fiyat kartı butonları */
-    .pricing-card .btn {
-        font-weight: 600;
-        padding: 10px 25px;
-        border-radius: 30px;
-        margin-top: 20px; /* Kart içeriği ile buton arası boşluk */
-        transition: all 0.3s ease;
-    }
-     .pricing-card .btn-outline-success { color: var(--success-color); border-color: var(--success-color); }
-     .pricing-card .btn-outline-success:hover { background-color: var(--success-color); color: #fff; }
-     .pricing-card .btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
-     .pricing-card .btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
-     .pricing-card .btn-outline-info { color: var(--info-color); border-color: var(--info-color); }
-     .pricing-card .btn-outline-info:hover { background-color: var(--info-color); color: #fff; }
-     .pricing-card .btn-outline-warning { color: var(--warning-color); border-color: var(--warning-color); }
-     .pricing-card .btn-outline-warning:hover { background-color: var(--warning-color); color: #333; } /* Warning hover color changed */
-
-
-    /* Fiyat notu */
-    .pricing-note{font-size:1.125rem;font-weight:600;max-width:1300px;margin:30px auto 0;line-height:1.6; text-align: center; color: #555;}
-
-
-    /* 24 Saatlik Deneme Sürümü Yazısı Efekti */
-    /* ==============================
-   GÜÇLENDİRİLMİŞ FREE TRIAL EFEKTİ
-   ============================== */
-    .free-trial-effect {
-        display: inline-block;
-        font-size: 1.25rem !important;
-        font-weight: 900 !important;
-        text-transform: uppercase;
-        margin: 25px 0 15px;
-    
-        /* Sadece jumpEffect animasyonu */
-        animation: jumpEffect 2s ease-in-out infinite;
-    
-        /* Mor gradyen renk */
-        background: linear-gradient(45deg, #030390, #06489d, #3783f6);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-    
-        /* Hafif gölge, netlik için */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        -webkit-font-smoothing: subpixel-antialiased;
-        text-rendering: optimizeLegibility;
-    
-        /* GPU hızlandırmayla bulanıklığı önleyelim */
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-    
-    /* Sadece zıplama tanımı - başka animasyon kalmasın */
-    @keyframes jumpEffect {
-        0%, 100% { transform: translateY(0); }
-        20%      { transform: translateY(-8px); }
-        40%      { transform: translateY(0); }
-        60%      { transform: translateY(-4px); }
-        80%      { transform: translateY(0); }
-    }
-
-    
-    @keyframes gradientShift {
-        0%   { background-position:   0% 50%; }
-        50%  { background-position: 100% 50%; }
-        100% { background-position:   0% 50%; }
-    }
+        .btn-install{
+            display:inline-block;
+            background:linear-gradient(to bottom, #ffe600, #ffcc00);
+            color:#333;
+            font-weight:800; /* Kalınlaştır */
+            padding:14px 30px;
+            border-radius:40px;
+            border:none;
+            box-shadow:0 6px #ccaa00; /* Gölge rengi */
+            text-transform:uppercase;
+            transition:all .2s ease;
+            font-size: 1rem;
+             min-height: 48px; /* Ensure minimum touch target size */
+        }
+        .btn-install:hover{
+            transform:translateY(-3px);
+            box-shadow:0 9px #ccaa00; /* Gölge derinleşsin */
+            color: #333; /* Hoverda renk değişmesin */
+        }
+         .btn-install:active {
+             transform: translateY(0);
+             box-shadow: 0 4px #ccaa00;
+         }
 
 
+        /* ReactExpress özel buton */
+        .reactexpress-section .btn-install{
+            background:linear-gradient(to bottom, #4f46e5, #2563eb);
+            color:#fff;
+            box-shadow:0 6px rgba(21,101,192,0.8);
+        }
+        .reactexpress-section .btn-install:hover{
+            background:linear-gradient(to bottom, #4338ca, #1c54b2);
+            box-shadow:0 9px rgba(21,101,192,0.8);
+            color: #fff;
+        }
+         .reactexpress-section .btn-install:active {
+             transform: translateY(0);
+             box-shadow: 0 4px rgba(21,101,192,0.8);
+         }
+
+        /* Fiyat kartı butonları */
+        .pricing-card .btn {
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-top: 20px; /* Kart içeriği ile buton arası boşluk */
+            transition: all 0.3s ease;
+            min-height: 48px; /* Ensure minimum touch target size */
+            display: flex; /* Use flex to center content vertically if needed */
+            align-items: center;
+            justify-content: center;
+        }
+         .pricing-card .btn-outline-success { color: var(--success-color); border-color: var(--success-color); }
+         .pricing-card .btn-outline-success:hover { background-color: var(--success-color); color: #fff; }
+         .pricing-card .btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
+         .pricing-card .btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
+         .pricing-card .btn-outline-info { color: var(--info-color); border-color: var(--info-color); }
+         .pricing-card .btn-outline-info:hover { background-color: var(--info-color); color: #fff; }
+         .pricing-card .btn-outline-warning { color: var(--warning-color); border-color: var(--warning-color); }
+         .pricing-card .btn-outline-warning:hover { background-color: var(--warning-color); color: #333; } /* Warning hover color changed */
 
 
-    /* Sabit destek butonu */
-    .support-btn{
-        position:fixed;
-        bottom:24px;
-        right:24px;
-        width:64px;
-        height:64px;
-        border-radius:50%;
-        background:#25d366;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        color:#fff;
-        font-size:1.8rem;
-        box-shadow:0 6px 18px rgba(0,0,0,.3);
-        z-index:1000;
-        transition:transform .2s ease, box-shadow 0.2s ease;
-    }
-    .support-btn:hover{
-        transform:scale(1.1);
-        box-shadow:0 8px 22px rgba(0,0,0,.4);
-        color: #fff; /* Hoverda renk değişmesin */
-    }
-    .vurguyazisi {
-        display: block; /* inline-block yerine bu olmalı */
-        font-size: 1.1rem;
-        font-weight: 900;
-        text-transform: uppercase;
-        margin: 25px 200px 15px auto; /* üst - sağ - alt - sol */
-
-        text-align: right;
-
-        animation: jumpEffect 2s ease-in-out infinite;
-
-        background: linear-gradient(45deg, #0379b0, #0abbda, #78dff1);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        -webkit-font-smoothing: subpixel-antialiased;
-        text-rendering: optimizeLegibility;
-
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-
-    /* Footer */
-    footer {
-        background: var(--dark-color);
-        color: #bbb; /* Daha açık gri metin */
-        padding: 30px 15px;
-        font-size: 0.95rem;
-    }
-    footer p { margin-bottom: 10px; }
-    .privacy-buttons a {
-        color: #bbb;
-        margin: 0 10px;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-     .privacy-buttons a:hover {
-         color: #fff;
-     }
+        /* Fiyat notu */
+        .pricing-note{font-size:1.125rem;font-weight:600;max-width:1300px;margin:30px auto 0;line-height:1.6; text-align: center; color: #555;}
 
 
-    /* Modal Styles */
-    .modal-content.bg-dark { background-color: var(--dark-color) !important; border: none;}
-    .modal-header .btn-close { filter: brightness(0) invert(1); opacity: 0.8; transition: opacity 0.2s ease;}
-     .modal-header .btn-close:hover { opacity: 1; }
-    .modal-content.bg-transparent { background-color: transparent !important;}
-    .modal-dialog-centered img { max-height: 80vh; width: auto; margin: auto;} /* Resimleri dikeyde ortala ve max yüksekliği ayarla */
-     .carousel-control-prev-icon, .carousel-control-next-icon {
-        filter: brightness(0) invert(1); /* Beyaz ikonlar */
-     }
-     .carousel-control-prev, .carousel-control-next {
-        width: 5%; /* Kontrol genişliği */
-     }
+        /* 24 Saatlik Deneme Sürümü Yazısı Efekti */
+        /* ==============================
+        GÜÇLENDİRİLMİŞ FREE TRIAL EFEKTİ
+        ============================== */
+        .free-trial-effect {
+            display: inline-block;
+            font-size: 1.25rem !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+            margin: 25px 0 15px;
+
+            /* Sadece jumpEffect animasyonu */
+            animation: jumpEffect 2s ease-in-out infinite;
+
+            /* Mor gradyen renk */
+            background: linear-gradient(45deg, #030390, #06489d, #3783f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            /* Hafif gölge, netlik için */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-rendering: optimizeLegibility;
+
+            /* GPU hızlandırmayla bulanıklığı önleyelim */
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        /* Sadece zıplama tanımı - başka animasyon kalmasın */
+        @keyframes jumpEffect {
+            0%, 100% { transform: translateY(0); }
+            20%      { transform: translateY(-8px); }
+            40%      { transform: translateY(0); }
+            60%      { transform: translateY(-4px); }
+            80%      { transform: translateY(0); }
+        }
+
+        @keyframes gradientShift {
+            0%   { background-position:   0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position:   0% 50%; }
+        }
 
 
-  </style>
+        /* Sabit destek butonu */
+        .support-btn{
+            position:fixed;
+            bottom:24px;
+            right:24px;
+            width:64px;
+            height:64px;
+            border-radius:50%;
+            background:#25d366;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-size:1.8rem;
+            box-shadow:0 6px 18px rgba(0,0,0,.3);
+            z-index:1000;
+            transition:transform .2s ease, box-shadow 0.2s ease;
+        }
+        .support-btn:hover{
+            transform:scale(1.1);
+            box-shadow:0 8px 22px rgba(0,0,0,.4);
+            color: #fff; /* Hoverda renk değişmesin */
+        }
+        .vurguyazisi {
+            display: block; /* inline-block yerine bu olmalı */
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 25px 200px 15px auto; /* üst - sağ - alt - sol */
 
-  <!-- Google Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-639928453"></script>
-  <script>
-    window.dataLayer = window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date());
-    gtag('config','AW-639928453');
-    function gtag_report_conversion(url){
-      var cb=function(){if(url)window.location=url;};
-      gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY','event_callback':cb});
-      return false;
-    }
-  </script>
+            text-align: right;
+
+            animation: jumpEffect 2s ease-in-out infinite;
+
+            background: linear-gradient(45deg, #0379b0, #0abbda, #78dff1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-rendering: optimizeLegibility;
+
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: #bbb; /* Daha açık gri metin */
+            padding: 30px 15px;
+            font-size: 0.95rem;
+        }
+        footer p { margin-bottom: 10px; }
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+         footer a:hover {
+             color: #fff;
+         }
+         .privacy-buttons a {
+             margin: 0 10px;
+         }
+
+
+        /* Modal Styles */
+        .modal-content.bg-dark { background-color: var(--dark-color) !important; border: none;}
+        .modal-header .btn-close { filter: brightness(0) invert(1); opacity: 0.8; transition: opacity 0.2s ease;}
+         .modal-header .btn-close:hover { opacity: 1; }
+        .modal-content.bg-transparent { background-color: transparent !important;}
+        .modal-dialog-centered img { max-height: 80vh; width: auto; margin: auto; loading="lazy";} /* Resimleri dikeyde ortala ve max yüksekliği ayarla */
+         .carousel-control-prev-icon, .carousel-control-next-icon {
+             filter: brightness(0) invert(1); /* Beyaz ikonlar */
+         }
+         .carousel-control-prev, .carousel-control-next {
+             width: 5%; /* Kontrol genişliği */
+         }
+
+         /* Testimonials/Social Proof Section Placeholder */
+         .testimonials-section {
+             background: var(--primary-color);
+             color: #fff;
+             padding: 60px 0;
+             text-align: center;
+         }
+         .testimonials-section h2 {
+             color: #fff;
+         }
+
+
+         /* Blog Preview Section Placeholder */
+         .blog-preview-section {
+             background: var(--light-color);
+             padding: 80px 0;
+         }
+         .blog-preview-card {
+             background: #fff;
+             border-radius: 8px;
+             overflow: hidden;
+             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+             transition: transform 0.3s ease;
+         }
+         .blog-preview-card:hover {
+             transform: translateY(-5px);
+         }
+         .blog-preview-card img {
+             width: 100%;
+             height: 200px; /* Fixed height for preview images */
+             object-fit: cover;
+              loading="lazy";
+         }
+         .blog-preview-card .card-body {
+             padding: 20px;
+         }
+         .blog-preview-card .card-title {
+             font-size: 1.25rem;
+             font-weight: 700;
+             color: var(--dark-color);
+             margin-bottom: 10px;
+         }
+          .blog-preview-card .card-text {
+             font-size: 0.95rem;
+             color: #555;
+             margin-bottom: 15px;
+          }
+          .blog-preview-card .read-more {
+             color: var(--primary-color);
+             font-weight: 600;
+          }
+
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-639928453"></script>
+    <script>
+        window.dataLayer = window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js',new Date());
+        gtag('config','AW-639928453');
+        function gtag_report_conversion(url){
+            var cb=function(){if(url)window.location=url;};
+            gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY','event_callback':cb});
+            return false;
+        }
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
 
-  <!-- ========== Navbar ========== -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="#">EXPRESS YAZILIM</a>
-      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-              Programlar
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
-              <li><a class="dropdown-item" href="#whatsapp-express-chrome">WhatsApp Express Chrome</a></li>
-              <li><a class="dropdown-item" href="#mail-express-chrome">Mail Express Chrome</a></li>
-              <li><a class="dropdown-item" href="#whatsapp-express-windows">WhatsApp Express Windows</a></li>
-              <li><a class="dropdown-item" href="#mail-express-windows">Mail Express Windows</a></li>
-              <li><a class="dropdown-item" href="#reactexpress">ReactExpress</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
-          <li class="nav-item"><a class="nav-link" href="#pricing">Fiyatlar</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ========== Hero ========== -->
-  <header class="hero" id="hero">
-    <div class="container">
-      <h1>İletişimin En Kolay Haliyle Tanışın</h1>
-      <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
-      
-      <a href="#pricing" class="btn btn-light btn-cta">Fiyatları Gör</a>
-    </div>
-  </header>
-
-  <!-- ========== Features ========== -->
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title">Neden Express Yazılım?</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="feature-card text-center">
-            <div class="feature-icon"><i class="fa fa-bolt"></i></div>
-            <h5>Hızlı Toplu Gönderim</h5>
-            <p>Tek tıkla binlerce WhatsApp mesajı ve e‑posta gönderin.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card text-center">
-            <div class="feature-icon"><i class="fa fa-user-check"></i></div>
-            <h5>Kişiselleştirilmiş İçerik</h5>
-            <p>İsim, şirket ve dinamik alanlarla mesajlarınızı özel hâle getirin.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card text-center">
-            <div class="feature-icon"><i class="fa fa-chart-line"></i></div>
-            <h5>Kontrol Sizde!</h5>
-            <p>Gönderim sürecini duraklatın, devam ettirin ve adım adım izleyin.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Products ========== -->
-  <section id="products">
-    <div class="container">
-      <h2 class="section-title">Ürün Özellikleri</h2>
-
-      <!-- WhatsApp Express CHROME -->
-      <div id="whatsapp-express-chrome" class="row align-items-center mb-5 products">
-        <div class="col-md-4 text-center">
-          <img src="images/wp.png" alt="WhatsApp Express Chrome" class="product-img">
-          <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c">
-            <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
-          </button>
-        </div>
-        <div class="col-md-8">
-          <h4>WhatsApp Express Chrome</h4>
-          <ul class="product-list">
-            <li><strong>Binlerce kişiye sırayla otomatik mesaj gönderimi</strong></li>
-            <li><strong>Excel veya kopyala‑yapıştır yöntemiyle hızlı kişi içe aktarma</strong></li>
-            <li><strong>Alıcılara isimleriyle hitap eden kişiselleştirme</strong></li>
-            <li><strong>Detaylı gönderim raporları ve istatistikler</strong></li>
-            <li><strong>Gönderim aralığı & zamanlama kontrolü</strong></li>
-            <li><strong>Duraklat ve kaldığı yerden devam et</strong></li>
-          </ul>
-          <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
-             class="btn-install mt-4"
-             target="_blank"
-             rel="noopener"
-             onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam');">
-            TARAYICIYA EKLE
-          </a>
-        </div>
-      </div>
-
-      <!-- Mail Express CHROME -->
-      <div id="mail-express-chrome" class="row align-items-center mb-5 products flex-md-row-reverse">
-        <div class="col-md-4 text-center">
-          <img src="images/mail.png" alt="Mail Express Chrome" class="product-img">
-          <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/iqPkjtYOWJI">
-            <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
-          </button>
-        </div>
-        <div class="col-md-8">
-          <h4>Mail Express Chrome</h4>
-          <ul class="product-list">
-            <li><strong>Excel'den içe aktarılan kişilere toplu e‑posta</strong></li>
-            <li><strong>İsimle hitap eden tam kişiselleştirme</strong></li>
-            <li><strong>Zamanlanmış gönderim & duraklatma</strong></li>
-            <li><strong>Başarı/başarısızlık raporlaması</strong></li>
-            <li><strong>Gmail arayüzünde doğal otomasyon</strong></li>
-          </ul>
-          <a href="https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
-             class="btn-install mt-4"
-             target="_blank"
-             rel="noopener"
-             onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba');">
-            TARAYICIYA EKLE
-          </a>
-        </div>
-      </div>
-
-      <!-- WhatsApp Express WINDOWS -->
-      <div id="whatsapp-express-windows" class="row align-items-center mb-5 products">
-        <div class="col-md-4 text-center">
-          <!-- Bu görsel tıklandığında aşağıdaki #imageModal galerisini açar -->
-          <img src="images/wp2.png"
-               alt="WhatsApp Express Windows – Görsel"
-               class="product-img"
-               style="cursor:pointer"
-               data-bs-toggle="modal"
-               data-bs-target="#imageModal">
-
-          <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c2">
-            <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
-          </button>
-        </div>
-        <div class="col-md-8">
-          <h4>WhatsApp Express Windows</h4>
-          <ul class="product-list">
-            <li><strong>Güvenli & stabil masaüstü gönderim</strong></li>
-            <li><strong>20 farklı mesaj kutusu → Spam riskine son, Dolu olan Mesaj kutularından rastgele birini gönderir</strong></li>
-            <li><strong>Resim/dosya ekleme desteği, Mesajlarınızı Daha ilgi çekici hale getirin</strong></li>
-            <li><strong>Kişiselleştirilmiş hitap, NAME etiketi ile her mesaj da Kişinin ismini geçirin</strong></li>
-            <li><strong>Detaylı rapor takibi</strong></li>
-            <li><strong>Ömür boyu lisans – gizli ücret yok</strong></li>
-          </ul>
-          <!-- Ücretsiz deneme vurgusu -->
-          <p class="free-trial-effect">
-            24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
-          </p>
-          <a href="download/whatsapp-express-windows/"
-             class="btn-install mt-4"
-             target="_blank" rel="noopener">
-            PROGRAMI İNDİR
-          </a>
-        </div>
-      </div>
-
-      <!-- Mail Express WINDOWS -->
-     <div id="mail-express-windows" class="row align-items-center mb-5 products flex-md-row-reverse">
-        <div class="col-md-4 text-center">
-          <!-- Bu görsel tıklandığında aşağıdaki #mailImageModal modalını açar -->
-          <img src="images/mail2.png"
-               alt="Mail Express Windows"
-               class="product-img"
-               style="cursor:pointer"
-               data-bs-toggle="modal"
-               data-bs-target="#mailImageModal">
-      
-          <!-- DÜZELTİLEN Nasıl Çalışıyor? BUTONU -->
-          <button class="btn-video mt-4"
-                  data-bs-toggle="modal"
-                  data-bs-target="#videoModal"
-                  data-video="https://www.youtube.com/embed/pwSx-qkIrKc">
-            <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
-          </button>
-        </div>
-        <div class="col-md-8">
-          <h4>Mail Express Windows</h4>
-          <ul class="product-list">
-            <li><strong>Resimli gönderim desteği:</strong> maillerinizi görsel eklerle zenginleştirin</li>
-            <li><strong>Çoklu hesap desteği:</strong> istediğiniz Gmail hesabından toplu gönderim yapın</li>
-            <li><strong>Excel’den içe aktarılan binlerce adrese tek tıkla toplu e-posta</strong></li>
-            <li><strong>Alıcı isimleri ve özel alanlarla %100 kişiselleştirme</strong></li>
-            <li><strong>Esnek zamanlama:</strong> istediğiniz saatte gönderim, kolayca duraklat & devam et</li>
-            <li><strong>Anlık raporlar:</strong> başarı/başarısızlık detaylarını anında görün</li>
-            <li><strong>Gmail arayüzünde doğal otomasyon:</strong> hiçbir ekstra uygulama gerekmez</li>
-            <li><strong>Ömür boyu lisans:</strong> gizli hiçbir ücret yok, bir kez al hep kullan</strong></li>
-          </ul>
-        </div>
-      </div>
-
-          <!-- Ücretsiz deneme vurgusu -->
-          <p class="free-trial-effect">
-            24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
-          </p>
-          <a href="download/mail-express-windows/"
-            class="btn-install mt-4"
-            target="_blank"
-            rel="noopener">
-
-            PROGRAMI İNDİR
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========== ReactExpress Section ========== -->
-  <section class="reactexpress-section" id="reactexpress">
-    <div class="container">
-      <h2 class="section-title">ReactExpress</h2>
-
-      <div class="row align-items-center mb-5">
-        <div class="col-md-4 text-center">
-          <img src="images/reactexpress.png" alt="ReactExpress Programı" class="product-img">
-        </div>
-
-        <div class="col-md-8">
-          <h4>Telegram'da Gücünüzü Katlayın</h4>
-          <ul class="product-list">
-            <li><strong>Gizli ve açık gruplardan hızlı üye çekme</strong></li>
-            <li><strong>Çekilen üyeleri hedef gruplara otomatik ekleme</strong></li>
-            <li><strong>Yönetici gönderilerine sıralı reaksiyon</strong></li>
-            <li><strong>Çoklu hesap yönetimi & görev zamanlama</strong></li>
-            <li><strong>Kullanımı kolay arayüz</strong></li>
-          </ul>
-
-          <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/E6h_WVMDU98">
-            <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
-          </button>
-
-          <!-- Ücretsiz deneme vurgusu -->
-          <p class="free-trial-effect">
-            24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
-          </p>
-
-          <a href="download/reactexpress/"
-             class="btn-install mt-4"
-             target="_blank"
-             rel="noopener">
-            PROGRAMI İNDİR
-          </a>
-        </div>
-      </div>
-
-      <!-- Fiyat Kartı -->
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="pricing-card featured text-center p-4">
-            <h4 class="fw-bold">ReactExpress Ömürlük</h4>
-            <p class="price display-5 my-3 text-success">$500</p>
-            <p class="mb-4">Tek seferlik ödeme – sonsuza dek kullanım</p>
-            <a href="https://wa.me/905077048556"
-               class="btn btn-outline-success rounded-pill w-100 py-2 mb-3"
-               target="_blank"
-               rel="noopener">
-              Satın Al
-            </a>
-      
-            <!-- AYLIK PAKETLER BUTONU -->
-            <button class="btn btn-outline-success rounded-pill w-100 py-2"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#monthlyPackages"
-                    aria-expanded="false"
-                    aria-controls="monthlyPackages">
-              <strong>AYLIK PAKETLER</strong>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#">EXPRESS YAZILIM</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-      
-            <!-- AÇILABİLİR İÇERİK -->
-            <div class="collapse mt-3 text-start" id="monthlyPackages">
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">1 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">1900 ₺</span>
-                </li>
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">3 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">4000 ₺</span>
-                </li>
-                <li>
-                  <span class="fw-bold fs-5">6 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">6000 ₺</span>
-                </li>
-              </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Programlar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="#whatsapp-express-chrome">WhatsApp Express Chrome</a></li>
+                            <li><a class="dropdown-item" href="#mail-express-chrome">Mail Express Chrome</a></li>
+                            <li><a class="dropdown-item" href="#whatsapp-express-windows">WhatsApp Express Windows</a></li>
+                            <li><a class="dropdown-item" href="#mail-express-windows">Mail Express Windows</a></li>
+                            <li><a class="dropdown-item" href="#reactexpress">ReactExpress</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Neden Biz?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Fiyatlar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item">
+                         <div class="nav-link lang-switcher">
+                             TR | <a href="#">EN</a>
+                         </div>
+                     </li>
+                </ul>
             </div>
-            <!-- /AYLIK PAKETLER -->
-          </div>
         </div>
-      </div>
+    </nav>
 
+    <header class="hero" id="hero">
+        <div class="container">
+            <h1>İletişimin En Kolay Haliyle Tanışın</h1>
+            <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
+            <a href="#pricing" class="btn btn-light btn-cta" onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC'});">Fiyatları Gör</a>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Neden Express Yazılım?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon"><i class="fa fa-bolt"></i></div>
+                        <h5>Hızlı Toplu Gönderim</h5>
+                        <p>Tek tıkla binlerce WhatsApp mesajı ve e‑posta gönderin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon"><i class="fa fa-user-check"></i></div>
+                        <h5>Kişiselleştirilmiş İçerik</h5>
+                        <p>İsim, şirket ve dinamik alanlarla mesajlarınızı özel hâle getirin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon"><i class="fa fa-chart-line"></i></div>
+                        <h5>Kontrol Sizde!</h5>
+                        <p>Gönderim sürecini duraklatın, devam ettirin ve adım adım izleyin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="testimonials-section">
+         <div class="container">
+             <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                 <div class="carousel-inner">
+                     <div class="carousel-item active">
+                         <p class="lead">"Express Yazılım sayesinde iletişim süreçlerimiz hızlandı ve müşterilerimizle daha etkili etkileşim kurabiliyoruz."</p>
+                         <p class="author">- Firma Adı Örneği A.Ş.</p>
+                     </div>
+                     <div class="carousel-item">
+                          <p class="lead">"Kişiselleştirme özelliği işimizi çok kolaylaştırdı. Her mesaja özel hissettirmek harika!"</p>
+                         <p class="author">- Marka Adı Örneği</p>
+                     </div>
+                      </div>
+                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                 </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                 </button>
+             </div>
+             <div class="row justify-content-center mt-5">
+                  <div class="col-2"><img src="images/placeholder-logo1.png" alt="Customer Logo" class="img-fluid opacity-75" loading="lazy"></div>
+                  <div class="col-2"><img src="images/placeholder-logo2.png" alt="Customer Logo" class="img-fluid opacity-75" loading="lazy"></div>
+                   <div class="col-2"><img src="images/placeholder-logo3.png" alt="Customer Logo" class="img-fluid opacity-75" loading="lazy"></div>
+                  </div>
+         </div>
+     </section> -->
+
+
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Ürün Özellikleri</h2>
+
+            <div id="whatsapp-express-chrome" class="row align-items-center mb-5 products">
+                <div class="col-md-4 text-center">
+                    <img src="images/wp.png" alt="WhatsApp Express Chrome" class="product-img" loading="lazy">
+                    <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c">
+                        <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h4>WhatsApp Express Chrome</h4>
+                    <ul class="product-list">
+                        <li><strong>Binlerce kişiye sırayla otomatik mesaj gönderimi</strong></li>
+                        <li><strong>Excel veya kopyala‑yapıştır yöntemiyle hızlı kişi içe aktırma</strong></li>
+                        <li><strong>Alıcılara isimleriyle hitap eden kişiselleştirme</strong></li>
+                        <li><strong>Detaylı gönderim raporları ve istatistikler</strong></li>
+                        <li><strong>Gönderim aralığı & zamanlama kontrolü</strong></li>
+                        <li><strong>Duraklat ve kaldığı yerden devam et</strong></li>
+                    </ul>
+                    <a href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+                       class="btn-install mt-4"
+                       target="_blank"
+                       rel="noopener"
+                       onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam');">
+                        TARAYICIYA EKLE
+                    </a>
+                </div>
+            </div>
+
+            <div id="mail-express-chrome" class="row align-items-center mb-5 products flex-md-row-reverse">
+                <div class="col-md-4 text-center">
+                    <img src="images/mail.png" alt="Mail Express Chrome" class="product-img" loading="lazy">
+                    <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/iqPkjtYOWJI">
+                        <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h4>Mail Express Chrome</h4>
+                    <ul class="product-list">
+                        <li><strong>Excel'den içe aktarılan kişilere toplu e‑posta</strong></li>
+                        <li><strong>İsimle hitap eden tam kişiselleştirme</strong></li>
+                        <li><strong>Zamanlanmış gönderim & duraklatma</strong></li>
+                        <li><strong>Başarı/başarısızlık raporlaması</strong></li>
+                        <li><strong>Gmail arayüzünde doğal otomasyon</strong></li>
+                    </ul>
+                    <a href="https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
+                       class="btn-install mt-4"
+                       target="_blank"
+                       rel="noopener"
+                       onclick="return gtag_report_conversion('https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba');">
+                        TARAYICIYA EKLE
+                    </a>
+                </div>
+            </div>
+
+            <div id="whatsapp-express-windows" class="row align-items-center mb-5 products">
+                <div class="col-md-4 text-center">
+                    <img src="images/wp2.png"
+                         alt="WhatsApp Express Windows – Görsel"
+                         class="product-img"
+                         loading="lazy"
+                         style="cursor:pointer"
+                         data-bs-toggle="modal"
+                         data-bs-target="#imageModal">
+
+                    <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/ZeHE2UBV52c2">
+                        <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h4>WhatsApp Express Windows</h4>
+                    <ul class="product-list">
+                        <li><strong>Güvenli & stabil masaüstü gönderim</strong></li>
+                        <li><strong>20 farklı mesaj kutusu → Spam riskine son, Dolu olan Mesaj kutularından rastgele birini gönderir</strong></li>
+                        <li><strong>Resim/dosya ekleme desteği, Mesajlarınızı Daha ilgi çekici hale getirin</strong></li>
+                        <li><strong>Kişiselleştirilmiş hitap, NAME etiketi ile her mesaj da Kişinin ismini geçirin</strong></li>
+                        <li><strong>Detaylı rapor takibi</strong></li>
+                        <li><strong>Ömür boyu lisans – gizli ücret yok</strong></li>
+                    </ul>
+                    <p class="free-trial-effect">
+                        24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
+                    </p>
+                    <a href="download/whatsapp-express-windows/"
+                       class="btn-install mt-4"
+                       target="_blank" rel="noopener">
+                        PROGRAMI İNDİR
+                    </a>
+                </div>
+            </div>
+
+            <div id="mail-express-windows" class="row align-items-center mb-5 products flex-md-row-reverse">
+                <div class="col-md-4 text-center">
+                    <img src="images/mail2.png"
+                         alt="Mail Express Windows"
+                         class="product-img"
+                         loading="lazy"
+                         style="cursor:pointer"
+                         data-bs-toggle="modal"
+                         data-bs-target="#mailImageModal">
+
+                    <button class="btn-video mt-4"
+                            data-bs-toggle="modal"
+                            data-bs-target="#videoModal"
+                            data-video="https://www.youtube.com/embed/pwSx-qkIrKc">
+                        <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h4>Mail Express Windows</h4>
+                    <ul class="product-list">
+                        <li><strong>Resimli gönderim desteği:</strong> maillerinizi görsel eklerle zenginleştirin</li>
+                        <li><strong>Çoklu hesap desteği:</strong> istediğiniz Gmail hesabından toplu gönderim yapın</li>
+                        <li><strong>Excel’den içe aktarılan binlerce adrese tek tıkla toplu e-posta</strong></li>
+                        <li><strong>Alıcı isimleri ve özel alanlarla %100 kişiselleştirme</strong></li>
+                        <li><strong>Esnek zamanlama:</strong> istediğiniz saatte gönderim, kolayca duraklat & devam et</li>
+                        <li><strong>Anlık raporlar:</strong> başarı/başarısızlık detaylarını anında görün</li>
+                        <li><strong>Gmail arayüzünde doğal otomasyon:</strong> hiçbir ekstra uygulama gerekmez</li>
+                        <li><strong>Ömür boyu lisans:</strong> gizli hiçbir ücret yok, bir kez al hep kullan</strong></li>
+                    </ul>
+                     <p class="free-trial-effect">
+                         24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
+                     </p>
+                     <a href="download/mail-express-windows/"
+                        class="btn-install mt-4"
+                        target="_blank"
+                        rel="noopener">
+                         PROGRAMI İNDİR
+                     </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reactexpress-section" id="reactexpress">
+        <div class="container">
+            <h2 class="section-title">ReactExpress</h2>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-md-4 text-center">
+                    <img src="images/reactexpress.png" alt="ReactExpress Programı" class="product-img" loading="lazy">
+                </div>
+
+                <div class="col-md-8">
+                    <h4>Telegram'da Gücünüzü Katlayın</h4>
+                    <ul class="product-list">
+                        <li><strong>Gizli ve açık gruplardan hızlı üye çekme</strong></li>
+                        <li><strong>Çekilen üyeleri hedef gruplara otomatik ekleme</strong></li>
+                        <li><strong>Yönetici gönderilerine sıralı reaksiyon</strong></li>
+                        <li><strong>Çoklu hesap yönetimi & görev zamanlama</strong></li>
+                        <li><strong>Kullanımı kolay arayüz</strong></li>
+                    </ul>
+
+                    <button class="btn-video mt-4" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/E6h_WVMDU98">
+                        <i class="fab fa-youtube"></i> Nasıl Çalışıyor?
+                    </button>
+
+                    <p class="free-trial-effect">
+                        24 SAATLİK DENEME SÜRÜMÜ ÜCRETSİZ
+                    </p>
+
+                    <a href="download/reactexpress/"
+                       class="btn-install mt-4"
+                       target="_blank"
+                       rel="noopener">
+                        PROGRAMI İNDİR
+                    </a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="pricing-card featured text-center p-4">
+                        <h4 class="fw-bold">ReactExpress Ömürlük Lisans</h4>
+                        <p class="price display-5 my-3 text-success">$500</p>
+                        <p class="mb-4">Tek seferlik ödeme – sonsuza dek kullanım</p>
+                        <a href="https://wa.me/905077048556"
+                           class="btn btn-outline-success rounded-pill w-100 py-2 mb-3"
+                           target="_blank"
+                           rel="noopener"
+                           onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':500.0,'currency':'USD'});"> Satın Al (WhatsApp)
+                        </a>
+
+                        <button class="btn btn-outline-success rounded-pill w-100 py-2"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#monthlyPackages"
+                                aria-expanded="false"
+                                aria-controls="monthlyPackages">
+                            <strong>AYLIK PAKETLER (₺)</strong>
+                        </button>
+
+                        <div class="collapse mt-3 text-start" id="monthlyPackages">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">1 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">1900 ₺</span>
+                                </li>
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">3 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">4000 ₺</span>
+                                </li>
+                                <li>
+                                    <span class="fw-bold fs-5">6 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">6000 ₺</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pricing" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">FİYATLAR</h2>
+            <div class="row g-4 justify-content-center"> <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="pricing-card text-center p-4 h-100"
+                         style="border:2px solid #0ac34e;
+                                 box-shadow:0 6px 12px rgba(4, 238, 8, 0.2);
+                                 border-radius:12px;">
+                        <h4 class="fw-bold">WhatsApp Express Windows</h4>
+                         <p class="price my-3">$100</p>
+                        <p>Lifetime License</p>
+                        <a
+                            href="https://wa.me/905077048556"
+                            class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':100.0,'currency':'USD'});" >
+                            Satın Al (WhatsApp)
+                        </a>
+
+                        <button
+                            class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#whatsappMonthlyPackages"
+                            aria-expanded="false"
+                            aria-controls="whatsappMonthlyPackages"
+                        >
+                            <strong>AYLIK PAKETLER (₺)</strong>
+                        </button>
+
+                        <div class="collapse mt-3 text-start" id="whatsappMonthlyPackages">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">1 Ay:</span>
+                                    <span class="fw-bold fs-5 text-primary">420 ₺</span>
+                                </li>
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">3 Ay:</span>
+                                    <span class="fw-bold fs-5 text-primary">990 ₺</span>
+                                </li>
+                                <li>
+                                    <span class="fw-bold fs-5">6 Ay:</span>
+                                    <span class="fw-bold fs-5 text-primary">1800 ₺</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                </div>
+
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="pricing-card text-center p-4 h-100"
+                         style="border:2px solid #17A2B8;
+                                 box-shadow:0 6px 12px rgba(23,162,184,0.2);
+                                 border-radius:12px;">
+                        <h4>WhatsApp Express Chrome</h4>
+                         <p class="price my-3">$20</p>
+                        <p>Lifetime License</p>
+                        <a
+                            href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+                            class="btn btn-outline-info mt-auto"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':20.0,'currency':'USD'});" >
+                            Satın Al (Chrome Web Store)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="pricing-card text-center p-4 h-100"
+                         style="border:2px solid #FFC107;
+                                 box-shadow:0 6px 12px rgba(255,193,7,0.2);
+                                 border-radius:12px;">
+                        <h4>Mail Express Chrome</h4>
+                         <p class="price my-3">$25</p>
+                        <p>Lifetime License</p>
+                        <a
+                            href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1"
+                            class="btn btn-outline-warning mt-auto"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':25.0,'currency':'USD'});" >
+                            Satın Al (Etsy)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="pricing-card text-center p-4 h-100"
+                         style="border:2px solid #28A745;
+                                 box-shadow:0 6px 12px rgba(40,167,69,0.2);
+                                 border-radius:12px;">
+                        <h4 class="fw-bold">Mail Express Windows</h4>
+                        <p class="price my-3">$200</p>
+                        <p>Lifetime License</p>
+                        <a
+                            href="https://wa.me/905077048556"
+                            class="btn btn-outline-success rounded-pill w-100 py-2 mt-3"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':200.0,'currency':'USD'});" >
+                            Satın Al (WhatsApp)
+                        </a>
+
+                        <button
+                            class="btn btn-outline-success rounded-pill w-100 py-2 mt-3"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#mailMonthlyPackages"
+                            aria-expanded="false"
+                            aria-controls="mailMonthlyPackages"
+                        >
+                            <strong>AYLIK PAKETLER (₺)</strong>
+                        </button>
+
+                        <div class="collapse mt-3 text-start" id="mailMonthlyPackages">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">1 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">750 ₺</span>
+                                </li>
+                                <li class="mb-2">
+                                    <span class="fw-bold fs-5">3 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">1900 ₺</span>
+                                </li>
+                                <li>
+                                    <span class="fw-bold fs-5">6 Ay:</span>
+                                    <span class="fw-bold fs-5 text-success">3200 ₺</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                </div>
+
+
+            </div>
+
+
+            <p class="pricing-note">
+                - **Ömürlük Lisanslar:** Tek seferlik ödeme ile ömür boyu kullanım hakkı ve tüm güncellemelerden ücretsiz faydalanma imkanı sunar. Fiyatlar USD ($) olarak belirtilmiştir.
+            </p>
+            <p class="pricing-note">
+                - **Aylık Paketler:** Belirtilen fiyatlar Türk Lirası (₺) cinsindendir. Aylık lisanslar, bütçenize ve ihtiyacınıza göre tercih edilebilir ve istenirse ömürlük lisansa çevrilebilir.
+            </p>
+            <p class="pricing-note">
+                - Etsy üzerinden satın almak istemiyorsanız veya toplu alımlar için indirim talebinde bulunmak istiyorsanız, lütfen <a href="https://wa.me/905077048556" target="_blank" rel="noopener noreferrer">WhatsApp</a> üzerinden iletişime geçin.
+            </p>
+             <p class="pricing-note">
+                 - Fiyatlar döviz kuruna bağlı olarak güncellenebilir. Güncel kurlar için lütfen bizimle iletişime geçin.
+             </p>
+            <p class="vurguyazisi custom-align-right">
+                 Benim istediğim bunlar değil diyorsan, whatsapp dan bize ulaş, istediğin özel programı geliştirelim
+             </p>
+
+        </div>
+    </section>
+
+     <section class="blog-preview-section" id="blog">
+         <div class="container">
+             <h2 class="section-title">Son Blog Yazıları</h2>
+             <div class="row g-4">
+                 <div class="col-md-4">
+                     <div class="blog-preview-card">
+                         <img src="images/blog-placeholder1.jpg" alt="Blog Post Title Placeholder" loading="lazy">
+                         <div class="card-body">
+                             <h5 class="card-title">WhatsApp Toplu Mesaj Gönderirken Dikkat Edilmesi Gerekenler</h5>
+                             <p class="card-text">Toplu mesaj gönderiminde spam'den kaçınmak ve etkileşim oranını artırmak için ipuçları...</p>
+                             <a href="blog.html#blog-post-1" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="col-md-4">
+                     <div class="blog-preview-card">
+                         <img src="images/blog-placeholder2.jpg" alt="Blog Post Title Placeholder" loading="lazy">
+                         <div class="card-body">
+                             <h5 class="card-title">Gmail Gönderim Limitleri ve Mail Express ile Çözümler</h5>
+                             <p class="card-text">Günlük Gmail gönderim limitleri hakkında bilgi ve Mail Express'in sağladığı avantajlar...</p>
+                             <a href="blog.html#blog-post-2" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="col-md-4">
+                     <div class="blog-preview-card">
+                         <img src="images/blog-placeholder3.jpg" alt="Blog Post Title Placeholder" loading="lazy">
+                         <div class="card-body">
+                             <h5 class="card-title">Telegram Gruplarından Üye Çekme Yasal mı?</h5>
+                             <p class="card-text">ReactExpress kullanırken dikkat edilmesi gereken yasal uyumluluklar ve öneriler...</p>
+                             <a href="blog.html#blog-post-3" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </div>
+                 </div>
+                 </div>
+              <div class="text-center mt-5">
+                  <a href="blog.html" class="btn btn-outline-primary btn-lg rounded-pill">Tüm Blog Yazıları</a>
+              </div>
+         </div>
+     </section>
+
+
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- ========== Pricing ========== -->
-  <section id="pricing" class="bg-light">
-    <div class="container">
-      <h2 class="section-title">FİYATLAR</h2>
-      <div class="row g-4 justify-content-center"> <!-- Kartları ortala -->
-
-        <!-- WhatsApp Express Windows -->
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="pricing-card text-center p-4 h-100"
-              style="border:2px solid #0ac34e;
-                      box-shadow:0 6px 12px rgba(4, 238, 8, 0.2);
-                      border-radius:12px;">
-            <h4 class="fw-bold">WhatsApp Express Windows</h4>
-            <p class="price my-3">$100</p>
-            <p>Lifetime License</p>
-            <a
-              href="https://wa.me/905077048556"
-              class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3"
-              target="_blank"
-              rel="noopener noreferrer"
-              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
-            >
-              Satın Al
-            </a>
-
-            <!-- AYLIK PAKETLER BUTONU -->
-            <button
-              class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#whatsappMonthlyPackages"
-              aria-expanded="false"
-              aria-controls="whatsappMonthlyPackages"
-            >
-              <strong>AYLIK PAKETLER</strong>
-            </button>
-
-            <!-- AÇILABİLİR PAKET LİSTESİ -->
-            <div class="collapse mt-3 text-start" id="whatsappMonthlyPackages">
-              <ul class="list-unstyled mb-0">
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">1 Ay:</span>
-                  <span class="fw-bold fs-5 text-primary">420 ₺</span>
-                </li>
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">3 Ay:</span>
-                  <span class="fw-bold fs-5 text-primary">990 ₺</span>
-                </li>
-                <li>
-                  <span class="fw-bold fs-5">6 Ay:</span>
-                  <span class="fw-bold fs-5 text-primary">1800 ₺</span>
-                </li>
-              </ul>
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0 p-0">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/wp2.png"
+                                 alt="WhatsApp Express Windows – Görsel 1"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/wp3.png"
+                                 alt="WhatsApp Express Windows – Görsel 2"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/wp4.png"
+                                 alt="WhatsApp Express Windows – Görsel 3"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/wp5.png"
+                                 alt="WhatsApp Express Windows – Görsel 4"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                        </div>
+                         <div class="carousel-item">
+                            <img src="images/wp6.png"
+                                 alt="WhatsApp Express Windows – Görsel 5"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                         </div>
+                         <div class="carousel-item">
+                            <img src="images/wp7.png"
+                                 alt="WhatsApp Express Windows – Görsel 6"
+                                 class="d-block w-100 rounded shadow"
+                                 loading="lazy">
+                         </div>
+                        </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#productCarousel"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Önceki</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#productCarousel"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Sonraki</span>
+                    </button>
+                </div>
             </div>
-            <!-- /AYLIK PAKETLER -->
-
-          </div>
-        </div>
-
-
-        <!-- WhatsApp Express Chrome -->
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="pricing-card text-center p-4 h-100"
-               style="border:2px solid #17A2B8;
-                      box-shadow:0 6px 12px rgba(23,162,184,0.2);
-                      border-radius:12px;">
-            <h4>WhatsApp Express Chrome</h4>
-            <p class="price my-3">$20</p>
-            <p>Lifetime License</p>
-            <a
-              href="https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
-              class="btn btn-outline-info mt-auto"
-              target="_blank"
-              rel="noopener noreferrer"
-              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
-            >
-              Satın Al
-            </a>
-          </div>
-        </div>
-
-        <!-- Mail Express Chrome -->
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="pricing-card text-center p-4 h-100"
-               style="border:2px solid #FFC107;
-                      box-shadow:0 6px 12px rgba(255,193,7,0.2);
-                      border-radius:12px;">
-            <h4>Mail Express Chrome</h4>
-            <p class="price my-3">$25</p>
-            <p>Lifetime License</p>
-            <a
-              href="https://www.etsy.com/listing/1892654737/gmail-chrome-extension-bulk-email-sender?ref=shop_home_active_1"
-              class="btn btn-outline-warning mt-auto"
-              target="_blank"
-              rel="noopener noreferrer"
-              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
-            >
-              Satın Al
-            </a>
-          </div>
-        </div>
-
-        <!-- Mail Express Windows -->
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="pricing-card text-center p-4 h-100"
-              style="border:2px solid #28A745;
-                      box-shadow:0 6px 12px rgba(40,167,69,0.2);
-                      border-radius:12px;">
-            <h4 class="fw-bold">Mail Express Windows</h4>
-            <p class="price my-3">$200</p>
-            <p>Lifetime License</p>
-            <a
-              href="https://wa.me/905077048556"
-              class="btn btn-outline-success rounded-pill w-100 py-2 mt-3"
-              target="_blank"
-              rel="noopener noreferrer"
-              onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':1.0,'currency':'TRY'});"
-            >
-              Satın Al
-            </a>
-
-            <!-- AYLIK PAKETLER BUTONU -->
-            <button
-              class="btn btn-outline-success rounded-pill w-100 py-2 mt-3"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#mailMonthlyPackages"
-              aria-expanded="false"
-              aria-controls="mailMonthlyPackages"
-            >
-              <strong>AYLIK PAKETLER</strong>
-            </button>
-
-            <!-- AÇILABİLİR PAKET LİSTESİ -->
-            <div class="collapse mt-3 text-start" id="mailMonthlyPackages">
-              <ul class="list-unstyled mb-0">
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">1 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">750 ₺</span>
-                </li>
-                <li class="mb-2">
-                  <span class="fw-bold fs-5">3 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">1900 ₺</span>
-                </li>
-                <li>
-                  <span class="fw-bold fs-5">6 Ay:</span>
-                  <span class="fw-bold fs-5 text-success">3200 ₺</span>
-                </li>
-              </ul>
-            </div>
-            <!-- /AYLIK PAKETLER -->
-
-          </div>
-        </div>
-
-
-      </div>
-
-      
-
-      <p class="pricing-note">
-        - Ömürlük Lisans Alan Müşterilerimiz tek seferlik ödeme ile ömür boyu kullanım hakkı elde eder ve tüm güncellemelerden ücretsiz faydalanır.
-      </p>
-      <p class="pricing-note">
-        - Aylık paketi olan uygulamalarımızda bütçenize ve iş stratejinize göre uygun olan paketi seçerek alacağınız lisansla aktif edip kullanmaya başlayabilirsiniz. 
-        Aylık lisanslar, İstenirse ömürlük lisansa çevrilebilir
-      </p>
-      <p class="pricing-note">
-        - Etsy üzerinden satın almak istemezseniz whatsapp üzerinden iletişime geçebilirsiniz, Toplu alımlarda indirim uygulanmaktadır.
-      </p>
-      <!-- Ücretsiz deneme vurgusu -->
-          <p class="vurguyazisi custom-align-right">
-            Benim istediğim bunlar değil diyorsan, whatsapp dan bize ulaş, istediğin özel programı geliştirelim
-          </p>
-
-    </div>
-  </section>
-
-  <!-- ========== Modals (Global Definitions) ========== -->
-
-  <!-- Video Modal -->
-  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content bg-dark">
-        <div class="modal-header border-0">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <div class="ratio ratio-16x9">
-            <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WhatsApp Express Windows Image Gallery Modal -->
-  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-transparent border-0 p-0">
-        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <!-- İlk gösterilecek resim -->
-            <div class="carousel-item active">
-              <img src="images/wp2.png"
-                   alt="WhatsApp Express Windows – Görsel 1"
-                   class="d-block w-100 rounded shadow">
-            </div>
-            <!-- Galeriye ekleyeceğiniz diğer resimler -->
-            <div class="carousel-item">
-              <img src="images/wp3.png"
-                   alt="WhatsApp Express Windows – Görsel 2"
-                   class="d-block w-100 rounded shadow">
-            </div>
-            <div class="carousel-item">
-              <img src="images/wp4.png"
-                   alt="WhatsApp Express Windows – Görsel 3"
-                   class="d-block w-100 rounded shadow">
-            </div>
-            <div class="carousel-item">
-              <img src="images/wp5.png"
-                   alt="WhatsApp Express Windows – Görsel 4"
-                   class="d-block w-100 rounded shadow">
-            </div>
-             <div class="carousel-item">
-              <img src="images/wp6.png"
-                   alt="WhatsApp Express Windows – Görsel 5"
-                   class="d-block w-100 rounded shadow">
-            </div>
-             <div class="carousel-item">
-              <img src="images/wp7.png"
-                   alt="WhatsApp Express Windows – Görsel 6"
-                   class="d-block w-100 rounded shadow">
-            </div>
-            <!-- Daha fazlasını eklemeye devam edin -->
-          </div>
-          <!-- Geri butonu -->
-          <button class="carousel-control-prev" type="button"
-                  data-bs-target="#productCarousel"
-                  data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Önceki</span>
-          </button>
-          <!-- İleri butonu -->
-          <button class="carousel-control-next" type="button"
-                  data-bs-target="#productCarousel"
-                  data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Sonraki</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mail Express Windows Single Image Modal -->
-  <div class="modal fade" id="mailImageModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-transparent border-0">
-        <img src="images/mail2.png"
-             alt="Mail Express Windows – Büyütülmüş Görsel"
-             class="img-fluid rounded shadow">
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ========== Footer ========== -->
-  <footer>
-    <div class="container">
-        <p class="mb-1">© 2025 EXPRESS Yazılım</p>
-        <div class="privacy-buttons">
-          <a href="privacy.html" target="_blank">WhatsApp Privacy</a>
-          <a href="mail_express_privacy.html" target="_blank">Mail Express Privacy</a>
         </div>
     </div>
-  </footer>
 
-  <!-- ========== Floating Support ========== -->
-  <a href="https://wa.me/905077048556" class="support-btn" onclick="return gtag_report_conversion('https://wa.me/905077048556');">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <div class="modal fade" id="mailImageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <img src="images/mail2.png"
+                     alt="Mail Express Windows – Büyütülmüş Görsel"
+                     class="img-fluid rounded shadow"
+                     loading="lazy">
+            </div>
+        </div>
+    </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    /* Video Modal */
-    document.querySelectorAll('.btn-video').forEach(btn=>{
-      btn.addEventListener('click',e=>{
-        document.getElementById('videoFrame').src=e.currentTarget.dataset.video+'?autoplay=1&rel=0';
-      });
-    });
-    document.getElementById('videoModal').addEventListener('hidden.bs.modal',()=>{document.getElementById('videoFrame').src='';});
 
-    /* Navbar autohide on click (mobil) */
-    document.querySelectorAll('.nav-link').forEach(link=>{
-        // Dropdown toggle tıklamalarını hariç tut
-        if (!link.classList.contains('dropdown-toggle')) {
-            link.addEventListener('click',()=>{
-                const navCollapse=document.querySelector('.navbar-collapse');
-                if(navCollapse.classList.contains('show'))new bootstrap.Collapse(navCollapse).hide();
+    <footer>
+        <div class="container text-center">
+             <p class="mb-1">© 2025 EXPRESS Yazılım</p>
+             <div class="privacy-buttons">
+                 <a href="kullanim-kosullari.html" target="_blank">Kullanım Koşulları</a> |
+                 <a href="privacy.html" target="_blank">WhatsApp Gizlilik</a> |
+                 <a href="mail_express_privacy.html" target="_blank">Mail Express Gizlilik</a>
+             </div>
+             <p class="mt-3 mb-0" style="font-size: 0.85rem; color: #999;">
+                 Ürünlerimiz, ilgili platformların (WhatsApp, Telegram, Gmail) Hizmet Şartları'na uyumluluk prensibiyle geliştirilmiştir. Yine de, toplu gönderim ve otomasyon faaliyetlerinizden doğabilecek tüm sorumluluk kullanıcıya aittir. Lütfen kullanmadan önce ilgili platformların kurallarını inceleyiniz.
+             </p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905077048556" class="support-btn" target="_blank" rel="noopener noreferrer" onclick="return gtag_report_conversion('https://wa.me/905077048556');">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* Video Modal */
+        document.querySelectorAll('.btn-video').forEach(btn=>{
+            btn.addEventListener('click',e=>{
+                const videoUrl = e.currentTarget.dataset.video;
+                // Basic check if it's a valid youtube URL format before embedding
+                if(videoUrl && videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                     // Extract YouTube ID from various formats
+                     let videoId = videoUrl.split('v=')[1] || videoUrl.split('/').pop();
+                     const ampersandPosition = videoId ? videoId.indexOf('&') : -1;
+                     if (ampersandPosition != -1) {
+                         videoId = videoId.substring(0, ampersandPosition);
+                     }
+                    document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                } else {
+                     // Fallback or error handling if the URL is not YouTube
+                     console.error("Invalid or non-YouTube video URL:", videoUrl);
+                      document.getElementById('videoFrame').src = ''; // Clear iframe on error
+                     alert("Video yüklenemedi."); // Inform user
+                }
+            });
+        });
+        // Stop video when modal is closed
+        document.getElementById('videoModal').addEventListener('hidden.bs.modal',()=>{document.getElementById('videoFrame').src='';});
+
+        /* Navbar autohide on click (mobil) */
+        document.querySelectorAll('.nav-link').forEach(link=>{
+            // Exclude dropdown toggles from hiding the navbar
+            if (!link.classList.contains('dropdown-toggle')) {
+                link.addEventListener('click',()=>{
+                    const navCollapse=document.querySelector('.navbar-collapse');
+                    if(navCollapse.classList.contains('show'))new bootstrap.Collapse(navCollapse).hide();
+                });
+            }
+        });
+
+        /* Navbar background change on scroll */
+        const mainNav = document.getElementById('mainNav');
+        if (mainNav) {
+            // Initial check on page load
+             if (window.scrollY > 60) {
+                 mainNav.classList.add('scrolled');
+             } else {
+                 mainNav.classList.remove('scrolled');
+             }
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > 60) { // Change background after scrolling 60px down
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
             });
         }
-    });
 
-    /* Navbar background change on scroll */
-    const mainNav = document.getElementById('mainNav');
-    if (mainNav) {
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > 60) { // Change background after scrolling 60px down
-                mainNav.classList.add('scrolled');
-            } else {
-                mainNav.classList.remove('scrolled');
-            }
-             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For later use if needed (e.g. hide on scroll down)
-        });
-    }
+         // Example for Placeholder Image conversion note:
+         console.log("Note: Images are using loading='lazy'. Consider converting images to WebP format for better performance.");
 
+         // Example for Placeholder CSS/JS minification note:
+         console.log("Note: For production, consider minifying CSS and JavaScript files and inlining critical CSS.");
 
-  </script>
+    </script>
 </body>
 </html>
