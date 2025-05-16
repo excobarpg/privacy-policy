@@ -734,16 +734,28 @@
 
     </style>
 
-    <script>
-      gtag('config','AW-16955228230');
-    </script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
+    <!-- Google tag (gtag.js) yüklemesi ve konfigürasyon -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16955228230"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16955228230');
+  </script>
 
-     gtag('config', 'AW-16955228230');
-   </script>
+  <!-- Dönüşüm raporlama fonksiyonu -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function() { if (url) window.location = url; };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-16955228230/3ahMCMj3_rsaEIWRkrEC',
+        'value': 1.0,
+        'currency': 'TRY',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" tabindex="0">
@@ -787,7 +799,7 @@
         <div class="container">
             <h1>İletişimin En Kolay Haliyle Tanışın</h1>
             <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
-            <a href="#pricing" class="btn btn-light btn-cta" onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC'});">Fiyatları Gör</a>
+            <a href="#pricing" class="btn btn-light btn-cta" onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC'});">Fiyatları Gör</a>
         </div>
     </header>
 
@@ -1034,7 +1046,7 @@
                            class="btn btn-outline-success rounded-pill w-100 py-2 mb-3"
                            target="_blank"
                            rel="noopener"
-                           onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':500.0,'currency':'USD'});"> Satın Al (WhatsApp)
+                           onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC','value':500.0,'currency':'USD'});"> Satın Al (WhatsApp)
                         </a>
 
                         <button class="btn btn-outline-success rounded-pill w-100 py-2"
@@ -1085,7 +1097,7 @@
                             class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':100.0,'currency':'USD'});" >
+                            onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC','value':100.0,'currency':'USD'});" >
                             Satın Al (WhatsApp)
                         </a>
 
@@ -1133,7 +1145,7 @@
                             class="btn btn-outline-info mt-auto"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':20.0,'currency':'USD'});" >
+                            onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC','value':20.0,'currency':'USD'});" >
                             Satın Al (Chrome Web Store)
                         </a>
                     </div>
@@ -1152,7 +1164,7 @@
                             class="btn btn-outline-warning mt-auto"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':25.0,'currency':'USD'});" >
+                            onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC','value':25.0,'currency':'USD'});" >
                             Satın Al (Etsy)
                         </a>
                     </div>
@@ -1171,7 +1183,7 @@
                             class="btn btn-outline-success rounded-pill w-100 py-2 mt-3"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onclick="gtag('event','conversion',{'send_to':'AW-639928453/3ahMCMj3_rsaEIWRkrEC','value':200.0,'currency':'USD'});" >
+                            onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC','value':200.0,'currency':'USD'});" >
                             Satın Al (WhatsApp)
                         </a>
 
