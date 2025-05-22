@@ -1455,110 +1455,104 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-    // Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
-    document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
-    const urunId = prod.id;               // Örn. "whatsapp-express-chrome" veya "reactexpress"
-    const col8   = prod.querySelector('.col-md-8');
-    if (!col8) return;
+    // 1️⃣ API taban URL’si
+    const API = 'https://yorum.expressyazilim.com.tr';
 
-    // Yorum bölümü + "Yorum Yap" butonu + form HTML’i
-    const yorumHtml = `
+    // 2️⃣ Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
+    document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
+        const urunId = prod.id;               // Örn. "whatsapp-express-chrome" veya "reactexpress"
+        const col8   = prod.querySelector('.col-md-8');
+        if (!col8) return;
+
+        // Yorum bölümü + "Yorum Yap" butonu + form HTML’i
+        const yorumHtml = `
         <div class="yorum-section mt-4">
-        <button class="btn btn-outline-secondary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#comments-${urunId}">
+            <button class="btn btn-outline-secondary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#comments-${urunId}">
             Yorumları Göster (<span id="avg-rating-${urunId}">0</span>⭐)
-        </button>
-        <div class="collapse mt-2" id="comments-${urunId}">
+            </button>
+            <div class="collapse mt-2" id="comments-${urunId}">
             <div id="comments-list-${urunId}">
-            <p>Henüz yorum yok.</p>
+                <p>Henüz yorum yok.</p>
             </div>
 
             <!-- Yorum Yap Butonu -->
             <button class="btn btn-outline-primary btn-sm mt-2"
                     id="btn-yap-${urunId}">
-            Yorum Yap
+                Yorum Yap
             </button>
 
             <!-- Yorum Formu (başlangıçta gizli) -->
             <div class="collapse mt-2" id="form-${urunId}">
-            <form id="yorum-form-${urunId}">
+                <form id="yorum-form-${urunId}">
                 <div class="mb-2">
-                <input type="text" class="form-control" name="isim" placeholder="Adınız" required>
+                    <input type="text" class="form-control" name="isim" placeholder="Adınız" required>
                 </div>
                 <div class="mb-2">
-                <input type="text" class="form-control" name="meslek" placeholder="Mesleğiniz (isteğe bağlı)">
+                    <input type="text" class="form-control" name="meslek" placeholder="Mesleğiniz (isteğe bağlı)">
                 </div>
                 <div class="mb-2">
-                <textarea class="form-control" name="yorum" rows="3" placeholder="Yorumunuz..." required></textarea>
+                    <textarea class="form-control" name="yorum" rows="3" placeholder="Yorumunuz..." required></textarea>
                 </div>
                 <div class="mb-2">
-                <select class="form-control" name="yildiz" required>
+                    <select class="form-control" name="yildiz" required>
                     <option value="">Puan seçin</option>
                     <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
                     <option value="4">⭐️⭐️⭐️⭐️</option>
                     <option value="3">⭐️⭐️⭐️</option>
                     <option value="2">⭐️⭐️</option>
                     <option value="1">⭐️</option>
-                </select>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">Gönder</button>
-            </form>
-            <div id="msg-${urunId}" class="mt-2 text-success" style="display:none;">
+                </form>
+                <div id="msg-${urunId}" class="mt-2 text-success" style="display:none;">
                 Yorumunuz inceleniyor, en kısa sürede yayınlanacak.
+                </div>
             </div>
             </div>
-        </div>
         </div>`;
+        col8.insertAdjacentHTML('beforeend', yorumHtml);
 
-    // Ürünün .col-md-8 bloğunun sonuna ekle
-    col8.insertAdjacentHTML('beforeend', yorumHtml);
-
-    // Collapse açıldığında yorumları çek / ortalamayı güncelle
-    prod.querySelector(`button[data-bs-target="#comments-${urunId}"]`)
+        // 3️⃣ “Yorumları Göster” tuşuna tıklayınca çek / ortalama güncelle
+        prod.querySelector(`button[data-bs-target="#comments-${urunId}"]`)
         .addEventListener('click', () => {
-        const avgEl  = document.getElementById(`avg-rating-${urunId}`);
-        const listEl = document.getElementById(`comments-list-${urunId}`);
-        fetch(`https://expressyazilim.com.tr/comments/get?urun_id=${urunId}`)
+            const avgEl  = document.getElementById(`avg-rating-${urunId}`);
+            const listEl = document.getElementById(`comments-list-${urunId}`);
+            fetch(`${API}/comments/get?urun_id=${urunId}`)
             .then(r => r.json())
             .then(yorumlar => {
-            if (!yorumlar.length) {
+                if (!yorumlar.length) {
                 avgEl.textContent = '0';
                 listEl.innerHTML = '<p>Henüz yorum yok.</p>';
                 return;
-            }
-            const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
-            avgEl.textContent = (toplam / yorumlar.length).toFixed(1);
-            listEl.innerHTML = yorumlar.map(y => `
+                }
+                const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
+                avgEl.textContent = (toplam / yorumlar.length).toFixed(1);
+                listEl.innerHTML = yorumlar.map(y => `
                 <div class="border-bottom pb-2 mb-2">
-                <strong>${y.isim}</strong> — ${'⭐'.repeat(y.yildiz)}<br>
-                ${y.yorum}<br>
-                <small class="text-muted">${y.tarih}</small>
+                    <strong>${y.isim}</strong> — ${'⭐'.repeat(y.yildiz)}<br>
+                    ${y.yorum}<br>
+                    <small class="text-muted">${y.tarih}</small>
                 </div>
-            `).join('');
+                `).join('');
             })
             .catch(console.error);
         });
 
-    // "Yorum Yap" butonuna tıklandığında formu aç/kapa
-    const yapBtn = document.getElementById(`btn-yap-${urunId}`);
-    yapBtn.addEventListener('click', () => {
-        const formCollapse = new bootstrap.Collapse(
-        document.getElementById(`form-${urunId}`),
-        { toggle: true }
-        );
-    });
+        // 4️⃣ “Yorum Yap” butonuyla formu göster/gizle
+        const yapBtn = document.getElementById(`btn-yap-${urunId}`);
+        yapBtn.addEventListener('click', () => {
+        new bootstrap.Collapse(document.getElementById(`form-${urunId}`), { toggle: true });
+        });
 
-    // Form gönderildiğinde basit onay mesajı göster
-    const form = document.getElementById(`yorum-form-${urunId}`);
-    form.addEventListener('submit', ev => {
-        ev.preventDefault();
+        // 5️⃣ Form submit: tek listener, API’ye POST, sonra mesaj göster
+        const form = document.getElementById(`yorum-form-${urunId}`);
         form.addEventListener('submit', async ev => {
         ev.preventDefault();
-
         const fd = new FormData(form);
         const body = {
             urun_id: urunId,
@@ -1567,29 +1561,25 @@
             yorum:   fd.get('yorum'),
             yildiz:  fd.get('yildiz')
         };
-
         try {
-            const res = await fetch('https://expressyazilim.com.tr/comments/add', {
+            const res = await fetch(`${API}/comments/add`, {
             method: 'POST',
             headers: { 'Content-Type':'application/json' },
             body: JSON.stringify(body)
             });
             if (!res.ok) throw new Error(await res.text());
-
+            // başarılıysa
             form.style.display = 'none';
             yapBtn.style.display = 'none';
             document.getElementById(`msg-${urunId}`).style.display = 'block';
         } catch (err) {
-            alert('Gönderilemedi: ' + err);
+            alert('Yorum gönderilemedi: ' + err.message);
         }
         });
-
-        form.style.display = 'none';
-        yapBtn.style.display = 'none';
-        document.getElementById(`msg-${urunId}`).style.display = 'block';
-    });
     });
     </script>
+
+    
 
 
 </body>
