@@ -1522,7 +1522,7 @@
         .addEventListener('click', () => {
         const avgEl  = document.getElementById(`avg-rating-${urunId}`);
         const listEl = document.getElementById(`comments-list-${urunId}`);
-        fetch(`http://localhost:5000/yorumlari-getir?urun_id=${urunId}`)
+        fetch(`https://expressyazilim.com.tr/comments/get?urun_id=${urunId}`)
             .then(r => r.json())
             .then(yorumlar => {
             if (!yorumlar.length) {
@@ -1556,7 +1556,34 @@
     const form = document.getElementById(`yorum-form-${urunId}`);
     form.addEventListener('submit', ev => {
         ev.preventDefault();
-        // TODO: Burada ileride fetch ile Flask API'ye POST edilecek
+        form.addEventListener('submit', async ev => {
+        ev.preventDefault();
+
+        const fd = new FormData(form);
+        const body = {
+            urun_id: urunId,
+            isim:    fd.get('isim'),
+            meslek:  fd.get('meslek'),
+            yorum:   fd.get('yorum'),
+            yildiz:  fd.get('yildiz')
+        };
+
+        try {
+            const res = await fetch('https://expressyazilim.com.tr/comments/add', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json' },
+            body: JSON.stringify(body)
+            });
+            if (!res.ok) throw new Error(await res.text());
+
+            form.style.display = 'none';
+            yapBtn.style.display = 'none';
+            document.getElementById(`msg-${urunId}`).style.display = 'block';
+        } catch (err) {
+            alert('Gönderilemedi: ' + err);
+        }
+        });
+
         form.style.display = 'none';
         yapBtn.style.display = 'none';
         document.getElementById(`msg-${urunId}`).style.display = 'block';
