@@ -343,7 +343,7 @@
         .nav-link:hover{color:#fff!important;}
         .navbar-toggler { border-color: rgba(255,255,255,0.1); }
         .navbar-toggler-icon { filter: brightness(0) invert(1); /* White icon */ }
-
+        
         /* Language Switcher Placeholder */
         .nav-item .lang-switcher {
             color: #e5e7eb;
@@ -1384,7 +1384,9 @@
              </p>
         </div>
     </footer>
-
+    <style>
+    .yorum-section { border-top: 1px solid #ddd; padding-top: 1rem; }
+    </style>
     <a href="https://wa.me/905077048556" class="support-btn" target="_blank" rel="noopener noreferrer" onclick="return gtag_report_conversion('https://wa.me/905077048556');">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -1452,5 +1454,116 @@
          console.log("Note: For production, consider minifying CSS and JavaScript files and inlining critical CSS.");
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
+    document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
+    const urunId = prod.id;               // Örn. "whatsapp-express-chrome" veya "reactexpress"
+    const col8   = prod.querySelector('.col-md-8');
+    if (!col8) return;
+
+    // Yorum bölümü + "Yorum Yap" butonu + form HTML’i
+    const yorumHtml = `
+        <div class="yorum-section mt-4">
+        <button class="btn btn-outline-secondary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#comments-${urunId}">
+            Yorumları Göster (<span id="avg-rating-${urunId}">0</span>⭐)
+        </button>
+        <div class="collapse mt-2" id="comments-${urunId}">
+            <div id="comments-list-${urunId}">
+            <p>Henüz yorum yok.</p>
+            </div>
+
+            <!-- Yorum Yap Butonu -->
+            <button class="btn btn-outline-primary btn-sm mt-2"
+                    id="btn-yap-${urunId}">
+            Yorum Yap
+            </button>
+
+            <!-- Yorum Formu (başlangıçta gizli) -->
+            <div class="collapse mt-2" id="form-${urunId}">
+            <form id="yorum-form-${urunId}">
+                <div class="mb-2">
+                <input type="text" class="form-control" name="isim" placeholder="Adınız" required>
+                </div>
+                <div class="mb-2">
+                <input type="text" class="form-control" name="meslek" placeholder="Mesleğiniz (isteğe bağlı)">
+                </div>
+                <div class="mb-2">
+                <textarea class="form-control" name="yorum" rows="3" placeholder="Yorumunuz..." required></textarea>
+                </div>
+                <div class="mb-2">
+                <select class="form-control" name="yildiz" required>
+                    <option value="">Puan seçin</option>
+                    <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+                    <option value="4">⭐️⭐️⭐️⭐️</option>
+                    <option value="3">⭐️⭐️⭐️</option>
+                    <option value="2">⭐️⭐️</option>
+                    <option value="1">⭐️</option>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Gönder</button>
+            </form>
+            <div id="msg-${urunId}" class="mt-2 text-success" style="display:none;">
+                Yorumunuz inceleniyor, en kısa sürede yayınlanacak.
+            </div>
+            </div>
+        </div>
+        </div>`;
+
+    // Ürünün .col-md-8 bloğunun sonuna ekle
+    col8.insertAdjacentHTML('beforeend', yorumHtml);
+
+    // Collapse açıldığında yorumları çek / ortalamayı güncelle
+    prod.querySelector(`button[data-bs-target="#comments-${urunId}"]`)
+        .addEventListener('click', () => {
+        const avgEl  = document.getElementById(`avg-rating-${urunId}`);
+        const listEl = document.getElementById(`comments-list-${urunId}`);
+        fetch(`http://localhost:5000/yorumlari-getir?urun_id=${urunId}`)
+            .then(r => r.json())
+            .then(yorumlar => {
+            if (!yorumlar.length) {
+                avgEl.textContent = '0';
+                listEl.innerHTML = '<p>Henüz yorum yok.</p>';
+                return;
+            }
+            const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
+            avgEl.textContent = (toplam / yorumlar.length).toFixed(1);
+            listEl.innerHTML = yorumlar.map(y => `
+                <div class="border-bottom pb-2 mb-2">
+                <strong>${y.isim}</strong> — ${'⭐'.repeat(y.yildiz)}<br>
+                ${y.yorum}<br>
+                <small class="text-muted">${y.tarih}</small>
+                </div>
+            `).join('');
+            })
+            .catch(console.error);
+        });
+
+    // "Yorum Yap" butonuna tıklandığında formu aç/kapa
+    const yapBtn = document.getElementById(`btn-yap-${urunId}`);
+    yapBtn.addEventListener('click', () => {
+        const formCollapse = new bootstrap.Collapse(
+        document.getElementById(`form-${urunId}`),
+        { toggle: true }
+        );
+    });
+
+    // Form gönderildiğinde basit onay mesajı göster
+    const form = document.getElementById(`yorum-form-${urunId}`);
+    form.addEventListener('submit', ev => {
+        ev.preventDefault();
+        // TODO: Burada ileride fetch ile Flask API'ye POST edilecek
+        form.style.display = 'none';
+        yapBtn.style.display = 'none';
+        document.getElementById(`msg-${urunId}`).style.display = 'block';
+    });
+    });
+    </script>
+
+
 </body>
 </html>
