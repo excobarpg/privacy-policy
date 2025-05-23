@@ -1914,172 +1914,185 @@
             }
 
 
-            // --- Yorum Sistemi (comments.js içeriği) ---
+            // comments.js — Yorum Sistemi
 
-            // API taban URL’si
-            const API = 'https://yorum.expressyazilim.com.tr'; // Bu URL'nin gerçek bir API servisiniz olmasına dikkat edin
-
-            // Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
-            document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
-                const urunId = prod.id;
-                const col8   = prod.querySelector('.col-md-8');
-                if (!col8) return;
-
-                const yorumHtml = `
-                <div class="yorum-section mt-4">
-                    <button class="yorum-toggle-btn" type="button" aria-expanded="false" aria-controls="comments-${urunId}">
-                    <span class="btn-text">Yorumları Göster</span>
-                    <span class="star-wrapper">
-                        (<span id="avg-rating-${urunId}" class="avg-rating">0</span><span class="star">★</span>)
-                    </span>
+            const API = 'https://yorum.expressyazilim.com.tr';
+            
+            document.addEventListener('DOMContentLoaded', () => {
+              document.querySelectorAll('.products[id], .reactexpress-section[id]')
+                .forEach(prod => {
+                  const urunId = prod.id;
+                  const col8   = prod.querySelector('.col-md-8');
+                  if (!col8) return;
+            
+                  // 1️⃣ Yorum bölümü + form HTML’ini ekle
+                  const yorumHtml = `
+                  <div class="yorum-section mt-4">
+                    <button
+                      class="yorum-toggle-btn btn btn-primary"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="comments-${urunId}">
+                      <span class="btn-text">Yorumları Göster</span>
+                      (<span id="avg-rating-${urunId}" class="avg-rating">0</span>★)
                     </button>
                     <div class="collapse mt-2" id="comments-${urunId}">
-                    <div id="comments-list-${urunId}">
-                        <p>Yorumlar yükleniyor...</p>
-                    </div>
-
-                    <button class="btn btn-outline-primary btn-sm mt-2" id="btn-yap-${urunId}" type="button" aria-expanded="false" aria-controls="form-${urunId}">
+                      <div id="comments-list-${urunId}">
+                        <p>Yorumlar yükleniyor…</p>
+                      </div>
+                      <button
+                        class="btn btn-outline-primary btn-sm mt-2"
+                        id="btn-yap-${urunId}"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="form-${urunId}">
                         Yorum Yap
-                    </button>
-
-                    <div class="collapse mt-2" id="form-${urunId}">
+                      </button>
+                      <div class="collapse mt-2" id="form-${urunId}">
                         <form id="yorum-form-${urunId}">
-                        <div class="mb-2">
-                            <input type="text" class="form-control" name="isim" placeholder="Adınız" required aria-label="Adınız">
-                        </div>
-                        <div class="mb-2">
-                            <input type="text" class="form-control" name="meslek" placeholder="Mesleğiniz (isteğe bağlı)" aria-label="Mesleğiniz (isteğe bağlı)">
-                        </div>
-                        <div class="mb-2">
-                            <textarea class="form-control" name="yorum" rows="3" placeholder="Yorumunuz..." required aria-label="Yorumunuz"></textarea>
-                        </div>
-                        <div class="mb-2">
-                            <select class="form-control" name="yildiz" required aria-label="Puan seçin">
-                            <option value="">Puan seçin</option>
-                            <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
-                            <option value="4">⭐️⭐️⭐️⭐️</option>
-                            <option value="3">⭐️⭐️⭐️</option>
-                            <option value="2">⭐️⭐️</option>
-                            <option value="1">⭐️</option>
+                          <div class="mb-2">
+                            <input
+                              type="text"
+                              name="isim"
+                              class="form-control"
+                              placeholder="Adınız"
+                              required>
+                          </div>
+                          <div class="mb-2">
+                            <input
+                              type="text"
+                              name="meslek"
+                              class="form-control"
+                              placeholder="Mesleğiniz (isteğe bağlı)">
+                          </div>
+                          <div class="mb-2">
+                            <textarea
+                              name="yorum"
+                              class="form-control"
+                              rows="3"
+                              placeholder="Yorumunuz..."
+                              required></textarea>
+                          </div>
+                          <div class="mb-2">
+                            <select
+                              name="yildiz"
+                              class="form-control"
+                              required>
+                              <option value="">Puan seçin</option>
+                              <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+                              <option value="4">⭐️⭐️⭐️⭐️</option>
+                              <option value="3">⭐️⭐️⭐️</option>
+                              <option value="2">⭐️⭐️</option>
+                              <option value="1">⭐️</option>
                             </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Gönder</button>
+                          </div>
+                          <button type="submit" class="btn btn-primary btn-sm">Gönder</button>
                         </form>
-                        <div id="msg-${urunId}" class="mt-2 text-success" style="display:none;" role="status" aria-live="polite">
-                        Yorumunuz inceleniyor, en kısa sürede yayınlanacak.
+                        <div
+                          id="msg-${urunId}"
+                          class="mt-2 text-success"
+                          style="display:none;"
+                          role="status"
+                          aria-live="polite">
+                          Yorumunuz inceleniyor, en kısa sürede yayınlanacak.
                         </div>
+                      </div>
                     </div>
-                    </div>
-                </div>`;
-                col8.insertAdjacentHTML('beforeend', yorumHtml);
-
-                const collapseEl = document.getElementById(`comments-${urunId}`);
-                collapseEl.addEventListener('show.bs.collapse', () => {
-                    const avgEl = document.getElementById(`avg-rating-${urunId}`);
-                    const listEl = document.getElementById(`comments-list-${urunId}`);
-                    listEl.innerHTML = '<p>Yorumlar yükleniyor...</p>';
-                    fetch(`${API}/comments/get?urun_id=${urunId}`)
-                        .then(r => {
-                            if (!r.ok) {
-                                throw new Error(`API hatası: ${r.statusText}`);
-                            }
-                            return r.json();
-                        })
-                        .then(yorumlar => {
-                            if (!yorumlar || yorumlar.length === 0) {
-                                avgEl.textContent = '0';
-                                listEl.innerHTML = '<p>Bu ürün için henüz yorum yok. İlk yorumu siz yapın!</p>';
-                                return;
-                            }
-                            const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
-                            avgEl.textContent = (toplam / yorumlar.length).toFixed(1);
-                            listEl.innerHTML = yorumlar.map(y => `
-                                <div class="border-bottom pb-2 mb-2">
-                                <strong>${y.isim}</strong>${y.meslek ? ` <small class="text-muted">(${y.meslek})</small>` : ''} — ${'⭐'.repeat(y.yildiz)}<br>
-                                ${y.yorum}<br>
-                                <small class="text-muted">${new Date(y.tarih).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
-                                </div>
-                            `).join('');
-                        })
-                        .catch(error => {
-                            console.error('Yorumlar yüklenirken hata oluştu:', error);
-                            listEl.innerHTML = `<p class="text-danger">Yorumlar yüklenemedi. Lütfen daha sonra tekrar deneyin. (${error.message})</p>`;
-                            avgEl.textContent = '0';
-                        });
-                });
-
-                const yapBtn = document.getElementById(`btn-yap-${urunId}`);
-                const formCollapse = document.getElementById(`form-${urunId}`);
-                const bsFormCollapse = new bootstrap.Collapse(formCollapse, { toggle: false });
-
-                yapBtn.addEventListener('click', () => {
-                    bsFormCollapse.toggle();
-                    if (formCollapse.classList.contains('collapsing')) {
-                        formCollapse.addEventListener('shown.bs.collapse', () => {
-                            formCollapse.querySelector('input[name="isim"]').focus();
-                        }, { once: true });
-                    }
-                });
-
-                const form = document.getElementById(`yorum-form-${urunId}`);
-                form.addEventListener('submit', async ev => {
-                    ev.preventDefault();
-                    const fd = new FormData(form);
-                    const body = {
-                        urun_id: urunId,
-                        isim:    fd.get('isim'),
-                        meslek:  fd.get('meslek'),
-                        yorum:   fd.get('yorum'),
-                        yildiz:  parseInt(fd.get('yildiz'), 10)
-                    };
-
-                    if (!body.isim || !body.yorum || !body.yildiz) {
-                        alert('Lütfen adınızı, yorumunuzu ve puanınızı girin.');
-                        return;
-                    }
-                    if (isNaN(body.yildiz) || body.yildiz < 1 || body.yildiz > 5) {
-                        alert('Lütfen geçerli bir puan seçin (1-5 arası).');
-                        return;
-                    }
-
-                    try {
-                        const res = await fetch(`${API}/comments/add`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(body)
-                        });
-
-                        if (!res.ok) {
-                            const errorText = await res.text();
-                            throw new Error(`Sunucu hatası: ${errorText}`);
-                        }
-                        bsFormCollapse.hide();
-                        yapBtn.style.display = 'none';
-                        document.getElementById(`msg-${urunId}`).style.display = 'block';
-                        form.reset();
-
-                    } catch (err) {
-                        alert('Yorum gönderilemedi: ' + err.message);
-                        console.error('Yorum gönderme hatası:', err);
-                    }
-                });
-
-                const toggleBtn = prod.querySelector('.yorum-toggle-btn');
-                const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-
-                toggleBtn.addEventListener('click', () => {
-                    bsCollapse.toggle();
-                });
-
-                collapseEl.addEventListener('shown.bs.collapse', () => {
+                  </div>`;
+            
+                  col8.insertAdjacentHTML('beforeend', yorumHtml);
+            
+                  // 2️⃣ Sayfa yüklendiğinde ortalama yıldızı çekip göster
+                  const avgEl = document.getElementById(`avg-rating-${urunId}`);
+                  fetch(`${API}/comments/get?urun_id=${urunId}`)
+                    .then(res => res.ok ? res.json() : Promise.reject(res.statusText))
+                    .then(yorumlar => {
+                      const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
+                      avgEl.textContent = yorumlar.length
+                        ? (toplam / yorumlar.length).toFixed(1)
+                        : '0';
+                    })
+                    .catch(() => {
+                      avgEl.textContent = '0';
+                    });
+            
+                  // 3️⃣ “Yorumları Göster” collapse ve buton metni
+                  const commentsCollapse = document.getElementById(`comments-${urunId}`);
+                  const bsCommentsCollapse = new bootstrap.Collapse(commentsCollapse, { toggle: false });
+                  const toggleBtn = col8.querySelector('.yorum-toggle-btn');
+            
+                  toggleBtn.addEventListener('click', () => {
+                    bsCommentsCollapse.toggle();
+                  });
+                  commentsCollapse.addEventListener('shown.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Kapat';
                     toggleBtn.setAttribute('aria-expanded', 'true');
-                });
-
-                collapseEl.addEventListener('hidden.bs.collapse', () => {
+            
+                    // Yorum listesini API’den yeniden yükle
+                    const listEl = document.getElementById(`comments-list-${urunId}`);
+                    listEl.innerHTML = '<p>Yorumlar yükleniyor…</p>';
+                    fetch(`${API}/comments/get?urun_id=${urunId}`)
+                      .then(res => res.ok ? res.json() : Promise.reject(res.statusText))
+                      .then(yorumlar => {
+                        if (!yorumlar.length) {
+                          listEl.innerHTML = '<p>Henüz yorum yok. İlk yorumu siz yapın!</p>';
+                          return;
+                        }
+                        const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
+                        document.getElementById(`avg-rating-${urunId}`).textContent =
+                          (toplam / yorumlar.length).toFixed(1);
+                        listEl.innerHTML = yorumlar.map(y => `
+                          <div class="border-bottom pb-2 mb-2">
+                            <strong>${y.isim}</strong>
+                            ${y.meslek ? `<small class="text-muted">(${y.meslek})</small>` : ''}
+                            — ${'⭐'.repeat(y.yildiz)}<br>
+                            ${y.yorum}<br>
+                            <small class="text-muted">${new Date(y.tarih).toLocaleDateString('tr-TR')}</small>
+                          </div>
+                        `).join('');
+                      })
+                      .catch(err => {
+                        listEl.innerHTML = `<p class="text-danger">Yorumlar yüklenemedi: ${err}</p>`;
+                      });
+                  });
+                  commentsCollapse.addEventListener('hidden.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Göster';
                     toggleBtn.setAttribute('aria-expanded', 'false');
-                });
+                  });
+            
+                  // 4️⃣ “Yorum Yap” formunu aç/kapa
+                  const yapBtn = document.getElementById(`btn-yap-${urunId}`);
+                  const formCollapse = document.getElementById(`form-${urunId}`);
+                  const bsFormCollapse = new bootstrap.Collapse(formCollapse, { toggle: false });
+                  yapBtn.addEventListener('click', () => bsFormCollapse.toggle());
+            
+                  // 5️⃣ Form gönderme işlemi
+                  const form = document.getElementById(`yorum-form-${urunId}`);
+                  form.addEventListener('submit', async event => {
+                    event.preventDefault();
+                    const fd = new FormData(form);
+                    const payload = {
+                      urun_id: urunId,
+                      isim:    fd.get('isim'),
+                      meslek:  fd.get('meslek'),
+                      yorum:   fd.get('yorum'),
+                      yildiz:  Number(fd.get('yildiz'))
+                    };
+                    try {
+                      const res = await fetch(`${API}/comments/add`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                      });
+                      if (!res.ok) throw new Error(await res.text());
+                      bsFormCollapse.hide();
+                      yapBtn.style.display = 'none';
+                      document.getElementById(`msg-${urunId}`).style.display = 'block';
+                      form.reset();
+                    } catch (err) {
+                      alert('Yorum gönderilemedi: ' + err.message);
+                    }
+                  });
             });
         });
     </script>
