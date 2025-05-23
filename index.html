@@ -1853,13 +1853,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Genel Sayfa Etkileşimleri (main.js içeriği) ---
-    
+        
             /* Video Modal */
             document.querySelectorAll('.btn-video').forEach(btn => {
                 btn.addEventListener('click', e => {
                     const videoUrl = e.currentTarget.dataset.video;
                     const videoFrame = document.getElementById('videoFrame');
-    
+        
                     if (videoUrl && (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be'))) {
                         // YouTube URL'sinden video ID'sini çıkar
                         let videoId = videoUrl.split('v=')[1] || videoUrl.split('/').pop();
@@ -1875,12 +1875,12 @@
                     }
                 });
             });
-    
+        
             // Modal kapandığında videoyu durdur
             document.getElementById('videoModal').addEventListener('hidden.bs.modal', () => {
                 document.getElementById('videoFrame').src = '';
             });
-    
+        
             /* Navbar autohide on click (mobil) */
             document.querySelectorAll('.nav-link').forEach(link => {
                 // Dropdown toggle'ları hariç tut, menünün kapanmasını engelle
@@ -1893,7 +1893,7 @@
                     });
                 }
             });
-    
+        
             /* Navbar background change on scroll */
             const mainNav = document.getElementById('mainNav');
             if (mainNav) {
@@ -1912,59 +1912,59 @@
                     }
                 });
             }
-    
-    
+        
+        
             // --- Yorum Sistemi (comments.js içeriği) ---
-    
+        
             // API taban URL’si
-            const API = 'https://yorum.expressyazilim.com.tr'; // Bu URL'nin gerçek bir API servisiniz olmasına dikkat edin
-    
+            const API = 'https://yorum.expressyazilim.com.tr';
+        
             // Yorumları çeken ve DOM'a işleyen ana fonksiyon
             async function fetchAndRenderComments(urunId, isInitialLoad = false) {
                 const avgEl = document.getElementById(`avg-rating-${urunId}`);
-                const listEl = document.getElementById(`comments-list-${urunId}`);
+                const listEl = document.getElementById(`comments-list-${urunId}`); // This is the container for individual comments
                 const firstCommentPreviewEl = document.getElementById(`first-comment-preview-${urunId}`);
-    
+        
+                if (!listEl) { // Safetly check if the list container exists
+                    console.error(`Comments list container not found for product ID: ${urunId}`);
+                    return;
+                }
+        
                 // Yüklenme durumunu belirt
                 if (isInitialLoad) {
                     firstCommentPreviewEl.innerHTML = '<p class="text-muted small">Yorumlar yükleniyor...</p>';
                     avgEl.textContent = '0.0'; // Başlangıçta 0.0 göster
                 } else {
-                    // Tam yorumlar yüklenecekse önizlemeyi gizle ve tam listeyi doldur
                     listEl.innerHTML = '<p class="text-muted small">Yorumlar yükleniyor...</p>';
                     firstCommentPreviewEl.innerHTML = '';
                 }
-    
+        
                 try {
                     const r = await fetch(`${API}/comments/get?urun_id=${urunId}`);
                     if (!r.ok) {
-                        // HTTP durumu 200-299 aralığında değilse hata fırlat
-                        const errorDetails = await r.text(); // Sunucudan gelen hata detaylarını oku
+                        const errorDetails = await r.text();
                         throw new Error(`API hatası: ${r.status} ${r.statusText}. Detay: ${errorDetails}`);
                     }
                     const yorumlar = await r.json();
-    
+        
                     if (!yorumlar || yorumlar.length === 0) {
                         avgEl.textContent = '0.0';
                         const noCommentMsg = '<p class="text-muted small">Bu ürün için henüz yorum yok. İlk yorumu siz yapın!</p>';
                         if (isInitialLoad) {
                             firstCommentPreviewEl.innerHTML = noCommentMsg;
                         }
-                        listEl.innerHTML = noCommentMsg; // Hem tam liste hem de önizleme için
+                        listEl.innerHTML = noCommentMsg;
                         return;
                     }
-    
-                    // Ortalama puanı hesapla ve göster
+        
                     const toplam = yorumlar.reduce((s, y) => s + y.yildiz, 0);
-                    avgEl.textContent = (toplam / yorumlar.length).toFixed(1); // Virgülden sonra tek hane
-    
-                    // Tüm yorumları ana listeye ekle
+                    avgEl.textContent = (toplam / yorumlar.length).toFixed(1);
+        
+                    // Build HTML for comments, including admin replies
                     listEl.innerHTML = yorumlar.map(y => {
-                        // Yanıtlar için benzersiz ID oluştur
                         const replyCollapseId = `reply-collapse-${y.id}`;
-                        // Admin yanıtı varsa ve boş değilse
                         const hasAdminReply = y.admin_reply && y.admin_reply.trim() !== '';
-    
+        
                         return `
                             <div class="comment-item border-bottom pb-2 mb-2">
                                 <strong>${y.isim}</strong>${y.meslek ? ` <small class="text-muted">(${y.meslek})</small>` : ''} — ${'⭐'.repeat(y.yildiz)}<br>
@@ -1972,7 +1972,13 @@
                                 <small class="text-muted">${new Date(y.tarih).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
                                 ${hasAdminReply ? `
                                     <div class="mt-2">
-                                        <a class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="collapse" href="#${replyCollapseId}" role="button" aria-expanded="false" aria-controls="${replyCollapseId}">
+                                        <!-- data-bs-toggle="collapse" kaldırıldı, JS ile manuel kontrol sağlanacak -->
+                                        <a class="btn btn-link btn-sm p-0 text-decoration-none reply-toggle-btn" 
+                                           href="#${replyCollapseId}" 
+                                           role="button" 
+                                           aria-expanded="false" 
+                                           aria-controls="${replyCollapseId}" 
+                                           id="reply-btn-${y.id}">
                                             Yanıtlar (1) <i class="fas fa-chevron-down small ms-1"></i>
                                         </a>
                                         <div class="collapse mt-1" id="${replyCollapseId}">
@@ -1986,33 +1992,43 @@
                             </div>
                         `;
                     }).join('');
-
-
-                    // Yorumlar render edildikten sonra, yanıt açma/kapama butonlarına event listener ekle
+        
+                    // AFTER rendering, attach event listeners to newly created reply buttons
+                    // This is crucial because innerHTML replaces content, removing previous listeners.
                     listEl.querySelectorAll('.reply-toggle-btn').forEach(btn => {
                         btn.addEventListener('click', (e) => {
-                            e.stopPropagation(); // En önemli kısım: Olayın yukarıya yayılmasını engelle
+                            // Stop propagation to prevent the click from bubbling up and affecting parent collapses
+                            e.stopPropagation(); 
+                            // Prevent default link behavior (e.g., hash navigation)
+                            e.preventDefault(); 
                             
-                            // Ok simgesinin yönünü değiştir
+                            // Manually toggle Bootstrap collapse for the reply
+                            const targetId = btn.getAttribute('href').substring(1);
+                            const targetElement = document.getElementById(targetId);
+                            if (targetElement) {
+                                // Bootstrap Collapse instance'ını al veya oluştur
+                                const bsCollapseInstance = bootstrap.Collapse.getOrCreateInstance(targetElement);
+                                bsCollapseInstance.toggle();
+                            }
+        
+                            // Toggle icon rotation and aria-expanded attribute based on collapse state
                             const icon = btn.querySelector('i');
-                            if (icon) {
-                                // Bootstrap collapse durumunu kontrol etmek için getAttribute('aria-expanded') kullanılır.
-                                // Butonun kendisi henüz DOM tarafından güncellenmemiş olabilir, bu yüzden collapse target'ı üzerinden kontrol daha güvenli.
-                                const targetId = btn.getAttribute('href').substring(1);
-                                const targetElement = document.getElementById(targetId);
-                
-                                if (targetElement && targetElement.classList.contains('show')) {
-                                    // Şu an açıksa (kapanacak), oku aşağı çevir
+                            if (icon && targetElement) {
+                                // targetElement.classList.contains('show') Bootstrap'ın güncel durumunu verir
+                                if (targetElement.classList.contains('show')) {
                                     icon.classList.remove('fa-chevron-up');
                                     icon.classList.add('fa-chevron-down');
+                                    btn.setAttribute('aria-expanded', 'true'); // Düğme durumunu güncelle
                                 } else {
-                                    // Şu an kapalıysa (açılacak), oku yukarı çevir
                                     icon.classList.remove('fa-chevron-down');
                                     icon.classList.add('fa-chevron-up');
+                                    btn.setAttribute('aria-expanded', 'false'); // Düğme durumunu güncelle
                                 }
                             }
                         });
-                        // Collapse gösterildiğinde veya gizlendiğinde okun yönünü tekrar güncellemek için
+        
+                        // Bu listener'lar, Bootstrap'ın kendi API'si ile yapılan toggle işlemleri için okun yönünü günceller.
+                        // (Önceki manuel tıklama ile zaten yapılıyor, ancak başka bir tetikleyici olursa diye kalmasında fayda var)
                         const targetId = btn.getAttribute('href').substring(1);
                         const targetElement = document.getElementById(targetId);
                         if (targetElement) {
@@ -2022,6 +2038,9 @@
                                     icon.classList.remove('fa-chevron-down');
                                     icon.classList.add('fa-chevron-up');
                                 }
+                                // Düğme durumunu güncelle
+                                const btnRef = document.getElementById(`reply-btn-${targetId.split('-')[2]}`); // reply-btn-ID al
+                                if(btnRef) btnRef.setAttribute('aria-expanded', 'true');
                             });
                             targetElement.addEventListener('hidden.bs.collapse', () => {
                                 const icon = btn.querySelector('i');
@@ -2029,17 +2048,19 @@
                                     icon.classList.remove('fa-chevron-up');
                                     icon.classList.add('fa-chevron-down');
                                 }
+                                // Düğme durumunu güncelle
+                                const btnRef = document.getElementById(`reply-btn-${targetId.split('-')[2]}`); // reply-btn-ID al
+                                if(btnRef) btnRef.setAttribute('aria-expanded', 'false');
                             });
                         }
                     });
-    
-                    // İlk yorumu önizleme alanına ekle (sadece initial load için)
+        
+                    // Initial comment preview
                     if (isInitialLoad && yorumlar.length > 0) {
                         const firstYorum = yorumlar[0];
-                        // Yorumun ilk 30 kelimesini al, fazlası varsa "..." ekle
                         const commentSnippet = firstYorum.yorum.split(' ').slice(0, 30).join(' ');
                         const ellipsis = firstYorum.yorum.split(' ').length > 30 ? '...' : '';
-    
+        
                         firstCommentPreviewEl.innerHTML = `
                             <div class="first-comment-snippet">
                                 <strong>${firstYorum.isim}</strong>${firstYorum.meslek ? ` <small class="text-muted">(${firstYorum.meslek})</small>` : ''} — <span class="star-emoji">${'⭐'.repeat(firstYorum.yildiz)}</span><br>
@@ -2047,7 +2068,7 @@
                             </div>
                         `;
                     }
-    
+        
                 } catch (error) {
                     console.error('Yorumlar yüklenirken hata oluştu:', error);
                     avgEl.textContent = '0.0';
@@ -2060,21 +2081,20 @@
                         userFriendlyErrorMsg += 'Lütfen daha sonra tekrar deneyin.';
                     }
                     const errorMsgHtml = `<p class="text-danger small">${userFriendlyErrorMsg} <br> <small>(${error.message})</small></p>`;
-    
+        
                     if (isInitialLoad) {
                         firstCommentPreviewEl.innerHTML = errorMsgHtml;
                     }
                     listEl.innerHTML = errorMsgHtml;
                 }
             }
-    
-    
-            // Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
+        
+            // --- Event listeners for main comments section (outside fetchAndRenderComments) ---
             document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
                 const urunId = prod.id;
-                const col8   = prod.querySelector('.col-md-8');
+                const col8 = prod.querySelector('.col-md-8');
                 if (!col8) return;
-    
+        
                 const yorumHtml = `
                 <div class="yorum-section mt-4">
                     <button class="yorum-toggle-btn btn btn-custom-purple" type="button" aria-expanded="false" aria-controls="comments-${urunId}">
@@ -2090,11 +2110,11 @@
                         <div id="comments-list-${urunId}">
                             <p class="text-muted small">Yorumlar yükleniyor...</p>
                         </div>
-    
+        
                         <button class="btn btn-outline-primary btn-sm mt-2" id="btn-yap-${urunId}" type="button" aria-expanded="false" aria-controls="form-${urunId}">
                             Yorum Yap
                         </button>
-    
+        
                         <div class="collapse mt-2" id="form-${urunId}">
                             <form id="yorum-form-${urunId}">
                                 <div class="mb-2">
@@ -2125,35 +2145,39 @@
                     </div>
                 </div>`;
                 col8.insertAdjacentHTML('beforeend', yorumHtml);
-    
-                // Sayfa yüklendiğinde yorumları ve ortalamayı çek
-                fetchAndRenderComments(urunId, true); // true: initial load
-    
-                const collapseEl = document.getElementById(`comments-${urunId}`);
-                const toggleBtn = prod.querySelector('.yorum-toggle-btn');
-                const firstCommentPreviewEl = document.getElementById(`first-comment-preview-${urunId}`);
-    
-                // Collapse açıldığında tüm yorumları çek ve göster
+        
+                fetchAndRenderComments(urunId, true);
+        
+                const collapseEl = document.getElementById(`comments-${urunId}`); // This is the main collapse div
+                const toggleBtn = prod.querySelector('.yorum-toggle-btn'); // This is the main toggle button
+        
+                // Manual Bootstrap Collapse instance for the main comments section
+                const bsMainCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+        
+                // Attach event listener to the main toggle button
+                toggleBtn.addEventListener('click', () => {
+                    bsMainCollapse.toggle(); // Use the manually created instance
+                });
+        
+                // Update main toggle button text/aria-expanded when main collapse state changes
                 collapseEl.addEventListener('show.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Kapat';
                     toggleBtn.setAttribute('aria-expanded', 'true');
-                    firstCommentPreviewEl.style.display = 'none'; // Önizlemeyi gizle
-                    fetchAndRenderComments(urunId, false); // false: initial load değil, tam listeyi yükle
+                    firstCommentPreviewEl.style.display = 'none';
+                    fetchAndRenderComments(urunId, false);
                 });
-    
-                // Collapse kapandığında tekrar ilk yorum önizlemesini göster
+        
                 collapseEl.addEventListener('hidden.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Göster';
                     toggleBtn.setAttribute('aria-expanded', 'false');
-                    firstCommentPreviewEl.style.display = 'block'; // Önizlemeyi tekrar göster
-                    fetchAndRenderComments(urunId, true); // Önizlemeyi tekrar yükle (veri değişmiş olabilir)
+                    firstCommentPreviewEl.style.display = 'block';
+                    fetchAndRenderComments(urunId, true);
                 });
-    
-    
+        
                 const yapBtn = document.getElementById(`btn-yap-${urunId}`);
                 const formCollapse = document.getElementById(`form-${urunId}`);
                 const bsFormCollapse = new bootstrap.Collapse(formCollapse, { toggle: false });
-    
+        
                 yapBtn.addEventListener('click', () => {
                     bsFormCollapse.toggle();
                     if (formCollapse.classList.contains('collapsing')) {
@@ -2162,19 +2186,19 @@
                         }, { once: true });
                     }
                 });
-    
+        
                 const form = document.getElementById(`yorum-form-${urunId}`);
                 form.addEventListener('submit', async ev => {
                     ev.preventDefault();
                     const fd = new FormData(form);
                     const body = {
                         urun_id: urunId,
-                        isim:    fd.get('isim'),
-                        meslek:  fd.get('meslek'),
-                        yorum:   fd.get('yorum'),
-                        yildiz:  parseInt(fd.get('yildiz'), 10)
+                        isim: fd.get('isim'),
+                        meslek: fd.get('meslek'),
+                        yorum: fd.get('yorum'),
+                        yildiz: parseInt(fd.get('yildiz'), 10)
                     };
-    
+        
                     if (!body.isim || !body.yorum || !body.yildiz) {
                         alert('Lütfen adınızı, yorumunuzu ve puanınızı girin.');
                         return;
@@ -2183,14 +2207,14 @@
                         alert('Lütfen geçerli bir puan seçin (1-5 arası).');
                         return;
                     }
-    
+        
                     try {
                         const res = await fetch(`${API}/comments/add`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(body)
                         });
-    
+        
                         if (!res.ok) {
                             const errorText = await res.text();
                             throw new Error(`Sunucu hatası: ${res.status} ${res.statusText}. Detay: ${errorText}`);
@@ -2199,30 +2223,21 @@
                         yapBtn.style.display = 'none';
                         document.getElementById(`msg-${urunId}`).style.display = 'block';
                         form.reset();
-    
-                        // Yorum gönderildikten sonra yorumları tekrar yükle (yeni yorumu görmek için)
-                        // Yorumlar açıksa tüm listeyi, kapalıysa önizlemeyi yenile
+        
                         if (collapseEl.classList.contains('show')) {
                             fetchAndRenderComments(urunId, false);
                         } else {
                             fetchAndRenderComments(urunId, true);
                         }
-    
+        
                     } catch (err) {
                         alert('Yorum gönderilemedi: ' + err.message);
                         console.error('Yorum gönderme hatası:', err);
                     }
                 });
-    
-                // Toggle butonu ile collapse davranışını bağla
-                const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-                toggleBtn.addEventListener('click', () => {
-                    bsCollapse.toggle();
-                });
             });
         });
     </script>
-
 
 </body>
 </html>
