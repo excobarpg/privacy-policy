@@ -1986,6 +1986,52 @@
                             </div>
                         `;
                     }).join('');
+
+
+                    // Yorumlar render edildikten sonra, yanıt açma/kapama butonlarına event listener ekle
+                    listEl.querySelectorAll('.reply-toggle-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation(); // En önemli kısım: Olayın yukarıya yayılmasını engelle
+                            
+                            // Ok simgesinin yönünü değiştir
+                            const icon = btn.querySelector('i');
+                            if (icon) {
+                                // Bootstrap collapse durumunu kontrol etmek için getAttribute('aria-expanded') kullanılır.
+                                // Butonun kendisi henüz DOM tarafından güncellenmemiş olabilir, bu yüzden collapse target'ı üzerinden kontrol daha güvenli.
+                                const targetId = btn.getAttribute('href').substring(1);
+                                const targetElement = document.getElementById(targetId);
+                
+                                if (targetElement && targetElement.classList.contains('show')) {
+                                    // Şu an açıksa (kapanacak), oku aşağı çevir
+                                    icon.classList.remove('fa-chevron-up');
+                                    icon.classList.add('fa-chevron-down');
+                                } else {
+                                    // Şu an kapalıysa (açılacak), oku yukarı çevir
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                }
+                            }
+                        });
+                        // Collapse gösterildiğinde veya gizlendiğinde okun yönünü tekrar güncellemek için
+                        const targetId = btn.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.addEventListener('shown.bs.collapse', () => {
+                                const icon = btn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                }
+                            });
+                            targetElement.addEventListener('hidden.bs.collapse', () => {
+                                const icon = btn.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('fa-chevron-up');
+                                    icon.classList.add('fa-chevron-down');
+                                }
+                            });
+                        }
+                    });
     
                     // İlk yorumu önizleme alanına ekle (sadece initial load için)
                     if (isInitialLoad && yorumlar.length > 0) {
