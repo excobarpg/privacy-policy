@@ -1852,7 +1852,7 @@
 
     <!-- Özel JavaScript Kodları -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => { // DOMContentLoaded callback'i async yapıldı
             // --- Genel Sayfa Etkileşimleri (main.js içeriği) ---
     
             /* Video Modal */
@@ -1960,8 +1960,9 @@
     
                 // Attach event listeners to newly created reply buttons after innerHTML update
                 listEl.querySelectorAll('.reply-toggle-btn').forEach(btn => {
-                    // CORRECTED: Use nextElementSibling to get the collapse div directly adjacent to the button
-                    const targetElement = btn.nextElementSibling; 
+                    // Corrected: Find the collapse div using getAttribute('href') and document.getElementById
+                    const targetId = btn.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId); 
                     const icon = btn.querySelector('i');
     
                     if (targetElement && targetElement.classList.contains('collapse')) { // Ensure it's the collapse element
@@ -2005,7 +2006,7 @@
                             btn.setAttribute('aria-expanded', 'false');
                         }
                     } else {
-                        console.warn("Could not find adjacent collapse element for reply button:", btn);
+                        console.warn(`Could not find valid collapse element with ID: ${targetId} for reply button:`, btn);
                     }
                 });
             }
@@ -2049,10 +2050,13 @@
                 // Önbellekte veri varsa, tekrar çekmeye gerek yok
                 if (listEl.commentsData) {
                     updateAverageRating(avgEl, listEl.commentsData);
-                    // Preview'ı sadece ilk yüklemede veya kapandığında render etmeliyiz.
-                    // Bu fonksiyon, yorumlar açıksa full listeyi render ederken de çağrılıyor,
-                    // bu yüzden preview'ı burada her zaman render etmek doğru değil.
-                    // Sadece commentsData'yı güncelleyelim.
+                    // Yorumlar açıksa tam listeyi render et, kapalıysa önizlemeyi render et
+                    const commentsCollapseEl = document.getElementById(`comments-${urunId}`);
+                    if (commentsCollapseEl && commentsCollapseEl.classList.contains('show')) {
+                        renderComments(listEl, listEl.commentsData);
+                    } else {
+                        renderFirstCommentPreview(firstCommentPreviewEl, listEl.commentsData);
+                    }
                     return; // API çağrısını atla
                 }
     
@@ -2073,7 +2077,8 @@
     
                     updateAverageRating(avgEl, yorumlar);
                     renderFirstCommentPreview(firstCommentPreviewEl, yorumlar);
-                    renderComments(listEl, yorumlar); // İlk yüklemede hem preview hem full listeyi render et
+                    // İlk yüklemede, yorumlar div'i gizli olduğu için tam listeyi burada render etmeyiz.
+                    // Sadece önizleme gösterilir. Tam liste, kullanıcı 'Yorumları Göster'e tıklayınca render edilecek.
     
                 } catch (error) {
                     console.error('Yorumlar yüklenirken hata oluştu:', error);
@@ -2088,16 +2093,17 @@
                     }
                     const errorMsgHtml = `<p class="text-danger small">${userFriendlyErrorMsg} <br> <small>(${error.message})</small></p>`;
     
-                    listEl.innerHTML = errorMsgHtml;
-                    firstCommentPreviewEl.innerHTML = errorMsgHtml;
+                    listEl.innerHTML = errorMsgHtml; // Tam liste için hata mesajı
+                    firstCommentPreviewEl.innerHTML = errorMsgHtml; // Önizleme için hata mesajı
                 }
             }
     
             // Her .products ve .reactexpress-section öğesine yorum bölümü + form ekle
-            document.querySelectorAll('.products[id], .reactexpress-section[id]').forEach(prod => {
+            // `forEach` döngüsü `async` olarak değiştirildi
+            for (const prod of document.querySelectorAll('.products[id], .reactexpress-section[id]')) {
                 const urunId = prod.id;
                 const col8 = prod.querySelector('.col-md-8');
-                if (!col8) return;
+                if (!col8) continue;
     
                 const yorumHtml = `
                 <div class="yorum-section mt-4">
@@ -2150,46 +2156,48 @@
                 </div>`;
                 col8.insertAdjacentHTML('beforeend', yorumHtml);
     
-                // Sayfa yüklendiğinde yorumları çek (önizleme ve ilk yükleme için)
-                fetchAndCacheComments(urunId); 
-    
                 const collapseEl = document.getElementById(`comments-${urunId}`); // Ana yorum listesi collapse div'i
                 const toggleBtn = prod.querySelector('.yorum-toggle-btn'); // Ana yorumları göster/kapat butonu
                 const firstCommentPreviewEl = document.getElementById(`first-comment-preview-${urunId}`);
                 const listEl = document.getElementById(`comments-list-${urunId}`); // Yorum listesi için element
     
+                // Sayfa yüklendiğinde yorumları çek ve önizlemeyi göster
+                await fetchAndCacheComments(urunId); // await ile verinin gelmesini bekle
+    
+                // Ana collapse instance'ı oluşturuluyor.
+                // Not: toggle: false ile başlar, HTML'deki "collapse" sınıfı ile tutarlı.
                 const bsMainCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
     
+                // Ana yorumları göster/kapat butonuna tıklama olayı
                 toggleBtn.addEventListener('click', () => {
-                    bsMainCollapse.toggle();
+                    bsMainCollapse.toggle(); // Manuel olarak ana collapse'ı aç/kapa
                 });
     
+                // Ana yorum alanı açıldığında
                 collapseEl.addEventListener('show.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Kapat';
                     toggleBtn.setAttribute('aria-expanded', 'true');
-                    firstCommentPreviewEl.style.display = 'none';
-                    // Sadece önbellekteki veriyi kullanarak tam listeyi render et
+                    firstCommentPreviewEl.style.display = 'none'; // Önizlemeyi gizle
+                    // Önbellekteki veriyi kullanarak tam listeyi render et
                     if (listEl.commentsData) {
                         renderComments(listEl, listEl.commentsData);
-                    } else {
-                        // Eğer önbellekte veri yoksa (ki olmamalı), yine de çek
-                        fetchAndCacheComments(urunId);
                     }
                 });
     
+                // Ana yorum alanı kapandığında
                 collapseEl.addEventListener('hidden.bs.collapse', () => {
                     toggleBtn.querySelector('.btn-text').textContent = 'Yorumları Göster';
                     toggleBtn.setAttribute('aria-expanded', 'false');
-                    firstCommentPreviewEl.style.display = 'block';
-                    // Sadece önbellekteki veriyi kullanarak önizlemeyi render et
+                    firstCommentPreviewEl.style.display = 'block'; // Önizlemeyi göster
+                    // Önbellekteki veriyi kullanarak önizlemeyi render et
                     if (listEl.commentsData) {
                         renderFirstCommentPreview(firstCommentPreviewEl, listEl.commentsData);
-                    } else {
-                        // Eğer önbellekte veri yoksa, yine de çek
-                        fetchAndCacheComments(urunId);
                     }
+                    // Tam yorum listesinin içeriğini temizlemek iyi bir uygulama olabilir
+                    // listEl.innerHTML = '<p class="text-muted small">Yorumlar gizlendi.</p>'; 
                 });
     
+                // "Yorum Yap" butonu ve formu
                 const yapBtn = document.getElementById(`btn-yap-${urunId}`);
                 const formCollapse = document.getElementById(`form-${urunId}`);
                 const bsFormCollapse = new bootstrap.Collapse(formCollapse, { toggle: false });
@@ -2241,17 +2249,24 @@
                         form.reset();
     
                         // Yorum eklendikten sonra önbelleği temizle ve yorumları yeniden çek
-                        // Yeni yorumun görünmesi ve ortalamanın güncellenmesi için bu gerekli
                         listEl.commentsData = null; // Önbelleği geçersiz kıl
-                        fetchAndCacheComments(urunId); // Yeni yorumu çek ve göster
+                        await fetchAndCacheComments(urunId); // Yeni yorumu çek ve göster
+    
+                        // Eğer yorumlar alanı açıksa, yeni yorumu hemen görebilmek için tam listeyi render et
+                        if (collapseEl.classList.contains('show')) {
+                            renderComments(listEl, listEl.commentsData);
+                        } else {
+                            // Değilse, sadece önizlemeyi güncelle (yeni yorumla)
+                            renderFirstCommentPreview(firstCommentPreviewEl, listEl.commentsData);
+                        }
     
                     } catch (err) {
                         alert('Yorum gönderilemedi: ' + err.message);
                         console.error('Yorum gönderme hatası:', err);
                     }
                 });
-            });
-        });
+            } // end of for...of loop
+        }); // end of DOMContentLoaded
     </script>
 
 </body>
