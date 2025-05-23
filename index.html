@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -1959,11 +1960,11 @@
     
                 // Attach event listeners to newly created reply buttons after innerHTML update
                 listEl.querySelectorAll('.reply-toggle-btn').forEach(btn => {
-                    const targetId = btn.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
+                    // CORRECTED: Use nextElementSibling to get the collapse div directly adjacent to the button
+                    const targetElement = btn.nextElementSibling; 
                     const icon = btn.querySelector('i');
     
-                    if (targetElement) {
+                    if (targetElement && targetElement.classList.contains('collapse')) { // Ensure it's the collapse element
                         const bsCollapseInstance = bootstrap.Collapse.getOrCreateInstance(targetElement);
     
                         btn.addEventListener('click', (e) => {
@@ -1989,6 +1990,7 @@
                         });
     
                         // Set initial state for icon and aria-expanded based on current collapse state
+                        // This runs when the comments are first loaded/rendered.
                         if (targetElement.classList.contains('show')) {
                             if (icon) {
                                 icon.classList.remove('fa-chevron-down');
@@ -2002,6 +2004,8 @@
                             }
                             btn.setAttribute('aria-expanded', 'false');
                         }
+                    } else {
+                        console.warn("Could not find adjacent collapse element for reply button:", btn);
                     }
                 });
             }
@@ -2045,8 +2049,10 @@
                 // Önbellekte veri varsa, tekrar çekmeye gerek yok
                 if (listEl.commentsData) {
                     updateAverageRating(avgEl, listEl.commentsData);
-                    renderFirstCommentPreview(firstCommentPreviewEl, listEl.commentsData);
-                    renderComments(listEl, listEl.commentsData); // Tam listeyi de render et
+                    // Preview'ı sadece ilk yüklemede veya kapandığında render etmeliyiz.
+                    // Bu fonksiyon, yorumlar açıksa full listeyi render ederken de çağrılıyor,
+                    // bu yüzden preview'ı burada her zaman render etmek doğru değil.
+                    // Sadece commentsData'yı güncelleyelim.
                     return; // API çağrısını atla
                 }
     
@@ -2067,7 +2073,7 @@
     
                     updateAverageRating(avgEl, yorumlar);
                     renderFirstCommentPreview(firstCommentPreviewEl, yorumlar);
-                    renderComments(listEl, yorumlar);
+                    renderComments(listEl, yorumlar); // İlk yüklemede hem preview hem full listeyi render et
     
                 } catch (error) {
                     console.error('Yorumlar yüklenirken hata oluştu:', error);
@@ -2247,7 +2253,6 @@
             });
         });
     </script>
-
 
 </body>
 </html>
