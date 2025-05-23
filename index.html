@@ -731,7 +731,7 @@
             border: none;
             padding: 12px 28px;
             border-radius: var(--border-radius-lg);
-            box-shadow: 0 5px 0 #b30000;
+            box-shadow: 0 6px 0 #b30000;
             transition: all .2s ease;
             text-transform: uppercase;
             font-size: 0.95rem;
@@ -1959,13 +1959,33 @@
                     avgEl.textContent = (toplam / yorumlar.length).toFixed(1); // Virgülden sonra tek hane
     
                     // Tüm yorumları ana listeye ekle
-                    listEl.innerHTML = yorumlar.map(y => `
-                        <div class="border-bottom pb-2 mb-2">
-                            <strong>${y.isim}</strong>${y.meslek ? ` <small class="text-muted">(${y.meslek})</small>` : ''} — ${'⭐'.repeat(y.yildiz)}<br>
-                            ${y.yorum}<br>
-                            <small class="text-muted">${new Date(y.tarih).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
-                        </div>
-                    `).join('');
+                    listEl.innerHTML = yorumlar.map(y => {
+                        // Yanıtlar için benzersiz ID oluştur
+                        const replyCollapseId = `reply-collapse-${y.id}`;
+                        // Admin yanıtı varsa ve boş değilse
+                        const hasAdminReply = y.admin_reply && y.admin_reply.trim() !== '';
+    
+                        return `
+                            <div class="comment-item border-bottom pb-2 mb-2">
+                                <strong>${y.isim}</strong>${y.meslek ? ` <small class="text-muted">(${y.meslek})</small>` : ''} — ${'⭐'.repeat(y.yildiz)}<br>
+                                ${y.yorum}<br>
+                                <small class="text-muted">${new Date(y.tarih).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</small>
+                                ${hasAdminReply ? `
+                                    <div class="mt-2">
+                                        <a class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="collapse" href="#${replyCollapseId}" role="button" aria-expanded="false" aria-controls="${replyCollapseId}">
+                                            Yanıtlar (1) <i class="fas fa-chevron-down small ms-1"></i>
+                                        </a>
+                                        <div class="collapse mt-1" id="${replyCollapseId}">
+                                            <div class="card card-body bg-light border-0 py-2 px-3">
+                                                <strong class="text-dark">Express Yazılım Yanıtı:</strong><br>
+                                                ${y.admin_reply}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    }).join('');
     
                     // İlk yorumu önizleme alanına ekle (sadece initial load için)
                     if (isInitialLoad && yorumlar.length > 0) {
