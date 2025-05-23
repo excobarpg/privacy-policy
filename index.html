@@ -1930,14 +1930,17 @@
                     firstCommentPreviewEl.innerHTML = '<p class="text-muted small">Yorumlar yükleniyor...</p>';
                     avgEl.textContent = '0.0'; // Başlangıçta 0.0 göster
                 } else {
-                    listEl.innerHTML = '<p>Yorumlar yükleniyor...</p>';
-                    firstCommentPreviewEl.innerHTML = ''; // Tam yorumlar yüklenecekse önizlemeyi gizle
+                    // Tam yorumlar yüklenecekse önizlemeyi gizle ve tam listeyi doldur
+                    listEl.innerHTML = '<p class="text-muted small">Yorumlar yükleniyor...</p>';
+                    firstCommentPreviewEl.innerHTML = '';
                 }
     
                 try {
                     const r = await fetch(`${API}/comments/get?urun_id=${urunId}`);
                     if (!r.ok) {
-                        throw new Error(`API hatası: ${r.statusText}`);
+                        // HTTP durumu 200-299 aralığında değilse hata fırlat
+                        const errorDetails = await r.text(); // Sunucudan gelen hata detaylarını oku
+                        throw new Error(`API hatası: ${r.status} ${r.statusText}. Detay: ${errorDetails}`);
                     }
                     const yorumlar = await r.json();
     
@@ -1972,8 +1975,8 @@
                         const ellipsis = firstYorum.yorum.split(' ').length > 30 ? '...' : '';
     
                         firstCommentPreviewEl.innerHTML = `
-                            <div class="first-comment-snippet border p-2 rounded bg-light mb-2">
-                                <strong>${firstYorum.isim}</strong>${firstYorum.meslek ? ` <small class="text-muted">(${firstYorum.meslek})</small>` : ''} — ${'⭐'.repeat(firstYorum.yildiz)}<br>
+                            <div class="first-comment-snippet">
+                                <strong>${firstYorum.isim}</strong>${firstYorum.meslek ? ` <small class="text-muted">(${firstYorum.meslek})</small>` : ''} — <span class="star-emoji">${'⭐'.repeat(firstYorum.yildiz)}</span><br>
                                 ${commentSnippet}${ellipsis}
                             </div>
                         `;
@@ -1982,11 +1985,20 @@
                 } catch (error) {
                     console.error('Yorumlar yüklenirken hata oluştu:', error);
                     avgEl.textContent = '0.0';
-                    const errorMsg = `<p class="text-danger small">Yorumlar yüklenemedi. Lütfen daha sonra tekrar deneyin. (${error.message})</p>`;
-                    if (isInitialLoad) {
-                        firstCommentPreviewEl.innerHTML = errorMsg;
+                    let userFriendlyErrorMsg = 'Yorumlar yüklenemedi. ';
+                    if (error.message.includes('Failed to fetch')) {
+                        userFriendlyErrorMsg += 'Sunucuya ulaşılamıyor veya CORS hatası olabilir. Lütfen API sunucunuzun (yorum.expressyazilim.com.tr) doğru çalıştığından ve web sitenizin domaininden gelen isteklere izin verdiğinden emin olun.';
+                    } else if (error.message.includes('API hatası')) {
+                        userFriendlyErrorMsg += 'API\'den bir hata yanıtı alındı.';
+                    } else {
+                        userFriendlyErrorMsg += 'Lütfen daha sonra tekrar deneyin.';
                     }
-                    listEl.innerHTML = errorMsg;
+                    const errorMsgHtml = `<p class="text-danger small">${userFriendlyErrorMsg} <br> <small>(${error.message})</small></p>`;
+    
+                    if (isInitialLoad) {
+                        firstCommentPreviewEl.innerHTML = errorMsgHtml;
+                    }
+                    listEl.innerHTML = errorMsgHtml;
                 }
             }
     
@@ -1999,8 +2011,8 @@
     
                 const yorumHtml = `
                 <div class="yorum-section mt-4">
-                    <button class="yorum-toggle-btn btn btn-link text-decoration-none p-0 d-flex align-items-center" type="button" aria-expanded="false" aria-controls="comments-${urunId}">
-                        <span class="btn-text fw-bold">Yorumları Göster</span>
+                    <button class="yorum-toggle-btn btn btn-custom-purple" type="button" aria-expanded="false" aria-controls="comments-${urunId}">
+                        <span class="btn-text">Yorumları Göster</span>
                         <span class="star-wrapper ms-2">
                             (<span id="avg-rating-${urunId}" class="avg-rating">0.0</span><span class="star">★</span>)
                         </span>
@@ -2010,7 +2022,7 @@
                     </div>
                     <div class="collapse mt-2" id="comments-${urunId}">
                         <div id="comments-list-${urunId}">
-                            <p>Yorumlar yükleniyor...</p>
+                            <p class="text-muted small">Yorumlar yükleniyor...</p>
                         </div>
     
                         <button class="btn btn-outline-primary btn-sm mt-2" id="btn-yap-${urunId}" type="button" aria-expanded="false" aria-controls="form-${urunId}">
@@ -2115,7 +2127,7 @@
     
                         if (!res.ok) {
                             const errorText = await res.text();
-                            throw new Error(`Sunucu hatası: ${errorText}`);
+                            throw new Error(`Sunucu hatası: ${res.status} ${res.statusText}. Detay: ${errorText}`);
                         }
                         bsFormCollapse.hide();
                         yapBtn.style.display = 'none';
