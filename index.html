@@ -1440,7 +1440,7 @@
                             rel="noopener noreferrer">
                              PROGRAMI İNDİR
                          </a>
-                        <a href="download/Mail-Express-English/"
+                         <a href="download/Mail-Express-English/"
                             class="btn-install mt-4"
                             target="_blank"
                             rel="noopener noreferrer">
@@ -1860,6 +1860,41 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => { // DOMContentLoaded callback'i async yapıldı
             // --- Genel Sayfa Etkileşimleri (main.js içeriği) ---
+
+            const visitorApiUrl = 'https://yorum.expressyazilim.com.tr/visitor/track'; // Bu adresi kendi sunucunuza göre güncelleyin!
+
+            try {
+                const response = await fetch(visitorApiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                    // Sunucu tarafı özel bir body beklemediği için body göndermiyoruz.
+                    // body: JSON.stringify({}) // Gerekirse boş bir JSON nesnesi gönderilebilir.
+                });
+
+                if (!response.ok) {
+                    // Eğer HTTP yanıt durumu "başarılı" değilse (200-299 aralığı dışında ise)
+                    // konsola daha detaylı bir hata mesajı yazdırıyoruz.
+                    console.warn(
+                        'Ziyaretçi takip isteği başarısız oldu. Durum:', response.status,
+                        await response.text(), // Sunucudan gelen hata mesajını (varsa) göster
+                        `API URL: ${visitorApiUrl}. Sunucunun çalıştığından ve CORS ayarlarının bu sayfayı sunan alan adından gelen isteklere izin verdiğinden emin olun.`
+                    );
+                } else {
+                    // İstek başarılı ise sunucudan gelen yanıtı işle
+                    const data = await response.json();
+                    console.log('Ziyaretçi takip yanıtı:', data.status);
+                }
+            } catch (error) {
+                // Fetch sırasında bir ağ hatası veya başka bir JavaScript hatası oluşursa
+                // konsola hata mesajını yazdırıyoruz.
+                console.error(
+                    'Ziyaretçi takip isteğinde bir hata oluştu:', error,
+                    `API URL: ${visitorApiUrl}. Sunucunun çalıştığından, erişilebilir olduğundan ve CORS ayarlarının doğru yapılandırıldığından emin olun.`
+                );
+            }
+            // --- Ziyaretçi Takip Kodu Sonu ---
     
             /* Video Modal */
             document.querySelectorAll('.btn-video').forEach(btn => {
