@@ -517,15 +517,29 @@
         }
 
 
-        /* Hero Section */
+        /* Hero genel yükseklik & hizalama */
         .hero {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: #fff;
-            padding: 150px 20px 120px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        min-height: 80vh;          /* ekranın %80’i kadar */
+        display: flex;
+        align-items: center;
+        text-align: left;          /* varsayılan hizalama */
+        padding: 150px 20px;
+        position: relative;
+        overflow: hidden;
         }
+
+        /* İçerik satır yapısında metin-merkez ayarı mobilde kalsın */
+        @media (max-width: 767px){
+        .hero { text-align:center }
+        }
+
+        /* Görsel kutusu – masaüstünde hafif kaydırarak derinlik efekti */
+        .hero-img img{ max-width:100%; height:auto }
+        @media (min-width:992px){
+        .hero-img{ transform:translateX(30px) }
+        }
+
         /* Optional: Add some shapes or pattern for visual interest */
         .hero::before {
             content: '';
@@ -1227,14 +1241,44 @@
     <main> <!-- Ana içeriği sarmalamak için semantik etiket -->
         <header class="hero" id="hero">
             <div class="container">
-                <h1>İletişimin En Kolay Haliyle Tanışın</h1>
-                <p>Express ürünleriyle mesaj ve e‑posta kampanyalarınızı dakikalar içinde planlayın, kişiselleştirin ve otomatikleştirin.</p>
-                <a href="#pricing" class="btn btn-light btn-cta" onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC'});">Fiyatları Gör</a>
-                <p class="vurguyazisi">
-                     Tüm Ürünlerde Kısa Süreli %70'e Varan İndirim Mevcut
-                 </p>
+                <div class="row align-items-center">
+
+                <!-- ① Metin tarafı -->
+                <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start">
+                    <h1>İletişimin En Kolay Haliyle Tanışın</h1>
+                    <p class="lead">
+                    Express ürünleriyle mesaj ve e-posta kampanyalarınızı dakikalar
+                    içinde planlayın, kişiselleştirin ve otomatikleştirin.
+                    </p>
+                    <a href="#pricing"
+                    class="btn btn-light btn-cta"
+                    onclick="gtag('event','conversion',{'send_to':'AW-16955228230/3ahMCMj3_rsaEIWRkrEC'});">
+                    Fiyatları Gör
+                    </a>
+                    <p class="vurguyazisi mt-3">
+                    Tüm Ürünlerde Kısa Süreli %70'e Varan İndirim Mevcut
+                    </p>
+                </div>
+
+                <!-- ② Görsel tarafı -->
+                <div class="col-lg-6 order-1 order-lg-2 hero-img text-center">
+                    <picture>
+                    <!-- Mobilde daha dar versiyon -->
+                    <source srcset="images/hero-mobile.webp"
+                            type="image/webp"
+                            media="(max-width:575px)">
+                    <!-- Varsayılan -->
+                    <img src="images/hero.webp"
+                        alt="Express Yazılım ile otomasyon ve gelir artışı"
+                        class="img-fluid"
+                        loading="lazy">
+                    </picture>
+                </div>
+
+                </div>
             </div>
-        </header>
+            </header>
+
 
         <section id="features">
             <div class="container">
