@@ -1,5 +1,6 @@
 {
-  "version": "4.5",
+  "version": "4.6",
   "download_url": "https://github.com/excobarpg/privacy-policy/releases/download/v4.3/MailExpress_Setup.exe",
-  "notes": "Paralel Gönderim Özelliği eklendi, Aynı anda tüm hesaplarla mail gönderilebilir"
+  "notes": "Eklenen Özellikler:\n- Paralel Gönderim özelliği eklendi: Artık tüm hesaplar aynı anda mail gönderebilir.\n- Toplu eklemede geliştirmeler yapıldı:\n  • Tüm hesaplara paylaştır butonu eklendi.\n  • Tüm hesapların alıcı listesini temizleme butonu eklendi.\n- HTML içe aktarma özelliği eklendi: Hazır şablonlar veya dışarıdan alınan HTML kodları doğrudan kullanılabilir."
+
 }
