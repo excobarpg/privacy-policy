@@ -1,5 +1,5 @@
 {
-  "version": "3.6",
-  "download_url": "https://github.com/excobarpg/privacy-policy/releases/download/v3.6/ReactExpress_Setup_3.6.exe",
-  "notes": "Otomatik güncelleme fonksiyonu eklendi, Kanal Reksiyon sorunu giderildi"
+  "version": "4.0",
+  "download_url": "https://github.com/excobarpg/privacy-policy/releases/download/v3.6/ReactExpress_Setup_4.0.exe",
+  "notes": "Üye çek programı güncellendi\nHesap Kaldır butonu eklendi\nHesap Ekleme sorunları giderildi"
 }
