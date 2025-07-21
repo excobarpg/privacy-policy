@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sipariş Başarılı - Express Yazılım</title>
+    <meta name="description" content="Siparişiniz başarıyla alındı - Express Yazılım">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #5b21d3;
+            --success-color: #10b981;
+            --dark-color: #111827;
+            --light-color: #f2f4f8;
+            --text-color: #1c1d1f;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+            --border-radius-md: 12px;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .success-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+
+        .success-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .success-title {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .order-info {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .order-info h4 {
+            font-family: var(--heading-font);
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: var(--success-color);
+        }
+
+        .next-steps {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .next-steps h4 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .next-steps ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .next-steps li {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            border: 2px solid #25d366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            border-color: #128c7e;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .success-container {
+                padding: 1rem;
+            }
+            
+            .success-card {
+                padding: 2rem 1rem;
+            }
+            
+            .success-title {
+                font-size: 1.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h1 class="success-title">Siparişiniz Alındı!</h1>
+            
+            <p class="success-message">
+                Teşekkür ederiz! Siparişiniz başarıyla alındı ve WhatsApp üzerinden tarafımıza iletildi. 
+                En kısa sürede sizinle iletişime geçeceğiz.
+            </p>
+
+            <div class="order-info">
+                <h4><i class="fas fa-receipt"></i> Sipariş Özeti</h4>
+                <div id="orderSummary">
+                    <!-- Sipariş detayları buraya yüklenecek -->
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h4><i class="fas fa-list-check"></i> Sonraki Adımlar</h4>
+                <ul>
+                    <li>WhatsApp üzerinden sizinle iletişime geçeceğiz</li>
+                    <li>Ödeme detayları paylaşılacak</li>
+                    <li>Ödeme onayı sonrası lisans bilgileri gönderilecek</li>
+                    <li>Kurulum desteği sağlanacak</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="https://wa.me/905077048556" class="btn whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp İletişim
+                </a>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    Ana Sayfaya Dön
+                </a>
+                <a href="index.html#products" class="btn btn-outline">
+                    <i class="fas fa-shopping-cart"></i>
+                    Diğer Ürünler
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class OrderSuccessPage {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.displayOrderSummary();
+            }
+
+            displayOrderSummary() {
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                const lastOrder = orders[orders.length - 1];
+
+                if (!lastOrder) {
+                    document.getElementById('orderSummary').innerHTML = `
+                        <div class="info-row">
+                            <span>Sipariş bulunamadı</span>
+                            <span>-</span>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let summaryHTML = '';
+                
+                // Müşteri bilgileri
+                summaryHTML += `
+                    <div class="info-row">
+                        <span><i class="fas fa-user"></i> Müşteri:</span>
+                        <span>${lastOrder.customer.fullName}</span>
+                    </div>
+                    <div class="info-row">
+                        <span><i class="fas fa-envelope"></i> E-posta:</span>
+                        <span>${lastOrder.customer.email}</span>
+                    </div>
+                    <div class="info-row">
+                        <span><i class="fas fa-phone"></i> Telefon:</span>
+                        <span>${lastOrder.customer.phone}</span>
+                    </div>
+                `;
+
+                // Ürünler
+                lastOrder.items.forEach(item => {
+                    summaryHTML += `
+                        <div class="info-row">
+                            <span>${item.name} (${this.getVariantName(item.variant)}) × ${item.quantity}</span>
+                            <span>${item.currency === 'TRY' ? '₺' : '$'}${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+
+                // Toplam
+                summaryHTML += `
+                    <div class="info-row">
+                        <span><strong>Toplam Tutar:</strong></span>
+                        <span><strong>$${lastOrder.total.toFixed(2)}</strong></span>
+                    </div>
+                `;
+
+                document.getElementById('orderSummary').innerHTML = summaryHTML;
+            }
+
+            getVariantName(variant) {
+                const variants = {
+                    'lifetime': 'Ömür Boyu',
+                    'monthly': 'Aylık'
+                };
+                return variants[variant] || variant;
+            }
+        }
+
+        // Sayfa yüklendiğinde başlat
+        document.addEventListener('DOMContentLoaded', () => {
+            new OrderSuccessPage();
+        });
+    </script>
+</body>
+</html>
