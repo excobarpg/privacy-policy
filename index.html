@@ -28,321 +28,328 @@
 
     <link rel="canonical" href="https://expressyazilim.com.tr/">
     <link rel="alternate" hreflang="tr" href="https://expressyazilim.com.tr/">
-    <!-- Eğer İngilizce sayfa eklenirse: <link rel="alternate" hreflang="en" href="https://expressyazilim.com.tr/en/"> -->
+    
 
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@graph": [
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+            "@id": "https://expressyazilim.com.tr/#organization",
+            "@type": "Organization",
+            "name": "Express Yazılım",
+            "url": "https://expressyazilim.com.tr/",
+            "logo": "https://expressyazilim.com.tr/images/logo.png",
+            "contactPoint": [
                 {
-                    "@type": "Organization",
-                    "name": "Express Yazılım",
-                    "url": "https://expressyazilim.com.tr/",
-                    "logo": "://expressyazilim.com.tr/images/logo.png",
-                    "contactPoint": [{
-                        "@type": "ContactPoint",
-                        "telephone": "+905077048556",
-                        "contactType": "sales",
-                        "areaServed": "TR",
-                        "availableLanguage": ["Turkish", "English"]
-                    }],
-                    "sameAs": [
-                        "://www.facebook.com/ExpressYazilim",
-                        "://www.instagram.com/ExpressYazilim",
-                        "://twitter.com/ExpressYazilim"
-                        // Diğer sosyal medya veya profil linklerini buraya ekleyin
-                    ]
-                },
-                {
-                    "@type": "WebSite",
-                    "url": "://expressyazilim.com.tr/",
-                    "publisher": { "@id": "://expressyazilim.com.tr/#organization" },
-                    "potentialAction": {
-                        "@type": "SearchAction",
-                        "target": "://expressyazilim.com.tr/?s={search_term_string}",
-                        "query-input": "required name=search_term_string"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "WhatsApp Express Chrome",
-                    "operatingSystem": "Web Browser",
-                    "applicationCategory": "://schema.org/CommunicationApplication",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": "4.5",
-                        "reviewCount": "100"
-                    },
-                    "offers": {
-                        "@type": "Offer",
-                        "price": "20",
-                        "priceCurrency": "USD",
-                        "priceValidUntil": "2025-12-31",
-                        "availability": "://schema.org/InStock",
-                        "url": "://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
-                    },
-                    "featureList": [
-                        "Bulk message sending",
-                        "Excel/copy-paste import",
-                        "Personalization",
-                        "Detailed reports",
-                        "Scheduling",
-                        "Pause/resume"
-                    ],
-                    "description": "Chrome eklentisi ile toplu WhatsApp mesajlaşması.",
-                    "screenshot": "https://expressyazilim.com.tr/images/wp.webp",
-                    "softwareHelp": {
-                        "@type": "VideoObject",
-                        "name": "WhatsApp Express Chrome Nasıl Çalışır?",
-                        "description": "WhatsApp Express Chrome eklentisinin kurulum ve kullanımını gösteren video.",
-                        "uploadDate": "2023-01-01T08:00:00+08:00",
-                        "thumbnailUrl": "https://img.youtube.com/vi/ZeHE2UBV52c/hqdefault.jpg",
-                        "contentUrl": "https://www.youtube.com/watch?v=ZeHE2UBV52c",
-                        "embedUrl": "https://www.youtube.com/embed/ZeHE2UBV52c"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "Mail Express Chrome",
-                    "operatingSystem": "Web Browser",
-                    "applicationCategory": "https://schema.org/EmailApplication",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": "4.4",
-                        "reviewCount": "80"
-                    },
-                    "offers": {
-                        "@type": "Offer",
-                        "price": "25",
-                        "priceCurrency": "USD",
-                        "priceValidUntil": "2025-12-31",
-                        "availability": "https://schema.org/InStock",
-                        "url": "https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
-                    },
-                    "featureList": [
-                        "Bulk email sending from Excel",
-                        "Personalization",
-                        "Scheduling",
-                        "Reporting",
-                        "Gmail interface automation"
-                    ],
-                    "description": "Gmail üzerinden toplu e-posta gönderimi için Chrome eklentisi.",
-                    "screenshot": "https://expressyazilim.com.tr/images/mail.png",
-                    "softwareHelp": {
-                        "@type": "VideoObject",
-                        "name": "Mail Express Chrome Nasıl Çalışır?",
-                        "description": "Mail Express Chrome eklentisinin kurulum ve kullanımını gösteren video.",
-                        "uploadDate": "2023-01-01T08:00:00+08:00",
-                        "thumbnailUrl": "https://img.youtube.com/vi/iqPkjtYOWJI/hqdefault.jpg",
-                        "contentUrl": "https://www.youtube.com/watch?v=iqPkjtYOWJI",
-                        "embedUrl": "https://www.youtube.com/embed/iqPkjtYOWJI"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "WhatsApp Express Windows",
-                    "operatingSystem": "Windows",
-                    "applicationCategory": "https://schema.org/CommunicationApplication",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": "4.7",
-                        "reviewCount": "150"
-                    },
-                    "offers": [
-                        {
-                            "@type": "Offer",
-                            "name": "Ömür Boyu Lisans",
-                            "price": "100",
-                            "priceCurrency": "USD",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        },
-                        {
-                            "@type": "Offer",
-                            "name": "Aylık Lisans (TRY)",
-                            "price": "420",
-                            "priceCurrency": "TRY",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        }
-                    ],
-                    "featureList": [
-                        "Secure desktop sending",
-                        "20 message boxes for spam reduction",
-                        "Image/file attachments",
-                        "Personalization with NAME tag",
-                        "Detailed reporting",
-                        "Lifetime license"
-                    ],
-                    "description": "Güvenli toplu WhatsApp mesajlaşması için Windows uygulaması.",
-                    "downloadUrl": "https://expressyazilim.com.tr/download/whatsapp-express-windows/",
-                    "screenshot": [
-                        "https://expressyazilim.com.tr/images/wp2.webp",
-                        "https://expressyazilim.com.tr/images/wp3.webp",
-                        "https://expressyazilim.com.tr/images/wp4.webp"
-                    ],
-                    "softwareHelp": {
-                        "@type": "VideoObject",
-                        "name": "WhatsApp Express Windows Nasıl Çalışır?",
-                        "description": "WhatsApp Express Windows uygulamasının kurulum ve kullanımını gösteren video.",
-                        "uploadDate": "2023-01-01T08:00:00+08:00",
-                        "thumbnailUrl": "https://img.youtube.com/vi/ZeHE2UBV52c2/hqdefault.jpg",
-                        "contentUrl": "https://www.youtube.com/watch?v=ZeHE2UBV52c2",
-                        "embedUrl": "https://www.youtube.com/embed/ZeHE2UBV52c2"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "Mail Express Windows",
-                    "operatingSystem": "Windows",
-                    "applicationCategory": "https://schema.org/EmailApplication",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": "4.6",
-                        "reviewCount": "90"
-                    },
-                    "offers": [
-                        {
-                            "@type": "Offer",
-                            "name": "Ömür Boyu Lisans",
-                            "price": "200",
-                            "priceCurrency": "USD",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        },
-                        {
-                            "@type": "Offer",
-                            "name": "Aylık Lisans (TRY)",
-                            "price": "750",
-                            "priceCurrency": "TRY",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        }
-                    ],
-                    "featureList": [
-                        "Image attachment support",
-                        "Multi-account support",
-                        "Excel import for bulk email",
-                        "Personalization",
-                        "Flexible scheduling",
-                        "Instant reports",
-                        "Gmail interface automation",
-                        "Lifetime license"
-                    ],
-                    "description": "Zengin özelliklere sahip toplu e-posta gönderimi için Windows uygulaması.",
-                    "downloadUrl": "https://expressyazilim.com.tr/download/mail-express-windows/",
-                    "screenshot": "https://expressyazilim.com.tr/images/mail2.png",
-                    "softwareHelp": {
-                        "@type": "VideoObject",
-                        "name": "Mail Express Windows Nasıl Çalışır?",
-                        "description": "Mail Express Windows uygulamasının kurulum ve kullanımını gösteren video.",
-                        "uploadDate": "2023-01-01T08:00:00+08:00",
-                        "thumbnailUrl": "https://img.youtube.com/vi/pwSx-qkIrKc/hqdefault.jpg",
-                        "contentUrl": "https://www.youtube.com/watch?v=pwSx-qkIrKc",
-                        "embedUrl": "https://www.youtube.com/embed/pwSx-qkIrKc"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "ReactExpress",
-                    "operatingSystem": "Windows",
-                    "applicationCategory": "https://schema.org/SocialNetworkingApplication",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": "4.8",
-                        "reviewCount": "120"
-                    },
-                    "offers": [
-                        {
-                            "@type": "Offer",
-                            "name": "Ömür Boyu Lisans",
-                            "price": "500",
-                            "priceCurrency": "USD",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        },
-                        {
-                            "@type": "Offer",
-                            "name": "Aylık Lisans (TRY)",
-                            "price": "1900",
-                            "priceCurrency": "TRY",
-                            "priceValidUntil": "2025-12-31",
-                            "availability": "https://schema.org/InStock",
-                            "url": "https://wa.me/905077048556"
-                        }
-                    ],
-                    "featureList": [
-                        "Telegram member scraping (private/public groups)",
-                        "Automatic member adding to target groups",
-                        "Sequential reactions to admin posts",
-                        "Multi-account management",
-                        "Task scheduling",
-                        "User-friendly interface"
-                    ],
-                    "description": "Telegram otomasyon görevleri için Windows uygulaması.",
-                    "downloadUrl": "https://expressyazilim.com.tr/download/reactexpress/",
-                    "screenshot": "https://expressyazilim.com.tr/images/reactexpress.png",
-                    "softwareHelp": {
-                        "@type": "VideoObject",
-                        "name": "ReactExpress Nasıl Çalışır?",
-                        "description": "ReactExpress uygulamasının kurulum ve kullanımını gösteren video.",
-                        "uploadDate": "2023-01-01T08:00:00+08:00",
-                        "thumbnailUrl": "https://img.youtube.com/vi/E6h_WVMDU98/hqdefault.jpg",
-                        "contentUrl": "https://www.youtube.com/watch?v=k9e0GhTL5f4",
-                        "embedUrl": "https://www.youtube.com/watch?v=k9e0GhTL5f4"
-                    }
+                "@type": "ContactPoint",
+                "telephone": "+905077048556",
+                "contactType": "sales",
+                "areaServed": "TR",
+                "availableLanguage": ["tr", "en"]
                 }
-                <!-- Eğer bir SSS (Sıkça Sorulan Sorular) bölümü eklerseniz, buraya FAQPage Schema'sını ekleyebilirsiniz. -->
-                <!--
-                {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "WhatsApp Express Windows nedir?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "WhatsApp Express Windows, masaüstü bir uygulamadır..."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Ömür boyu lisans ne anlama geliyor?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Tek seferlik ödeme yaparak ürünü ömür boyu kullanma hakkı elde edersiniz..."
-                            }
-                        }
-                    ]
-                }
-                -->
-                <!-- Eğer birden fazla sayfalı bir yapıya geçilirse, BreadcrumbList Schema'sı eklenebilir. -->
-                <!--
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Anasayfa",
-                            "item": "https://expressyazilim.com.tr/"
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "Programlar",
-                            "item": "https://expressyazilim.com.tr/#products"
-                        }
-                    ]
-                }
-                -->
+            ],
+            "sameAs": [
+                "https://www.facebook.com/ExpressYazilim",
+                "https://www.instagram.com/ExpressYazilim",
+                "https://twitter.com/ExpressYazilim"
             ]
+            },
+
+            {
+            "@id": "https://expressyazilim.com.tr/#website",
+            "@type": "WebSite",
+            "url": "https://expressyazilim.com.tr/",
+            "publisher": { "@id": "https://expressyazilim.com.tr/#organization" },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://expressyazilim.com.tr/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+            },
+
+            {
+            "@type": "SoftwareApplication",
+            "name": "WhatsApp Express Chrome",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "https://schema.org/CommunicationApplication",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.5,
+                "reviewCount": 100
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": 20,
+                "priceCurrency": "USD",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://chromewebstore.google.com/detail/bulk-message-sender-and-s/npgnncfhcfddoepgkannmpoegohbceam"
+            },
+            "featureList": [
+                "Bulk message sending",
+                "Excel/copy‑paste import",
+                "Personalization",
+                "Detailed reports",
+                "Scheduling",
+                "Pause/resume"
+            ],
+            "description": "Chrome eklentisi ile toplu WhatsApp mesajlaşması.",
+            "screenshot": "https://expressyazilim.com.tr/images/wp.webp",
+            "softwareHelp": {
+                "@type": "VideoObject",
+                "name": "WhatsApp Express Chrome Nasıl Çalışır?",
+                "description": "WhatsApp Express Chrome eklentisinin kurulum ve kullanımını gösteren video.",
+                "uploadDate": "2023-01-01T08:00:00+03:00",
+                "thumbnailUrl": "https://img.youtube.com/vi/ZeHE2UBV52c/hqdefault.jpg",
+                "contentUrl": "https://www.youtube.com/watch?v=ZeHE2UBV52c",
+                "embedUrl": "https://www.youtube.com/embed/ZeHE2UBV52c"
+            }
+            },
+
+            {
+            "@type": "SoftwareApplication",
+            "name": "Mail Express Chrome",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "https://schema.org/EmailApplication",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.4,
+                "reviewCount": 80
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": 25,
+                "priceCurrency": "USD",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://chromewebstore.google.com/detail/mail-express-%E2%80%93-bulk-email/fgkekpliiklpbfaiafljpddehcjocoba"
+            },
+            "featureList": [
+                "Bulk email sending from Excel",
+                "Personalization",
+                "Scheduling",
+                "Reporting",
+                "Gmail interface automation"
+            ],
+            "description": "Gmail üzerinden toplu e‑posta gönderimi için Chrome eklentisi.",
+            "screenshot": "https://expressyazilim.com.tr/images/mail.png",
+            "softwareHelp": {
+                "@type": "VideoObject",
+                "name": "Mail Express Chrome Nasıl Çalışır?",
+                "description": "Mail Express Chrome eklentisinin kurulum ve kullanımını gösteren video.",
+                "uploadDate": "2023-01-01T08:00:00+03:00",
+                "thumbnailUrl": "https://img.youtube.com/vi/iqPkjtYOWJI/hqdefault.jpg",
+                "contentUrl": "https://www.youtube.com/watch?v=iqPkjtYOWJI",
+                "embedUrl": "https://www.youtube.com/embed/iqPkjtYOWJI"
+            }
+            },
+
+            {
+            "@type": "SoftwareApplication",
+            "name": "WhatsApp Express Windows",
+            "operatingSystem": "Windows",
+            "applicationCategory": "https://schema.org/CommunicationApplication",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.7,
+                "reviewCount": 150
+            },
+            "offers": [
+                {
+                "@type": "Offer",
+                "name": "Ömür Boyu Lisans",
+                "price": 100,
+                "priceCurrency": "USD",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                },
+                {
+                "@type": "Offer",
+                "name": "Aylık Lisans (TRY)",
+                "price": 420,
+                "priceCurrency": "TRY",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                }
+            ],
+            "featureList": [
+                "Secure desktop sending",
+                "20 message boxes for spam reduction",
+                "Image/file attachments",
+                "Personalization with NAME tag",
+                "Detailed reporting",
+                "Lifetime license"
+            ],
+            "description": "Güvenli toplu WhatsApp mesajlaşması için Windows uygulaması.",
+            "downloadUrl": "https://expressyazilim.com.tr/download/whatsapp-express-windows/",
+            "screenshot": [
+                "https://expressyazilim.com.tr/images/wp2.webp",
+                "https://expressyazilim.com.tr/images/wp3.webp",
+                "https://expressyazilim.com.tr/images/wp4.webp"
+            ],
+            "softwareHelp": {
+                "@type": "VideoObject",
+                "name": "WhatsApp Express Windows Nasıl Çalışır?",
+                "description": "WhatsApp Express Windows uygulamasının kurulum ve kullanımını gösteren video.",
+                "uploadDate": "2023-01-01T08:00:00+03:00",
+                "thumbnailUrl": "https://img.youtube.com/vi/ZeHE2UBV52c2/hqdefault.jpg",
+                "contentUrl": "https://www.youtube.com/watch?v=ZeHE2UBV52c2",
+                "embedUrl": "https://www.youtube.com/embed/ZeHE2UBV52c2"
+            }
+            },
+
+            {
+            "@type": "SoftwareApplication",
+            "name": "Mail Express Windows",
+            "operatingSystem": "Windows",
+            "applicationCategory": "https://schema.org/EmailApplication",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.6,
+                "reviewCount": 90
+            },
+            "offers": [
+                {
+                "@type": "Offer",
+                "name": "Ömür Boyu Lisans",
+                "price": 200,
+                "priceCurrency": "USD",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                },
+                {
+                "@type": "Offer",
+                "name": "Aylık Lisans (TRY)",
+                "price": 750,
+                "priceCurrency": "TRY",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                }
+            ],
+            "featureList": [
+                "Image attachment support",
+                "Multi‑account support",
+                "Excel import for bulk email",
+                "Personalization",
+                "Flexible scheduling",
+                "Instant reports",
+                "Gmail interface automation",
+                "Lifetime license"
+            ],
+            "description": "Zengin özelliklere sahip toplu e‑posta gönderimi için Windows uygulaması.",
+            "downloadUrl": "https://expressyazilim.com.tr/download/mail-express-windows/",
+            "screenshot": "https://expressyazilim.com.tr/images/mail2.png",
+            "softwareHelp": {
+                "@type": "VideoObject",
+                "name": "Mail Express Windows Nasıl Çalışır?",
+                "description": "Mail Express Windows uygulamasının kurulum ve kullanımını gösteren video.",
+                "uploadDate": "2023-01-01T08:00:00+03:00",
+                "thumbnailUrl": "https://img.youtube.com/vi/pwSx-qkIrKc/hqdefault.jpg",
+                "contentUrl": "https://www.youtube.com/watch?v=pwSx-qkIrKc",
+                "embedUrl": "https://www.youtube.com/embed/pwSx-qkIrKc"
+            }
+            },
+
+            {
+            "@type": "SoftwareApplication",
+            "name": "ReactExpress",
+            "operatingSystem": "Windows",
+            "applicationCategory": "https://schema.org/SocialNetworkingApplication",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.8,
+                "reviewCount": 120
+            },
+            "offers": [
+                {
+                "@type": "Offer",
+                "name": "Ömür Boyu Lisans",
+                "price": 500,
+                "priceCurrency": "USD",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                },
+                {
+                "@type": "Offer",
+                "name": "Aylık Lisans (TRY)",
+                "price": 1900,
+                "priceCurrency": "TRY",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://wa.me/905077048556"
+                }
+            ],
+            "featureList": [
+                "Telegram member scraping (private/public groups)",
+                "Automatic member adding to target groups",
+                "Sequential reactions to admin posts",
+                "Multi‑account management",
+                "Task scheduling",
+                "User‑friendly interface"
+            ],
+            "description": "Telegram otomasyon görevleri için Windows uygulaması.",
+            "downloadUrl": "https://expressyazilim.com.tr/download/reactexpress/",
+            "screenshot": "https://expressyazilim.com.tr/images/reactexpress.png",
+            "softwareHelp": {
+                "@type": "VideoObject",
+                "name": "ReactExpress Nasıl Çalışır?",
+                "description": "ReactExpress uygulamasının kurulum ve kullanımını gösteren video.",
+                "uploadDate": "2023-01-01T08:00:00+03:00",
+                "thumbnailUrl": "https://img.youtube.com/vi/E6h_WVMDU98/hqdefault.jpg",
+                "contentUrl": "https://www.youtube.com/watch?v=k9e0GhTL5f4",
+                "embedUrl": "https://www.youtube.com/embed/k9e0GhTL5f4"
+            }
+            },
+
+            {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                "@type": "Question",
+                "name": "WhatsApp Express Windows nedir?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WhatsApp Express Windows, masaüstü bir uygulamadır..."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "Ömür boyu lisans ne anlama geliyor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tek seferlik ödeme yaparak ürünü ömür boyu kullanma hakkı elde edersiniz..."
+                }
+                }
+            ]
+            },
+
+            {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Anasayfa",
+                "item": "https://expressyazilim.com.tr/"
+                },
+                {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Programlar",
+                "item": "https://expressyazilim.com.tr/#products"
+                }
+            ]
+            }
+        ]
         }
+
+
     </script>
 
     <link rel="icon" type="image/png" href="images/favicon.webp">
@@ -566,10 +573,20 @@
 
         /* Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #a5b4fc, #c7d2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background: linear-gradient(135deg, #a5b4fc, #c7d2fe) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            display: inline-block !important;
+        }
+
+        /* Hero Stats - Siyah Yazılar */
+        .hero-stat-number {
+            color: #000 !important;
+        }
+
+        .hero-stat-label {
+            color: #333 !important;
         }
     </style>
 
@@ -870,8 +887,7 @@
             color: #fff;
         }
 
-        g-font);
-        }
+        
 
         .nav-link {
             color: #e5e7eb !important;
@@ -992,14 +1008,15 @@
 
         .hero h1 {
             margin-bottom: 25px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            color: #000 !important;
+            text-shadow: none;
         }
 
         .hero p {
             font-size: 1.25rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            opacity: .9;
+            color: #333 !important;
             line-height: 1.7;
         }
 
@@ -1735,6 +1752,24 @@
             color: var(--primary-color);
             font-weight: 600;
         }
+
+    
+    
+        /* Sadece hero alanını etkilesin */
+        .hero .gradient-text{
+            background:none !important;   /* degradeyi kaldır */
+            -webkit-text-fill-color:#000 !important; /* Safari */
+            color:#000 !important;        /* Diğer tarayıcılar */
+        }
+
+        .hero p{                 /* alt açıklama satırı */
+            color:#000 !important;
+        }
+        .section-title::after{
+            content:none !important;   /* pseudo‑elementi tamamen devre dışı bırakır */
+        }
+    
+    
     </style>
 
     <!-- Google tag (gtag.js) yüklemesi ve konfigürasyon -->
