@@ -1,5 +1,6 @@
 {
-  "version": "4.0",
+  "version": "4.5",
   "download_url": "https://github.com/excobarpg/privacy-policy/releases/download/v3.6/ReactExpress_Setup_4.0.exe",
-  "notes": "Üye çek programı güncellendi\nHesap Kaldır butonu eklendi\nHesap Ekleme sorunları giderildi"
+  "notes": "Hesap Ekleme Basitleştirildi\nReaksiyon botuna grup sohbeti eklendi\nÜye Çek modüşü grup bulma özelliği getirildi"
 }
+
