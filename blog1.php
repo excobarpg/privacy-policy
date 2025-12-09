@@ -1,0 +1,141 @@
+<?php
+require_once __DIR__ . '/config.php';
+$pageTitle = 'WhatsApp Express Windows Uygulaması: Kapsamlı Kullanım Rehberi | Express Yazılım';
+$pageDescription = 'WhatsApp Express Windows ile toplu mesaj gönderimini adım adım öğrenin, spam riskini azaltan taktiklerle maksimum etki elde edin.';
+$pageCanonical = 'https://expressyazilim.com.tr/blog1';
+include __DIR__ . '/partials/head.php';
+include __DIR__ . '/partials/header.php';
+?>
+
+<main class="article">
+    <div class="article__header">
+        <p class="article__meta">WhatsApp · 4 dk okuma</p>
+        <h1>WhatsApp Express Windows Uygulaması: Kapsamlı Kullanım Rehberi</h1>
+        <p class="page-hero__subtitle">Excel’den alıcı listesi hazırlamaktan gelişmiş gönderim taktiklerine, adım adım her şeyi öğrenin.</p>
+        <div class="meta-badges">
+            <span class="meta-badge"><i class="fa-solid fa-bolt"></i> Otomasyon</span>
+            <span class="meta-badge"><i class="fa-solid fa-shield-check"></i> Spam optimizasyon</span>
+            <span class="meta-badge"><i class="fa-brands fa-whatsapp"></i> WhatsApp Web</span>
+        </div>
+        <div class="article__banner">
+            <img src="images/wpblog.webp" alt="WhatsApp Express Windows arayüzü">
+        </div>
+    </div>
+
+    <article class="prose glass">
+        <p><strong>WhatsApp Express</strong>, Windows üzerinde çalışan ve Web WhatsApp üzerinden otomatik, kişiselleştirilmiş toplu mesajlar göndermenizi sağlayan güçlü bir masaüstü uygulamasıdır. İşletme sahipleri, pazarlamacılar ve bireyler için ideal; hem Excel listesiyle entegre çalışır hem de gelişmiş lisans ve güncelleme desteği sunar.</p>
+
+        <h2>1. WhatsApp Express Nedir?</h2>
+        <p><strong>WhatsApp Express</strong>, Windows üzerinde çalışan ve Web WhatsApp üzerinden otomatik, kişiselleştirilmiş toplu mesajlar göndermenizi sağlayan güçlü bir masaüstü uygulamasıdır.</p>
+
+        <h2>2. Kurulum ve İlk Adımlar</h2>
+        <h3>2.1 Sistem Gereksinimleri</h3>
+        <ul>
+            <li>Windows 7/8/10/11 (64-bit önerilir)</li>
+            <li>En az 4 GB RAM</li>
+            <li>Chrome tarayıcı (son sürüm)</li>
+            <li>İnternet bağlantısı</li>
+        </ul>
+        <h3>2.2 Uygulamanın Kurulumu</h3>
+        <ol>
+            <li><strong>İndir:</strong> <code>ExpressYazilim_Setup.exe</code> dosyasını indirin.</li>
+            <li><strong>Çalıştır:</strong> Yönetici olarak çalıştırın ve yönergeleri izleyin.</li>
+            <li><strong>Yükleme Klasörü:</strong> Varsayılan olarak <code>C:\Program Files\ExpressYazilim\WhatsAppExpress</code>.</li>
+            <li><strong>Bitir:</strong> Kurulum tamamlandığında kısayolu masaüstüne eklenecektir.</li>
+        </ol>
+
+        <h2>3. Lisans Aktivasyonu</h2>
+        <p>Programı ilk kez açtığınızda lisans dosyası kontrol edilir. Lisans geçerli değilse:</p>
+        <ol>
+            <li>Açılan <strong>License Activation</strong> penceresinde anahtarınızı girin.</li>
+            <li>“Activate” tuşuna basın.</li>
+            <li>İnternet bağlantınız üzerinden doğrulama yapıldıktan sonra uygulama açılır.</li>
+        </ol>
+
+        <h2>4. Arayüzün Tanıtımı</h2>
+        <p>Açılışta üç ana sekme görürsünüz:</p>
+        <ul>
+            <li><strong>Ana Sayfa</strong>: Alıcı tablosu ve mesaj paneli.</li>
+            <li><strong>Hareket Kayıtları</strong>: Tüm loglar ve hata bildirimleri.</li>
+            <li><strong>Gönderilenler</strong>: Son 7 gün içinde başarılı gönderimler.</li>
+        </ul>
+        <p>Alt kısımda durumu gösteren bir “Durum Çubuğu” ve üst araç çubuğunda “Ayarları Kaydet” butonu bulunur.</p>
+
+        <h2>5. Alıcı Listesinin Hazırlanması</h2>
+        <ol>
+            <li><strong>Excel’den Kopyala:</strong> İki sütunlu, “Ad” ve “Telefon” şeklinde verinizi hazırlayın.</li>
+            <li><strong>Toplu Ekleme:</strong> Uygulamada “Toplu Ekleme” alanına yapıştırın. “Listeye Ekle”ye tıklayın.</li>
+            <li><strong>Manuel Ekle:</strong> Tablo üzerinde sağ tıklayıp “Satır Ekle” ile ad-so­runu el ile girebilirsiniz.</li>
+            <li><strong>Temizleme:</strong> “Listeyi Temizle” ile hızlıca sıfırlayabilirsiniz.</li>
+        </ol>
+        <p>Telefon numaraları 11–13 haneli formatta (örn. <code>905xxxxxxxxx</code>) olmalıdır.</p>
+
+        <h2>6. Mesaj Şablonlarının Yönetimi</h2>
+        <p>20 adete kadar şablonu aynı anda hazırlayabilirsiniz:</p>
+        <ul>
+            <li>Her kutuya farklı metin girin.</li>
+            <li><code>NAME</code> etiketini ekleyerek alıcı adını otomatik çekin.</li>
+            <li>Alt kısımdaki numara butonlarıyla aktif şablonu hızlıca değiştirin.</li>
+            <li>“Ayarları Kaydet” ile tüm içerikleriniz <code>settings.json</code> dosyasına kaydedilir.</li>
+        </ul>
+
+        <h2>7. Eklenti (Attachment) Eklemek</h2>
+        <p>Mesajınıza resim veya dosya eklemek için:</p>
+        <ol>
+            <li>“📷 Resim Ekle” veya “📎 Dosya Ekle” butonuna tıklayın.</li>
+            <li>İstediğiniz dosyaları seçin (PNG, JPG, PDF, DOCX vs.).</li>
+            <li>Seçilen dosyalar alt kısımda listelenir, dilediğinizi “Seçili Eklentiyi Kaldır” ile silebilirsiniz.</li>
+            <li>Gönderim sırasında WebDriver otomatik olarak yükleme menüsünü açar ve dosyayı ekler.</li>
+        </ol>
+
+        <h2>8. Mesaj Gönderim Süreci</h2>
+        <ol>
+            <li><strong>Interval Ayarı:</strong> “Mesajlar arası bekleme süresi” alanına saniye cinsinden değer girin (öneri: 30–60 saniye).</li>
+            <li><strong>Gönder’i Tıklayın:</strong> Worker başlar, “DURDUR” aktifleşir.</li>
+            <li><strong>Otomatik Döngü:</strong> Excel listesindeki her numara için web.whatsapp.com/send?phone=… adresine gider.</li>
+            <li><strong>Mesaj Yazma:</strong> Metni satır satır yazar. Gerekirse Shift+Enter ile alt satıra iner.</li>
+            <li><strong>Gönder Butonu:</strong> Dinamik XPath ve fallback yöntemleriyle bulunur, tıklanır.</li>
+            <li><strong>Loglama:</strong> Her adım <strong>Hareket Kayıtları</strong> sekmesine yazılır.</li>
+            <li><strong>7 Gün Kontrolü:</strong> Aynı numaraya 7 gün içinde tekrar mesaj gönderilmez, “Gönderilenler” sekmesi güncellenir.</li>
+            <li><strong>İşlem Bitti:</strong> “Gönderim işlemi tamamlandı.” mesajı gelir, “Hazır” durumuna dönülür.</li>
+        </ol>
+
+        <h2>9. Özel Taktikler ve İpuçları</h2>
+        <ol>
+            <li><strong>Şablon Çeşitliliği:</strong> Aynı kampanyada 3–4 farklı <code>NAME</code> şablonu hazırlayın; böylece herkese birebir görünür.</li>
+            <li><strong>Rastgele Aralık:</strong> Sabit interval yerine ±10 saniye rastgele ekleyerek spam filtrelerine takılma riskini azaltın.</li>
+            <li><strong>Oturum Yedekleme:</strong> <code>whatsapp_session</code> klasörünü arada bir yedekleyin; profiliniz bozulduğunda anında geri yükleyin.</li>
+            <li><strong>En Yoğun Saatler:</strong> Mesajları sabah 10–12 veya akşam 18–20 arasında gönderin; açılma oranı en yüksek saatlerdir.</li>
+            <li><strong>A/B Testi:</strong> 2 farklı mesaj şablonu kullanarak küçük bir gruba test gönderin, hangisi daha iyi dönüş alıyorsa tüm listeye o mesajı atın.</li>
+            <li><strong>Eklenti Optimizasyonu:</strong> Görsel boyutlarını 200–300 KB altında tutun; büyük dosyalar yükleme süresini uzatır ve zaman aşımına yol açabilir.</li>
+            <li><strong>Otomatik Gizleme:</strong> “Tarayıcıyı Gizle” tuşuyla WebDriver penceresini arka planda çalıştırın, işinize odaklanın.</li>
+        </ol>
+
+        <h2>10. Karşılaşabileceğiniz Yaygın Sorunlar & Çözümleri</h2>
+        <ul>
+            <li><strong>Mesaj Kutusu Bulunamıyor:</strong> WhatsApp Web güncellemesi sonrası selector uyumsuzluğu → CSS selector’ları güncelleyin.</li>
+            <li><strong>Gönder Butonu Tıklanmıyor:</strong> Yeni ikon/data-icon eklentileri → <code>_find_send_button</code> metoduna yeni koşullar ekleyin.</li>
+            <li><strong>QR Kod Tekrar Soruyor:</strong> <code>whatsapp_session</code> klasörü yazma izni yok → uygulamayı yönetici olarak çalıştırın.</li>
+            <li><strong>Lisans Hatası:</strong> Yanlış PRODUCT/VERSION → <code>main()</code> içindeki sabitleri kontrol edin.</li>
+            <li><strong>Attachment Timeout:</strong> Yavaş internet veya büyük boyut → yükleme bekleme süresini 60 sn’den 90 sn’ye çıkarın.</li>
+        </ul>
+
+        <h2>11. Etkili Kullanım İçin Özet</h2>
+        <p>WhatsApp Express Windows uygulaması, doğru yapılandırıldığında hızlı, güvenli ve kişiselleştirilmiş toplu mesaj gönderimi sağlar. Uzun listelerde bile sıfır müdahale ile çalışır, eklenti ve interval ayarları sayesinde spam riskini asgariye indirir. <strong>Özellikle şablon çeşitliliği, rastgele bekleme ekleme ve A/B test taktikleri</strong> ile dönüşüm oranınızı önemli ölçüde artırabilirsiniz.</p>
+
+        <p>Hemen bugün deneyin, <em>Express Yazılım</em>’la iletişiminizi bir üst seviyeye taşıyın!</p>
+    </article>
+
+    <div class="article-cta glass">
+        <h3>WhatsApp Express Windows’u Hemen Deneyin</h3>
+        <p class="article__meta">24 saatlik ücretsiz deneme sürümü ve ömür boyu lisans seçeneği</p>
+        <div class="cta-row">
+            <a class="btn btn--primary glow" href="download/whatsapp-express-windows/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-down"></i> Programı İndir</a>
+            <a class="btn btn--ghost" href="<?= htmlspecialchars($site['wa_link'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Destek</a>
+        </div>
+    </div>
+</main>
+
+<?php include __DIR__ . '/partials/footer.php'; ?>
+
+
